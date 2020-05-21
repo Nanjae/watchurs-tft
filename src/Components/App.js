@@ -46,7 +46,7 @@ export default class App extends Component {
         <GlobalStyles />
         <Router>
           <Wrapper>
-            {this.state.isLoading ? (
+            {/* {this.state.isLoading ? (
               <BlockLoadingDiv>
                 <BlockLoading size={"large"} />
               </BlockLoadingDiv>
@@ -54,7 +54,7 @@ export default class App extends Component {
               <BlockLoadingDiv style={{ opacity: 0, zIndex: -50 }}>
                 <BlockLoading size={"large"} />
               </BlockLoadingDiv>
-            )}
+            )} */}
             <DefaultRoute />
           </Wrapper>
         </Router>

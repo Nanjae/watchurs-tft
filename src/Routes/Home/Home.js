@@ -2,13 +2,13 @@ import React, { useState } from "react";
 import styled, { ThemeProvider } from "styled-components";
 import ThemeDark from "../../Styles/ThemeDark";
 import ThemeLight from "../../Styles/ThemeLight";
+import Main from "../../Components/Main/Main";
+import useWindowDimensions from "../../Hooks/useWindowDimensions";
 
 const Wrapper = styled.div`
   width: 100%;
-  height: 600px;
+  height: fit-content;
   display: flex;
-  justify-content: center;
-  align-items: center;
   @media only screen and (max-width: 575.99px) {
   }
   @media only screen and (min-width: 576px) {
@@ -27,11 +27,18 @@ const Wrapper = styled.div`
 
 export default () => {
   const [siteTheme, setSiteTheme] = useState(false);
+  const { windowWidth, windowHeight } = useWindowDimensions();
 
   return (
     <>
       <ThemeProvider theme={siteTheme ? ThemeLight : ThemeDark}>
-        <Wrapper>HELLO, WORLD!!!</Wrapper>
+        <Wrapper>
+          <Main
+            windowWidth={windowWidth}
+            windowHeight={windowHeight}
+            siteTheme={siteTheme}
+          />
+        </Wrapper>
       </ThemeProvider>
     </>
   );
