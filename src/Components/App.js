@@ -21,7 +21,7 @@ const BlockLoadingDiv = styled.div`
   height: 50%;
   opacity: 1;
   transform: scale(2, 2) translate(25%, 25%);
-  transition: opacity 1s, z-index 1s, transform 1s;
+  transition: opacity 1s, z-index 1.3s;
 `;
 
 export default class App extends Component {
@@ -46,7 +46,7 @@ export default class App extends Component {
         <GlobalStyles />
         <Router>
           <Wrapper>
-            {/* {this.state.isLoading ? (
+            {this.state.isLoading ? (
               <BlockLoadingDiv>
                 <BlockLoading size={"large"} />
               </BlockLoadingDiv>
@@ -54,7 +54,7 @@ export default class App extends Component {
               <BlockLoadingDiv style={{ opacity: 0, zIndex: -50 }}>
                 <BlockLoading size={"large"} />
               </BlockLoadingDiv>
-            )} */}
+            )}
             <DefaultRoute />
           </Wrapper>
         </Router>

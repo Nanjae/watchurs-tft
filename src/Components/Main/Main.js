@@ -6,7 +6,7 @@ import MainUpper from "./MainUpper/MainUpper";
 const Wrapper = styled.div`
   width: 100%;
   display: flex;
-  min-height: 600px;
+  min-height: 700px;
   @media only screen and (max-width: 575.99px) {
   }
   @media only screen and (min-width: 576px) {

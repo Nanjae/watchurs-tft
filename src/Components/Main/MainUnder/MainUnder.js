@@ -7,6 +7,7 @@ const Wrapper = styled.div`
   z-index: -10;
   width: 100%;
   height: 100%;
+  min-height: 700px;
   display: flex;
   @media only screen and (max-width: 575.99px) {
   }
@@ -47,8 +48,7 @@ const Image = styled.div`
   height: 100%;
   background-image: url(${(props) => props.url});
   background-size: cover;
-  background-position-x: left;
-  background-position-y: center;
+  background-position: center;
 `;
 
 export default () => {

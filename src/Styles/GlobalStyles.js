@@ -18,4 +18,14 @@ export default createGlobalStyle`
     }
     div {
     }
+    input {
+        font-family: 'Gaegu', sans-serif;
+        font-weight: 400;
+        outline: none;
+        background-color: unset;
+        ::placeholder {
+            color: lightgoldenrodyellow;
+            background-color: unset;
+        }
+    }
 `;
