@@ -134,13 +134,15 @@ const BodyRightLineText = styled.div`
   margin-left: 50px;
   font-size: 24px;
   color: white;
+  transition: opacity 0.5s;
 `;
 
 const BodyRightLine = styled.div`
   margin-left: 50px;
   background-color: white;
-  height: 1px;
+  height: 2px;
   width: 100px;
+  transition: opacity 0.5s, width 0.5s, height 0.5s;
 `;
 
 const BodyRightScrollDiv = styled.div`
@@ -163,7 +165,7 @@ const BodyRightScrollLine = styled.div`
   margin-left: 10px;
 `;
 
-export default ({ siteTheme }) => {
+export default ({ siteTheme, dragNext }) => {
   const logo_watchurs = siteTheme ? logo_watchurs_light : logo_watchurs_dark;
 
   return (
@@ -203,18 +205,30 @@ export default ({ siteTheme }) => {
         <BodyRightDiv>
           <BodyRightLineDiv>
             <BodyRightLineBox>
-              <BodyRightLineText>HOME</BodyRightLineText>
-              <BodyRightLine />
+              <BodyRightLineText
+                style={dragNext === 0 ? null : { opacity: 0.2 }}
+              >
+                HOME
+              </BodyRightLineText>
+              <BodyRightLine
+                style={
+                  dragNext === 0 ? null : { opacity: 0.2, width: 50, height: 1 }
+                }
+              />
             </BodyRightLineBox>
             <BodyRightLineBox>
-              <BodyRightLineText style={{ opacity: 0.2 }}>
+              <BodyRightLineText style={dragNext > 0 ? null : { opacity: 0.2 }}>
                 RANK
               </BodyRightLineText>
-              <BodyRightLine style={{ opacity: 0.2, width: 50 }} />
+              <BodyRightLine
+                style={
+                  dragNext > 0 ? null : { opacity: 0.2, width: 50, height: 1 }
+                }
+              />
             </BodyRightLineBox>
           </BodyRightLineDiv>
           <BodyRightScrollDiv>
-            <BodyRightScrollText>스크롤</BodyRightScrollText>
+            <BodyRightScrollText>드래그</BodyRightScrollText>
             <BodyRightScrollLine />
           </BodyRightScrollDiv>
         </BodyRightDiv>

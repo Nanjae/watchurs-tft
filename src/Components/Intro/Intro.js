@@ -1,10 +1,10 @@
 import React from "react";
 import styled from "styled-components";
 
-const HomeWrapper = styled.div`
+const Wrapper = styled.div`
+  position: absolute;
   width: 100%;
   height: 100%;
-  position: absolute;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -76,7 +76,7 @@ const MoreMainText = styled.div`
 export default ({ windowWidth }) => {
   return (
     <>
-      <HomeWrapper>
+      <Wrapper>
         <TopDiv style={{ width: windowWidth - 180 }}>
           <TopBox>
             <TopMainText>전략적 팀 전투 with 와쳐스</TopMainText>
@@ -90,7 +90,7 @@ export default ({ windowWidth }) => {
             <MoreMainText>SEE MORE</MoreMainText>
           </MoreBox>
         </TopDiv>
-      </HomeWrapper>
+      </Wrapper>
     </>
   );
 };

@@ -1,10 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 import styled from "styled-components";
-import ContentHome from "./ContentHome";
 import ContentRank from "./ContentRank";
 
 const Wrapper = styled.div`
-  position: absolute;
+  position: fixed;
+  z-index: 50;
   height: 100%;
   width: 100%;
   min-height: 700px;
@@ -24,7 +24,6 @@ export default ({ dragNext, windowWidth }) => {
     <>
       <Wrapper>
         <Inner dragNext={dragNext}>
-          <ContentHome windowWidth={windowWidth} />
           <ContentRank page={1} />
           <ContentRank page={2} />
           <ContentRank page={3} />

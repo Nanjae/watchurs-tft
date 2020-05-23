@@ -1,12 +1,11 @@
 import React from "react";
 import styled from "styled-components";
 import UpperSide from "./UpperSide";
-import CustomAutosuggest from "../../Common/Autosuggest";
 import { useDrag } from "react-use-gesture";
 
 const Wrapper = styled.div`
   position: fixed;
-  z-index: 50;
+  z-index: 80;
   width: 100%;
   height: 100%;
   min-height: 700px;
@@ -35,28 +34,12 @@ const Inner = styled.div`
   justify-content: space-between;
 `;
 
-const SearchDiv = styled.div`
-  position: absolute;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  top: ${(props) => (props.dragNext > 0 ? 0 : props.windowHeight / 2 + 50)}px;
-  transition: top 0.5s;
-`;
-
-const SearchBox = styled.div`
-  margin-top: 20px;
-  margin-bottom: 30px;
-  height: 50px;
-  width: 600px;
-`;
-
 export default ({
   dragNext,
   setDragNext,
-  windowWidth,
   windowHeight,
   siteTheme,
+  scrollY,
 }) => {
   const bind = useDrag(({ down, movement: [mx] }) => {
     if (!down && mx < -30) {
@@ -69,12 +52,7 @@ export default ({
   return (
     <Wrapper {...bind()}>
       <Inner>
-        <UpperSide siteTheme={siteTheme} />
-        <SearchDiv dragNext={dragNext} windowHeight={windowHeight}>
-          <SearchBox>
-            <CustomAutosuggest />
-          </SearchBox>
-        </SearchDiv>
+        <UpperSide dragNext={dragNext} siteTheme={siteTheme} />
       </Inner>
     </Wrapper>
   );
