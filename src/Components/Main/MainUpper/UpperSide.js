@@ -178,7 +178,7 @@ export default ({ siteTheme, dragNext }) => {
         </HeaderLeftDiv>
         <HeaderRightDiv>
           <HeaderRightBox>
-            <HeaderRightText>디렉션</HeaderRightText>
+            <HeaderRightText>도움말</HeaderRightText>
           </HeaderRightBox>
           <HeaderRightBox>
             <HeaderRightText>메뉴</HeaderRightText>
