@@ -2,13 +2,13 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import MainUnder from "./MainUnder/MainUnder";
 import MainUpper from "./MainUpper/MainUpper";
+import CustomAutosuggest from "../Common/Autosuggest";
 import MainContent from "./MainContent/MainContent";
 
-import CustomAutosuggest from "../Common/Autosuggest";
 const Wrapper = styled.div`
   width: 100%;
   display: flex;
-  min-height: 700px;
+  min-height: 800px;
   justify-content: center;
   @media only screen and (max-width: 575.99px) {
   }
@@ -27,16 +27,15 @@ const Wrapper = styled.div`
 `;
 
 const SearchBox = styled.div`
-  position: fixed;
+  position: absolute;
   z-index: 150;
-  margin-top: ${(props) =>
-    props.dragNext > 0 || props.scrollY > 580 ? 20 : 600 - props.scrollY}px;
+  margin-top: ${(props) => (props.dragNext > 0 ? 20 : 600)}px;
   margin-bottom: 30px;
   height: 50px;
   width: 600px;
   transition: margin-top 0.3s;
 `;
-export default ({ windowWidth, windowHeight, siteTheme, scrollY }) => {
+export default ({ windowWidth, windowHeight, siteTheme }) => {
   const [dragNext, setDragNext] = useState(0);
 
   return (
@@ -45,13 +44,10 @@ export default ({ windowWidth, windowHeight, siteTheme, scrollY }) => {
       <MainUpper
         dragNext={dragNext}
         setDragNext={setDragNext}
-        windowWidth={windowWidth}
-        windowHeight={windowHeight}
         siteTheme={siteTheme}
-        scrollY={scrollY}
       />
-      <MainContent dragNext={dragNext} windowWidth={windowWidth} />
-      <SearchBox dragNext={dragNext} scrollY={scrollY}>
+      <MainContent windowWidth={windowWidth} dragNext={dragNext} />
+      <SearchBox dragNext={dragNext}>
         <CustomAutosuggest />
       </SearchBox>
     </Wrapper>

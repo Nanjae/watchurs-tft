@@ -4,11 +4,11 @@ import UpperSide from "./UpperSide";
 import { useDrag } from "react-use-gesture";
 
 const Wrapper = styled.div`
-  position: fixed;
-  z-index: 80;
+  position: absolute;
+  z-index: 100;
   width: 100%;
   height: 100%;
-  min-height: 700px;
+  min-height: 800px;
   display: flex;
   @media only screen and (max-width: 575.99px) {
   }
@@ -27,6 +27,7 @@ const Wrapper = styled.div`
 `;
 
 const Inner = styled.div`
+  position: absolute;
   width: 100%;
   height: 100%;
   display: flex;
@@ -34,21 +35,14 @@ const Inner = styled.div`
   justify-content: space-between;
 `;
 
-export default ({
-  dragNext,
-  setDragNext,
-  windowHeight,
-  siteTheme,
-  scrollY,
-}) => {
+export default ({ dragNext, setDragNext, siteTheme }) => {
   const bind = useDrag(({ down, movement: [mx] }) => {
     if (!down && mx < -30) {
       setDragNext(dragNext < 3 ? dragNext + 1 : 0);
     } else if (!down && mx > 30) {
-      setDragNext(dragNext > 0 && dragNext - 1);
+      setDragNext(dragNext > 0 ? dragNext - 1 : 0);
     }
   });
-
   return (
     <Wrapper {...bind()}>
       <Inner>

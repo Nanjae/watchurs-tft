@@ -7,7 +7,7 @@ const Wrapper = styled.div`
   z-index: -10;
   width: 100%;
   height: 100%;
-  min-height: 700px;
+  min-height: 800px;
   display: flex;
   @media only screen and (max-width: 575.99px) {
   }

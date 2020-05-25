@@ -4,6 +4,8 @@ import logo_watchurs_dark from "../../../Assets/Logos/logo_watchurs_dark.png";
 import logo_watchurs_light from "../../../Assets/Logos/logo_watchurs_light.png";
 
 const HeaderDiv = styled.div`
+  position: relative;
+  z-index: 100;
   width: 100%;
   height: 80px;
   display: flex;
@@ -50,8 +52,8 @@ const HeaderRightBox = styled.div`
 
 const HeaderRightText = styled.div`
   color: ${(props) => props.theme.fontMainColor};
-  font-size: 24px;
-  font-weight: 500;
+  font-size: 22px;
+  font-weight: 700;
   display: flex;
   align-items: center;
   padding: 5px;
@@ -66,8 +68,8 @@ const BodyDiv = styled.div`
 `;
 
 const BodyLeftDiv = styled.div`
-  width: 120px;
-  margin-left: 30px;
+  width: 100px;
+  margin-left: 20px;
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -84,11 +86,15 @@ const BodyLeftTopBox = styled.div`
 const BodyLeftTopText = styled.div`
   writing-mode: vertical-lr;
   color: #eec39a;
-  font-size: 24px;
+  font-size: 22px;
+  font-weight: 700;
   padding: 5px;
 `;
 
-const BodyLeftBottomDiv = styled.div``;
+const BodyLeftBottomDiv = styled.div`
+  margin-left: 10px;
+  display: flex;
+`;
 
 const BodyLeftBottomBox = styled.div`
   display: flex;
@@ -99,7 +105,8 @@ const BodyLeftBottomBox = styled.div`
 const BodyLeftBottomText = styled.div`
   writing-mode: vertical-lr;
   color: white;
-  font-size: 24px;
+  font-size: 22px;
+  font-weight: 700;
   padding: 5px;
 `;
 
@@ -111,7 +118,7 @@ const BodyLeftBottomLine = styled.div`
 `;
 
 const BodyRightDiv = styled.div`
-  width: 150px;
+  width: 120px;
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -131,14 +138,15 @@ const BodyRightLineBox = styled.div`
 `;
 
 const BodyRightLineText = styled.div`
-  margin-left: 50px;
-  font-size: 24px;
+  margin-left: 20px;
+  font-size: 22px;
+  font-weight: 700;
   color: white;
   transition: opacity 0.5s;
 `;
 
 const BodyRightLine = styled.div`
-  margin-left: 50px;
+  margin-left: 20px;
   background-color: white;
   height: 2px;
   width: 100px;
@@ -148,21 +156,24 @@ const BodyRightLine = styled.div`
 const BodyRightScrollDiv = styled.div`
   margin-bottom: 30px;
   display: flex;
-  justify-content: flex-end;
-  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
 `;
 
 const BodyRightScrollText = styled.div`
-  font-size: 24px;
+  font-size: 22px;
+  font-weight: 700;
   color: white;
   padding: 5px;
+  margin-left: 20px;
 `;
 
 const BodyRightScrollLine = styled.div`
-  width: 70px;
+  width: 100px;
   height: 1px;
   background-color: white;
-  margin-left: 10px;
+  margin-left: 20px;
 `;
 
 export default ({ siteTheme, dragNext }) => {

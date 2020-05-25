@@ -4,8 +4,7 @@ import ThemeDark from "../../Styles/ThemeDark";
 import ThemeLight from "../../Styles/ThemeLight";
 import Main from "../../Components/Main/Main";
 import useWindowDimensions from "../../Hooks/useWindowDimensions";
-import { useWindowScroll } from "@react-hook/window-scroll";
-import Intro from "../../Components/Intro/Intro";
+// import { useWindowScroll } from "@react-hook/window-scroll";
 
 const Wrapper = styled.div`
   /* overflow-y: hidden; */
@@ -35,15 +34,15 @@ const Inner = styled.div`
 const AboutWrapper = styled.div`
   position: relative;
   width: 100%;
-  min-height: 700px;
-  background-color: ${(props) => props.theme.bgMainColor};
+  min-height: 800px;
+  background-color: ${(props) => props.theme.bgSubColor};
 `;
 
 export default () => {
   const [siteTheme] = useState(false);
   // const [siteTheme, setSiteTheme] = useState(false);
   const { windowWidth, windowHeight } = useWindowDimensions();
-  const scrollY = useWindowScroll();
+  // const scrollY = useWindowScroll();
 
   // console.log(scrollY);
 
@@ -56,13 +55,8 @@ export default () => {
               windowWidth={windowWidth}
               windowHeight={windowHeight}
               siteTheme={siteTheme}
-              scrollY={scrollY}
             />
-            <Intro windowWidth={windowWidth} />
             <AboutWrapper style={{ height: windowHeight }}></AboutWrapper>
-            <AboutWrapper
-              style={{ height: windowHeight, backgroundColor: "black" }}
-            ></AboutWrapper>
           </Inner>
         </Wrapper>
       </ThemeProvider>
