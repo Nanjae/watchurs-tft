@@ -36,7 +36,7 @@ const Inner = styled.div`
 `;
 
 const CardDiv = styled.div`
-  width: 800px;
+  width: 900px;
   height: 700px;
   display: flex;
   flex-direction: column;
@@ -52,6 +52,7 @@ export default ({ page }) => {
           <CardDiv>
             <CardBox
               rankText={`999`}
+              broadPlatform={``}
               broadIcon={``}
               broadName={`브로드캐스터이름`}
               sumIcon={``}
@@ -62,6 +63,7 @@ export default ({ page }) => {
             />
             <CardBox
               rankText={`999`}
+              broadPlatform={``}
               broadIcon={``}
               broadName={`브로드캐스터이름`}
               sumIcon={``}
@@ -72,6 +74,7 @@ export default ({ page }) => {
             />
             <CardBox
               rankText={`999`}
+              broadPlatform={``}
               broadIcon={``}
               broadName={`브로드캐스터이름`}
               sumIcon={``}
@@ -82,6 +85,7 @@ export default ({ page }) => {
             />
             <CardBox
               rankText={`999`}
+              broadPlatform={``}
               broadIcon={``}
               broadName={`브로드캐스터이름`}
               sumIcon={``}
@@ -92,6 +96,7 @@ export default ({ page }) => {
             />
             <CardBox
               rankText={`999`}
+              broadPlatform={``}
               broadIcon={``}
               broadName={`브로드캐스터이름`}
               sumIcon={``}
@@ -102,6 +107,7 @@ export default ({ page }) => {
             />
             <CardBox
               rankText={`999`}
+              broadPlatform={``}
               broadIcon={``}
               broadName={`브로드캐스터이름`}
               sumIcon={``}
@@ -112,6 +118,7 @@ export default ({ page }) => {
             />
             <CardBox
               rankText={`999`}
+              broadPlatform={``}
               broadIcon={``}
               broadName={`브로드캐스터이름`}
               sumIcon={``}
@@ -122,6 +129,7 @@ export default ({ page }) => {
             />
             <CardBox
               rankText={`999`}
+              broadPlatform={``}
               broadIcon={``}
               broadName={`브로드캐스터이름`}
               sumIcon={``}
@@ -132,6 +140,7 @@ export default ({ page }) => {
             />
             <CardBox
               rankText={`999`}
+              broadPlatform={``}
               broadIcon={``}
               broadName={`브로드캐스터이름`}
               sumIcon={``}
@@ -142,6 +151,7 @@ export default ({ page }) => {
             />
             <CardBox
               rankText={`999`}
+              broadPlatform={``}
               broadIcon={``}
               broadName={`브로드캐스터이름`}
               sumIcon={``}

@@ -10,8 +10,7 @@ const CardBox = styled.div`
 `;
 
 const CardInner = styled.div`
-  width: 790px;
-  height: 50px;
+  width: 890x;
   margin: 5px;
   display: flex;
   font-size: 20px;
@@ -32,10 +31,20 @@ const CardRankText = styled.div`
 `;
 
 const CardBroadBox = styled.div`
-  width: 250px;
+  width: 270px;
   display: flex;
   justify-content: flex-start;
   align-items: center;
+`;
+
+const CardBroadPlatform = styled.div`
+  width: 24px;
+  height: 24px;
+  border: 1px solid white;
+  margin-left: 5px;
+  background-image: ${(props) => props.url};
+  background-size: cover;
+  background-position: center;
 `;
 
 const CardBroadIcon = styled.div`
@@ -72,7 +81,7 @@ const CardSumIcon = styled.div`
 const CardSumName = styled.div``;
 
 const CardTierBox = styled.div`
-  width: 310px;
+  width: 300px;
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -97,6 +106,7 @@ const CardTierPoint = styled.div``;
 
 export default ({
   rankText,
+  broadPlatform,
   broadIcon,
   broadName,
   sumIcon,
@@ -113,6 +123,7 @@ export default ({
             <CardRankText>#{rankText}</CardRankText>
           </CardRankBox>
           <CardBroadBox>
+            <CardBroadPlatform url={broadPlatform} />
             <CardBroadIcon url={broadIcon} />
             <CardBroadName>{broadName}</CardBroadName>
           </CardBroadBox>
