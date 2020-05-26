@@ -1,12 +1,26 @@
 import React from "react";
 import styled from "styled-components";
+import logo_twitch from "../../Assets/Twitch/logo_twitch.png";
 
 const CardBox = styled.div`
   width: 100%;
-  height: 60px;
-  box-shadow: 0px 0px 4px 1px white;
-  border-radius: 4px;
+  height: 65px;
   display: flex;
+  opacity: 0.9;
+  background-color: ${(props) =>
+    props.rankText % 2 === 1
+      ? props.theme.bgMainColor
+      : props.theme.bgFooterColor};
+  :first-child {
+    border-top-right-radius: 4px;
+    border-top-left-radius: 4px;
+  }
+  :last-child {
+    border-bottom-right-radius: 4px;
+    border-bottom-left-radius: 4px;
+  }
+  :not(:first-child) {
+  }
 `;
 
 const CardInner = styled.div`
@@ -16,6 +30,7 @@ const CardInner = styled.div`
   font-size: 20px;
   font-weight: 400;
   color: white;
+  opacity: 1;
 `;
 
 const CardRankBox = styled.div`
@@ -38,24 +53,23 @@ const CardBroadBox = styled.div`
 `;
 
 const CardBroadPlatform = styled.div`
-  width: 24px;
-  height: 24px;
-  border: 1px solid white;
-  margin-left: 5px;
-  background-image: ${(props) => props.url};
+  background-image: url(${(props) => props.url});
   background-size: cover;
   background-position: center;
+  width: 20px;
+  height: 20px;
+  margin-left: 5px;
 `;
 
 const CardBroadIcon = styled.div`
+  background-image: url(${(props) => props.url});
+  background-size: cover;
+  background-position: center;
   width: 32px;
   height: 32px;
   border: 1px solid white;
   border-radius: 100%;
-  margin: 0px 5px;
-  background-image: ${(props) => props.url};
-  background-size: cover;
-  background-position: center;
+  margin: 0px 8px;
 `;
 
 const CardBroadName = styled.div``;
@@ -68,17 +82,19 @@ const CardSumBox = styled.div`
 `;
 
 const CardSumIcon = styled.div`
+  background-image: url(${(props) => props.url});
+  background-size: cover;
+  background-position: center;
   width: 32px;
   height: 32px;
   border: 1px solid white;
   border-radius: 100%;
-  margin: 0px 5px;
-  background-image: ${(props) => props.url};
-  background-size: cover;
-  background-position: center;
+  margin-left: 5px;
 `;
 
-const CardSumName = styled.div``;
+const CardSumName = styled.div`
+  margin: 0px 8px;
+`;
 
 const CardTierBox = styled.div`
   width: 300px;
@@ -88,17 +104,18 @@ const CardTierBox = styled.div`
 `;
 
 const CardTierIcon = styled.div`
+  background-image: url(${(props) => props.url});
+  background-size: cover;
+  background-position: center;
   width: 32px;
   height: 32px;
   border: 1px solid white;
   border-radius: 100%;
-  margin: 0px 5px;
-  background-image: ${(props) => props.url};
-  background-size: cover;
-  background-position: center;
+  margin-left: 5px;
 `;
 
 const CardTierText = styled.div`
+  margin-left: 8px;
   margin-right: 5px;
 `;
 
@@ -106,24 +123,27 @@ const CardTierPoint = styled.div``;
 
 export default ({
   rankText,
+  broadId,
   broadPlatform,
   broadIcon,
   broadName,
   sumIcon,
   sumName,
-  tierText,
-  tierNum,
+  tierTier,
+  tierRank,
   tierPoint,
 }) => {
+  const logo_platform = broadPlatform === "TWITCH" ? logo_twitch : null;
+
   return (
     <>
-      <CardBox>
+      <CardBox className={broadId} rankText={rankText}>
         <CardInner>
           <CardRankBox>
             <CardRankText>#{rankText}</CardRankText>
           </CardRankBox>
           <CardBroadBox>
-            <CardBroadPlatform url={broadPlatform} />
+            <CardBroadPlatform url={logo_platform} />
             <CardBroadIcon url={broadIcon} />
             <CardBroadName>{broadName}</CardBroadName>
           </CardBroadBox>
@@ -134,9 +154,11 @@ export default ({
           <CardTierBox>
             <CardTierIcon />
             <CardTierText>
-              {tierText} {tierNum}
+              {tierTier} {tierRank}
             </CardTierText>
-            <CardTierPoint>({tierPoint}pt)</CardTierPoint>
+            <CardTierPoint>
+              {tierPoint === "" ? null : `${tierPoint}pt`}
+            </CardTierPoint>
           </CardTierBox>
         </CardInner>
       </CardBox>

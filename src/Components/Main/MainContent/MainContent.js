@@ -20,15 +20,17 @@ const Inner = styled.div`
   transition: transform 0.5s;
 `;
 
-export default ({ windowWidth, dragNext }) => {
+export default ({ countMax, windowWidth, dragNext }) => {
+  const countMaxArray = new Array(countMax).fill("0");
+
   return (
     <>
       <Wrapper>
         <Inner dragNext={dragNext}>
           <Intro windowWidth={windowWidth} />
-          <ContentRank page={1} />
-          <ContentRank page={2} />
-          <ContentRank page={3} />
+          {countMaxArray.map((arr, index) => {
+            return <ContentRank key={index} page={index + 1} />;
+          })}
         </Inner>
       </Wrapper>
     </>

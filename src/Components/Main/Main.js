@@ -37,16 +37,22 @@ const SearchBox = styled.div`
 `;
 export default ({ windowWidth, windowHeight, siteTheme }) => {
   const [dragNext, setDragNext] = useState(0);
+  const countMax = Math.ceil(20 / 10);
 
   return (
     <Wrapper style={{ height: windowHeight }}>
       <MainUnder />
       <MainUpper
+        countMax={countMax}
         dragNext={dragNext}
         setDragNext={setDragNext}
         siteTheme={siteTheme}
       />
-      <MainContent windowWidth={windowWidth} dragNext={dragNext} />
+      <MainContent
+        countMax={countMax}
+        windowWidth={windowWidth}
+        dragNext={dragNext}
+      />
       <SearchBox dragNext={dragNext}>
         <CustomAutosuggest />
       </SearchBox>

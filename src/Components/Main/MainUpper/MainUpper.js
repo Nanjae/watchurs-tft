@@ -35,10 +35,10 @@ const Inner = styled.div`
   justify-content: space-between;
 `;
 
-export default ({ dragNext, setDragNext, siteTheme }) => {
+export default ({ countMax, dragNext, setDragNext, siteTheme }) => {
   const bind = useDrag(({ down, movement: [mx] }) => {
     if (!down && mx < -30) {
-      setDragNext(dragNext < 3 ? dragNext + 1 : 0);
+      setDragNext(dragNext < countMax ? dragNext + 1 : 0);
     } else if (!down && mx > 30) {
       setDragNext(dragNext > 0 ? dragNext - 1 : 0);
     }
