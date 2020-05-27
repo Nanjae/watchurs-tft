@@ -70,6 +70,7 @@ export default ({ page, loading, data }) => {
                       sumIcon={sum.summoner.avatar}
                       sumName={sum.summoner.name}
                       tierTier={sum.tier}
+                      tierNum={sum.tierNum}
                       tierRank={sum.rank}
                       tierPoint={sum.points}
                     />

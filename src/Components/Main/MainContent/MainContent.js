@@ -19,6 +19,7 @@ const SEE_SORT_SUMMONERS = gql`
         }
       }
       tier
+      tierNum
       rank
       points
     }

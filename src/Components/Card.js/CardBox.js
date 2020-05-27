@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import logo_twitch from "../../Assets/Twitch/logo_twitch.png";
+import SetEmblem from "../Common/SetEmblem";
 
 const CardBox = styled.div`
   width: 100%;
@@ -65,7 +66,7 @@ const CardBroadIcon = styled.div`
   background-position: center;
   width: 32px;
   height: 32px;
-  border: 1px solid white;
+  /* border: 1px solid white; */
   border-radius: 100%;
   margin: 0px 8px;
 `;
@@ -85,13 +86,14 @@ const CardSumIcon = styled.div`
   background-position: center;
   width: 32px;
   height: 32px;
-  border: 1px solid white;
-  border-radius: 100%;
+  /* border: 1px solid white; */
+  /* border-radius: 100%; */
   margin-left: 5px;
 `;
 
 const CardSumName = styled.div`
   margin: 0px 8px;
+  /* color: orangered; */
 `;
 
 const CardTierBox = styled.div`
@@ -103,12 +105,11 @@ const CardTierBox = styled.div`
 
 const CardTierIcon = styled.div`
   background-image: url(${(props) => props.url});
-  background-size: cover;
+  background-size: contain;
+  background-repeat: no-repeat;
   background-position: center;
-  width: 32px;
-  height: 32px;
-  border: 1px solid white;
-  border-radius: 100%;
+  width: 40px;
+  height: 40px;
   margin-left: 5px;
 `;
 
@@ -128,11 +129,14 @@ export default ({
   sumIcon,
   sumName,
   tierTier,
+  tierNum,
   tierRank,
   tierPoint,
 }) => {
   const logo_platform = broadPlatform === "TWITCH" ? logo_twitch : null;
   const fixedBroadIcon = broadIcon.replace("300x300", "70x70");
+
+  const tierIcon = SetEmblem(tierNum);
 
   return (
     <>
@@ -152,12 +156,12 @@ export default ({
           </CardSumBox>
           {tierTier === "UNRANKED" ? (
             <CardTierBox>
-              <CardTierIcon />
+              <CardTierIcon url={tierIcon} />
               <CardTierText>{tierTier}</CardTierText>
             </CardTierBox>
           ) : (
             <CardTierBox>
-              <CardTierIcon />
+              <CardTierIcon url={tierIcon} />
               <CardTierText>
                 {tierTier} {tierRank}
               </CardTierText>
