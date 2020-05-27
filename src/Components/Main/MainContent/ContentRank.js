@@ -1,28 +1,6 @@
 import React from "react";
 import styled from "styled-components";
 import CardBox from "../../Card.js/CardBox";
-import { gql } from "apollo-boost";
-import { useQuery } from "react-apollo-hooks";
-
-const SEE_SORT_SUMMONERS = gql`
-  query seeSortSummoners($from: Int!, $count: Int!) {
-    seeSortSummoners(from: $from, count: $count) {
-      name
-      avatar
-      broadcaster {
-        broadId
-        name
-        avatar
-        platform
-      }
-      tftData {
-        tier
-        rank
-        points
-      }
-    }
-  }
-`;
 
 const Wrapper = styled.div`
   position: absolute;
@@ -67,15 +45,8 @@ const CardDiv = styled.div`
   border-radius: 4px;
 `;
 
-export default ({ page }) => {
-  const { data, loading } = useQuery(SEE_SORT_SUMMONERS, {
-    variables: { from: (page - 1) * 10, count: 10 },
-  });
-
-  if (!loading) {
-    // console.log(data);
-  }
-
+export default ({ page, loading, data }) => {
+  // console.log(data);
   return (
     <>
       <Opacity page={page} />
@@ -85,27 +56,25 @@ export default ({ page }) => {
             {!loading &&
               data &&
               data.seeSortSummoners &&
-              data.seeSortSummoners.map((sum, index) => {
-                const tier =
-                  sum.tftData === null ? "UNRANKED" : sum.tftData.tier;
-                const rank = sum.tftData === null ? "" : sum.tftData.rank;
-                const points = sum.tftData === null ? "" : sum.tftData.point;
-                return (
-                  <CardBox
-                    key={index}
-                    rankText={(page - 1) * 10 + index + 1}
-                    broadId={sum.broadcaster.broadId}
-                    broadPlatform={sum.broadcaster.platform}
-                    broadIcon={sum.broadcaster.avatar}
-                    broadName={sum.broadcaster.name}
-                    sumIcon={sum.avatar}
-                    sumName={sum.name}
-                    tierTier={tier}
-                    tierRank={rank}
-                    tierPoint={points}
-                  />
-                );
-              })}
+              data.seeSortSummoners
+                .slice((page - 1) * 10, page * 10)
+                .map((sum, index) => {
+                  return (
+                    <CardBox
+                      key={index}
+                      rankText={(page - 1) * 10 + index + 1}
+                      broadId={sum.summoner.broadcaster.broadId}
+                      broadPlatform={sum.summoner.broadcaster.platform}
+                      broadIcon={sum.summoner.broadcaster.avatar}
+                      broadName={sum.summoner.broadcaster.name}
+                      sumIcon={sum.summoner.avatar}
+                      sumName={sum.summoner.name}
+                      tierTier={sum.tier}
+                      tierRank={sum.rank}
+                      tierPoint={sum.points}
+                    />
+                  );
+                })}
           </CardDiv>
         </Inner>
       </Wrapper>

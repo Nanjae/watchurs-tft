@@ -37,7 +37,7 @@ const SearchBox = styled.div`
 `;
 export default ({ windowWidth, windowHeight, siteTheme }) => {
   const [dragNext, setDragNext] = useState(0);
-  const countMax = Math.ceil(20 / 10);
+  const countMax = Math.ceil(21 / 10);
 
   return (
     <Wrapper style={{ height: windowHeight }}>

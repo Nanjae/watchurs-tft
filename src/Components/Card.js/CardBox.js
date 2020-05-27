@@ -19,8 +19,6 @@ const CardBox = styled.div`
     border-bottom-right-radius: 4px;
     border-bottom-left-radius: 4px;
   }
-  :not(:first-child) {
-  }
 `;
 
 const CardInner = styled.div`
@@ -134,6 +132,7 @@ export default ({
   tierPoint,
 }) => {
   const logo_platform = broadPlatform === "TWITCH" ? logo_twitch : null;
+  const fixedBroadIcon = broadIcon.replace("300x300", "70x70");
 
   return (
     <>
@@ -144,22 +143,29 @@ export default ({
           </CardRankBox>
           <CardBroadBox>
             <CardBroadPlatform url={logo_platform} />
-            <CardBroadIcon url={broadIcon} />
+            <CardBroadIcon url={fixedBroadIcon} />
             <CardBroadName>{broadName}</CardBroadName>
           </CardBroadBox>
           <CardSumBox>
             <CardSumIcon url={sumIcon} />
             <CardSumName>{sumName}</CardSumName>
           </CardSumBox>
-          <CardTierBox>
-            <CardTierIcon />
-            <CardTierText>
-              {tierTier} {tierRank}
-            </CardTierText>
-            <CardTierPoint>
-              {tierPoint === "" ? null : `${tierPoint}pt`}
-            </CardTierPoint>
-          </CardTierBox>
+          {tierTier === "UNRANKED" ? (
+            <CardTierBox>
+              <CardTierIcon />
+              <CardTierText>{tierTier}</CardTierText>
+            </CardTierBox>
+          ) : (
+            <CardTierBox>
+              <CardTierIcon />
+              <CardTierText>
+                {tierTier} {tierRank}
+              </CardTierText>
+              <CardTierPoint>
+                {tierPoint === "" ? null : `(${tierPoint}pt)`}
+              </CardTierPoint>
+            </CardTierBox>
+          )}
         </CardInner>
       </CardBox>
     </>
