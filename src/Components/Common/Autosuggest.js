@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import Autosuggest from "react-autosuggest";
 import icon_search from "../../Assets/Icons/icon_search.png";
-import { setBroadList, getBroadList } from "./BroadList";
+import { getBroadList } from "./BroadList";
 
 const InputDiv = styled.div`
   width: 100%;

@@ -134,7 +134,7 @@ export default ({
   tierPoint,
 }) => {
   const logo_platform = broadPlatform === "TWITCH" ? logo_twitch : null;
-  const fixedBroadIcon = broadIcon.replace("300x300", "70x70");
+  // const fixedBroadIcon = broadIcon.replace("300x300", "70x70");
 
   const tierIcon = SetEmblem(tierNum);
 
@@ -147,7 +147,7 @@ export default ({
           </CardRankBox>
           <CardBroadBox>
             <CardBroadPlatform url={logo_platform} />
-            <CardBroadIcon url={fixedBroadIcon} />
+            <CardBroadIcon url={broadIcon} />
             <CardBroadName>{broadName}</CardBroadName>
           </CardBroadBox>
           <CardSumBox>
