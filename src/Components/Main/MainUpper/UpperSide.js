@@ -92,14 +92,15 @@ const BodyLeftTopText = styled.div`
 `;
 
 const BodyLeftBottomDiv = styled.div`
-  margin-left: 10px;
   display: flex;
+  justify-content: flex-start;
+  width: 100%;
 `;
 
 const BodyLeftBottomBox = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
 `;
 
 const BodyLeftBottomText = styled.div`
@@ -114,6 +115,7 @@ const BodyLeftBottomLine = styled.div`
   width: 1px;
   height: 70px;
   margin-top: 10px;
+  margin-left: 15px;
   background-color: white;
 `;
 

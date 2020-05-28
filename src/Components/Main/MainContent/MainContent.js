@@ -2,29 +2,6 @@ import React from "react";
 import styled from "styled-components";
 import ContentRank from "./ContentRank";
 import Intro from "../../Intro/Intro";
-import { gql } from "apollo-boost";
-import { useQuery } from "react-apollo-hooks";
-
-const SEE_SORT_SUMMONERS = gql`
-  query seeSortSummoners {
-    seeSortSummoners {
-      summoner {
-        name
-        avatar
-        broadcaster {
-          broadId
-          name
-          avatar
-          platform
-        }
-      }
-      tier
-      tierNum
-      rank
-      points
-    }
-  }
-`;
 
 const Wrapper = styled.div`
   position: absolute;
@@ -43,10 +20,8 @@ const Inner = styled.div`
   transition: transform 0.5s;
 `;
 
-export default ({ countMax, windowWidth, dragNext }) => {
+export default ({ countMax, windowWidth, dragNext, data, loading }) => {
   const countMaxArray = new Array(countMax).fill("0");
-
-  const { data, loading } = useQuery(SEE_SORT_SUMMONERS);
 
   return (
     <>

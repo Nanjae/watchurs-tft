@@ -4,6 +4,41 @@ import MainUnder from "./MainUnder/MainUnder";
 import MainUpper from "./MainUpper/MainUpper";
 import CustomAutosuggest from "../Common/Autosuggest";
 import MainContent from "./MainContent/MainContent";
+import { gql } from "apollo-boost";
+import { useQuery } from "react-apollo-hooks";
+import { setBroadList, getBroadList } from "../Common/BroadList";
+
+const SEE_ALL_BROADCASTERS = gql`
+  query seeAllBroadcasters {
+    seeAllBroadcasters {
+      broadId
+      name
+      avatar
+      platform
+    }
+  }
+`;
+
+const SEE_SORT_SUMMONERS = gql`
+  query seeSortSummoners {
+    seeSortSummoners {
+      summoner {
+        name
+        avatar
+        broadcaster {
+          broadId
+          name
+          avatar
+          platform
+        }
+      }
+      tier
+      tierNum
+      rank
+      points
+    }
+  }
+`;
 
 const Wrapper = styled.div`
   width: 100%;
@@ -38,6 +73,17 @@ const SearchBox = styled.div`
 export default ({ windowWidth, windowHeight, siteTheme }) => {
   const [dragNext, setDragNext] = useState(0);
   const countMax = Math.ceil(21 / 10);
+  const { data: sumdata, loading: sumloading } = useQuery(SEE_SORT_SUMMONERS);
+
+  const { data: broadData, loading: broadLoading } = useQuery(
+    SEE_ALL_BROADCASTERS
+  );
+
+  if (!broadLoading && broadData && broadData.seeAllBroadcasters) {
+    if (getBroadList().length === 0) {
+      setBroadList(broadData);
+    }
+  }
 
   return (
     <Wrapper style={{ height: windowHeight }}>
@@ -52,9 +98,15 @@ export default ({ windowWidth, windowHeight, siteTheme }) => {
         countMax={countMax}
         windowWidth={windowWidth}
         dragNext={dragNext}
+        data={sumdata}
+        loading={sumloading}
       />
       <SearchBox dragNext={dragNext}>
-        <CustomAutosuggest />
+        <CustomAutosuggest
+          data={sumdata}
+          loading={sumloading ? 1 : 0}
+          setDragNext={setDragNext}
+        />
       </SearchBox>
     </Wrapper>
   );

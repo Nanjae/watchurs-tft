@@ -1,22 +1,78 @@
 import React from "react";
 import styled from "styled-components";
 import Autosuggest from "react-autosuggest";
+import icon_search from "../../Assets/Icons/icon_search.png";
+import { setBroadList, getBroadList } from "./BroadList";
 
 const InputDiv = styled.div`
   width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 2px solid lightgoldenrodyellow;
 `;
 
-// Imagine you have a list of languages that you'd like to autosuggest.
-const languages = [
-  {
-    name: "C",
-    year: 1972,
-  },
-  {
-    name: "Elm",
-    year: 2012,
-  },
-];
+const InputText = styled.input`
+  width: 500px;
+  height: 30px;
+  padding: 10px;
+  border: 0px;
+  font-size: 24px;
+  color: lightgoldenrodyellow;
+  text-align: center;
+`;
+
+const SearchIcon = styled.div`
+  width: 30px;
+  height: 30px;
+  margin: 5px;
+  background-image: url(${(props) => props.url});
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  cursor: pointer;
+`;
+
+const SuggestionDiv = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  background-color: white;
+  margin-top: 3px;
+  border-radius: 6px;
+  /* border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px; */
+  opacity: 0.8;
+`;
+
+const SuggestionBox = styled.div`
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  width: 580px;
+  color: black;
+  /* color: #e8293b; */
+  font-size: 22px;
+  font-weight: 700;
+`;
+
+const SuggestionAvatar = styled.div`
+  background-image: url(${(props) => props.url});
+  background-size: cover;
+  background-position: center;
+  width: 30px;
+  height: 30px;
+  margin-right: 5px;
+  border-radius: 50%;
+`;
+
+const setDragNextNum = (index) => {
+  if (index >= 0) {
+    return Math.ceil((index + 1) / 10);
+  } else {
+    return 0;
+  }
+};
 
 // Teach Autosuggest how to calculate suggestions for any given input value.
 const getSuggestions = (value) => {
@@ -25,8 +81,10 @@ const getSuggestions = (value) => {
 
   return inputLength === 0
     ? []
-    : languages.filter(
-        (lang) => lang.name.toLowerCase().slice(0, inputLength) === inputValue
+    : getBroadList().filter(
+        (broad) =>
+          broad.name.toLowerCase().slice(0, inputLength) === inputValue ||
+          broad.broadId.toLowerCase().slice(0, inputLength) === inputValue
       );
 };
 
@@ -36,21 +94,50 @@ const getSuggestions = (value) => {
 const getSuggestionValue = (suggestion) => suggestion.name;
 
 // Use your imagination to render suggestions.
-const renderSuggestion = (suggestion) => <div>{suggestion.name}</div>;
+const renderSuggestion = (suggestion) => (
+  <SuggestionDiv>
+    <SuggestionBox>
+      <SuggestionAvatar url={suggestion.avatar} />
+      {suggestion.name}({suggestion.broadId})
+    </SuggestionBox>
+  </SuggestionDiv>
+);
 
 const renderInputComponent = (inputProps) => (
   <InputDiv>
-    <input
+    <InputText
       {...inputProps}
-      style={{
-        width: "580px",
-        padding: "10px",
-        border: 0,
-        fontSize: 24,
-        color: "lightgoldenrodyellow",
-        borderBottom: "2px solid lightgoldenrodyellow",
-        textAlign: "center",
+      onKeyPress={(event) => {
+        if (!inputProps.loading) {
+          if (event.key === "Enter") {
+            inputProps.setDragNext(
+              setDragNextNum(
+                inputProps.data.seeSortSummoners.findIndex(
+                  (x) =>
+                    x.summoner.broadcaster.name === inputProps.value ||
+                    x.summoner.broadcaster.broadId === inputProps.value
+                )
+              )
+            );
+          }
+        }
       }}
+    />
+    <SearchIcon
+      onClick={() => {
+        if (!inputProps.loading) {
+          inputProps.setDragNext(
+            setDragNextNum(
+              inputProps.data.seeSortSummoners.findIndex(
+                (x) =>
+                  x.summoner.broadcaster.name === inputProps.value ||
+                  x.summoner.broadcaster.broadId === inputProps.value
+              )
+            )
+          );
+        }
+      }}
+      url={icon_search}
     />
   </InputDiv>
 );
@@ -58,7 +145,6 @@ const renderInputComponent = (inputProps) => (
 export default class CustomAutosuggest extends React.Component {
   constructor() {
     super();
-
     // Autosuggest is a controlled component.
     // This means that you need to provide an input value
     // and an onChange handler that updates this value (see below).
@@ -91,6 +177,16 @@ export default class CustomAutosuggest extends React.Component {
     });
   };
 
+  static getDerivedStateFromProps = (props) => {
+    if (!props.loading && props.data) {
+      return {
+        data: props.data,
+        loading: props.loading,
+      };
+    }
+    return null;
+  };
+
   render() {
     const { value, suggestions } = this.state;
 
@@ -99,6 +195,9 @@ export default class CustomAutosuggest extends React.Component {
       placeholder: "브로드캐스터 닉네임 또는 ID를 입력해주세요.",
       value,
       onChange: this.onChange,
+      data: this.props.data,
+      loading: this.props.loading,
+      setDragNext: this.props.setDragNext,
     };
 
     // Finally, render it!

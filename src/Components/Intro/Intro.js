@@ -40,7 +40,7 @@ const TitleBox = styled.div`
 const MainTitle = styled.div`
   font-family: "Londrina Solid", sans-serif;
   font-size: 130px;
-  color: magenta;
+  color: #e8293b;
   width: fit-content;
   margin-right: 40px;
 `;
