@@ -81,6 +81,7 @@ const BodyLeftTopDiv = styled.div``;
 
 const BodyLeftTopBox = styled.div`
   margin-bottom: 40px;
+  cursor: pointer;
 `;
 
 const BodyLeftTopText = styled.div`
@@ -315,11 +316,12 @@ export default ({ siteTheme, dragNext }) => {
       <BodyDiv>
         <BodyLeftDiv>
           <BodyLeftTopDiv>
-            <BodyLeftTopBox>
+            <BodyLeftTopBox
+              onClick={() => {
+                window.open(`https://watchurs.com`);
+              }}
+            >
               <BodyLeftTopText>WATCHURS?</BodyLeftTopText>
-            </BodyLeftTopBox>
-            <BodyLeftTopBox>
-              <BodyLeftTopText>페이스북</BodyLeftTopText>
             </BodyLeftTopBox>
           </BodyLeftTopDiv>
           <BodyLeftBottomDiv>
