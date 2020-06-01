@@ -17,8 +17,7 @@ const InputText = styled.input`
   height: 30px;
   padding: 10px;
   border: 0px;
-  font-size: 24px;
-  color: lightgoldenrodyellow;
+  color: white;
   text-align: center;
 `;
 
@@ -40,8 +39,6 @@ const SuggestionDiv = styled.div`
   background-color: white;
   margin-top: 3px;
   border-radius: 6px;
-  /* border-bottom-left-radius: 8px;
-  border-bottom-right-radius: 8px; */
   opacity: 0.8;
 `;
 
@@ -51,9 +48,6 @@ const SuggestionBox = styled.div`
   padding: 10px;
   width: 580px;
   color: black;
-  /* color: #e8293b; */
-  font-size: 22px;
-  font-weight: 700;
 `;
 
 const SuggestionAvatar = styled.div`
@@ -110,15 +104,13 @@ const renderInputComponent = (inputProps) => (
       onKeyPress={(event) => {
         if (!inputProps.loading) {
           if (event.key === "Enter") {
-            inputProps.setDragNext(
-              setDragNextNum(
-                inputProps.data.seeSortSummoners.findIndex(
-                  (x) =>
-                    x.summoner.broadcaster.name === inputProps.value ||
-                    x.summoner.broadcaster.broadId === inputProps.value
-                )
-              )
+            const searchResult = inputProps.data.seeSortSummoners.findIndex(
+              (x) =>
+                x.summoner.broadcaster.name === inputProps.value ||
+                x.summoner.broadcaster.broadId === inputProps.value
             );
+            inputProps.setDragNext(setDragNextNum(searchResult));
+            inputProps.setSearchIndex(searchResult + 1);
           }
         }
       }}
@@ -126,15 +118,13 @@ const renderInputComponent = (inputProps) => (
     <SearchIcon
       onClick={() => {
         if (!inputProps.loading) {
-          inputProps.setDragNext(
-            setDragNextNum(
-              inputProps.data.seeSortSummoners.findIndex(
-                (x) =>
-                  x.summoner.broadcaster.name === inputProps.value ||
-                  x.summoner.broadcaster.broadId === inputProps.value
-              )
-            )
+          const searchResult = inputProps.data.seeSortSummoners.findIndex(
+            (x) =>
+              x.summoner.broadcaster.name === inputProps.value ||
+              x.summoner.broadcaster.broadId === inputProps.value
           );
+          inputProps.setDragNext(setDragNextNum(searchResult));
+          inputProps.setSearchIndex(searchResult + 1);
         }
       }}
       url={icon_search}
@@ -198,6 +188,7 @@ export default class CustomAutosuggest extends React.Component {
       data: this.props.data,
       loading: this.props.loading,
       setDragNext: this.props.setDragNext,
+      setSearchIndex: this.props.setSearchIndex,
     };
 
     // Finally, render it!

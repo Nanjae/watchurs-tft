@@ -20,7 +20,14 @@ const Inner = styled.div`
   transition: transform 0.5s;
 `;
 
-export default ({ countMax, windowWidth, dragNext, data, loading }) => {
+export default ({
+  countMax,
+  windowWidth,
+  dragNext,
+  data,
+  loading,
+  searchIndex,
+}) => {
   const countMaxArray = new Array(countMax).fill("0");
 
   return (
@@ -35,6 +42,7 @@ export default ({ countMax, windowWidth, dragNext, data, loading }) => {
                 page={index + 1}
                 loading={loading}
                 data={data}
+                searchIndex={searchIndex}
               />
             );
           })}

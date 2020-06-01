@@ -27,7 +27,7 @@ const TopBox = styled.div`
 
 const TopMainText = styled.div`
   color: white;
-  font-size: 28px;
+  font-size: 24px;
 `;
 
 const TitleBox = styled.div`
@@ -40,7 +40,7 @@ const TitleBox = styled.div`
 const MainTitle = styled.div`
   font-family: "Londrina Solid", sans-serif;
   font-size: 130px;
-  color: #e8293b;
+  color: crimson;
   width: fit-content;
   margin-right: 40px;
 `;
@@ -51,26 +51,6 @@ const SubTitle = styled.div`
   color: lightgoldenrodyellow;
   margin-top: -40px;
   width: fit-content;
-`;
-
-const MoreBox = styled.div`
-  margin-top: 40px;
-  width: 560px;
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-`;
-
-const MoreLine = styled.div`
-  width: 60px;
-  height: 2px;
-  background-color: white;
-  margin-right: 20px;
-`;
-
-const MoreMainText = styled.div`
-  color: white;
-  font-size: 24px;
 `;
 
 export default ({ windowWidth }) => {
@@ -85,10 +65,6 @@ export default ({ windowWidth }) => {
             <MainTitle>Teamfight</MainTitle>
             <SubTitle>Tactics</SubTitle>
           </TitleBox>
-          <MoreBox>
-            <MoreLine />
-            <MoreMainText>SEE MORE</MoreMainText>
-          </MoreBox>
         </TopDiv>
       </Wrapper>
     </>

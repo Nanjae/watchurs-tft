@@ -1,7 +1,9 @@
 import React from "react";
-import styled from "styled-components";
+import styled, { keyframes, css } from "styled-components";
 import logo_watchurs_dark from "../../../Assets/Logos/logo_watchurs_dark.png";
 import logo_watchurs_light from "../../../Assets/Logos/logo_watchurs_light.png";
+import icon_arrow_bottom from "../../../Assets/Icons/icon_arrow_bottom.png";
+import icon_arrow_left from "../../../Assets/Icons/icon_arrow_left.png";
 
 const HeaderDiv = styled.div`
   position: relative;
@@ -52,8 +54,6 @@ const HeaderRightBox = styled.div`
 
 const HeaderRightText = styled.div`
   color: ${(props) => props.theme.fontMainColor};
-  font-size: 22px;
-  font-weight: 700;
   display: flex;
   align-items: center;
   padding: 5px;
@@ -85,38 +85,127 @@ const BodyLeftTopBox = styled.div`
 
 const BodyLeftTopText = styled.div`
   writing-mode: vertical-lr;
-  color: #eec39a;
-  font-size: 22px;
-  font-weight: 700;
+  color: white;
   padding: 5px;
 `;
 
 const BodyLeftBottomDiv = styled.div`
   display: flex;
-  justify-content: flex-start;
-  width: 100%;
 `;
 
 const BodyLeftBottomBox = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  margin-left: 5px;
 `;
 
 const BodyLeftBottomText = styled.div`
   writing-mode: vertical-lr;
   color: white;
-  font-size: 22px;
-  font-weight: 700;
-  padding: 5px;
 `;
 
 const BodyLeftBottomLine = styled.div`
-  width: 1px;
   height: 70px;
-  margin-top: 10px;
-  margin-left: 15px;
-  background-color: white;
+  margin-top: 15px;
+`;
+
+const arrowAnimation1 = keyframes`
+  0% {
+    opacity: 1;
+  }
+  25% {
+    opacity: 1;
+  }
+  50%{
+    opacity: 0.1;
+  }
+  75% {
+    opacity: 0.1;
+  }
+  100% {
+    opacity: 0.1;
+  }
+`;
+
+const arrowAnimation2 = keyframes`
+   0% {
+    opacity: 0.1;
+  }
+  25% {
+    opacity: 1;
+  }
+  50%{
+    opacity: 1;
+  }
+  75% {
+    opacity: 0.1;
+  }
+  100% {
+    opacity: 0.1;
+  }
+`;
+
+const arrowAnimation3 = keyframes`
+   0% {
+    opacity: 0.1;
+  }
+  25% {
+    opacity: 0.1;
+  }
+  50%{
+    opacity: 1;
+  }
+  75% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.1;
+  }
+`;
+
+const arrowAnimation4 = keyframes`
+  0% {
+    opacity: 0.1;
+  }
+  25% {
+    opacity: 0.1;
+  }
+  50%{
+    opacity: 0.1;
+  }
+  75% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.1;
+  }
+`;
+
+const BodyLeftBottomArrow = styled.div`
+  background-image: url(${(props) => props.url});
+  background-size: cover;
+  background-position: center;
+  width: 20px;
+  height: 20px;
+  margin-top: -5px;
+  transition: animation 0.5s;
+  animation: ${(props) =>
+    props.animationIndex === 1
+      ? css`
+          ${arrowAnimation1} 1.0s infinite running
+        `
+      : props.animationIndex === 2
+      ? css`
+          ${arrowAnimation2} 1.0s infinite running
+        `
+      : props.animationIndex === 3
+      ? css`
+          ${arrowAnimation3} 1.0s infinite running
+        `
+      : css`
+          ${arrowAnimation4} 1.0s infinite running
+        `};
 `;
 
 const BodyRightDiv = styled.div`
@@ -124,7 +213,56 @@ const BodyRightDiv = styled.div`
   height: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: flex-start;
+`;
+
+const BodyRightScrollDiv = styled.div`
+  margin-top: -80px;
+  margin-bottom: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+`;
+
+const BodyRightScrollText = styled.div`
+  color: white;
+  padding: 5px;
+  margin-left: 20px;
+  margin-bottom: 5px;
+`;
+
+const BodyRightScrollLine = styled.div`
+  width: 100px;
+  height: 2px;
+  display: flex;
+  justify-content: flex-end;
+`;
+
+const BodyRightScrollArrow = styled.div`
+  background-image: url(${(props) => props.url});
+  background-size: cover;
+  background-position: center;
+  width: 20px;
+  height: 20px;
+  margin-left: -5px;
+  transition: animation 0.5s;
+  animation: ${(props) =>
+    props.animationIndex === 1
+      ? css`
+          ${arrowAnimation1} 1.0s infinite running
+        `
+      : props.animationIndex === 2
+      ? css`
+          ${arrowAnimation2} 1.0s infinite running
+        `
+      : props.animationIndex === 3
+      ? css`
+          ${arrowAnimation3} 1.0s infinite running
+        `
+      : css`
+          ${arrowAnimation4} 1.0s infinite running
+        `};
 `;
 
 const BodyRightLineDiv = styled.div``;
@@ -141,8 +279,7 @@ const BodyRightLineBox = styled.div`
 
 const BodyRightLineText = styled.div`
   margin-left: 20px;
-  font-size: 22px;
-  font-weight: 700;
+
   color: white;
   transition: opacity 0.5s;
 `;
@@ -153,29 +290,6 @@ const BodyRightLine = styled.div`
   height: 2px;
   width: 100px;
   transition: opacity 0.5s, width 0.5s, height 0.5s;
-`;
-
-const BodyRightScrollDiv = styled.div`
-  margin-bottom: 30px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-`;
-
-const BodyRightScrollText = styled.div`
-  font-size: 22px;
-  font-weight: 700;
-  color: white;
-  padding: 5px;
-  margin-left: 20px;
-`;
-
-const BodyRightScrollLine = styled.div`
-  width: 100px;
-  height: 1px;
-  background-color: white;
-  margin-left: 20px;
 `;
 
 export default ({ siteTheme, dragNext }) => {
@@ -202,7 +316,7 @@ export default ({ siteTheme, dragNext }) => {
         <BodyLeftDiv>
           <BodyLeftTopDiv>
             <BodyLeftTopBox>
-              <BodyLeftTopText>와쳐스?</BodyLeftTopText>
+              <BodyLeftTopText>WATCHURS?</BodyLeftTopText>
             </BodyLeftTopBox>
             <BodyLeftTopBox>
               <BodyLeftTopText>페이스북</BodyLeftTopText>
@@ -211,11 +325,37 @@ export default ({ siteTheme, dragNext }) => {
           <BodyLeftBottomDiv>
             <BodyLeftBottomBox>
               <BodyLeftBottomText>스크롤</BodyLeftBottomText>
-              <BodyLeftBottomLine />
+              <BodyLeftBottomLine>
+                <BodyLeftBottomArrow
+                  animationIndex={1}
+                  url={icon_arrow_bottom}
+                />
+                <BodyLeftBottomArrow
+                  animationIndex={2}
+                  url={icon_arrow_bottom}
+                />
+                <BodyLeftBottomArrow
+                  animationIndex={3}
+                  url={icon_arrow_bottom}
+                />
+                <BodyLeftBottomArrow
+                  animationIndex={4}
+                  url={icon_arrow_bottom}
+                />
+              </BodyLeftBottomLine>
             </BodyLeftBottomBox>
           </BodyLeftBottomDiv>
         </BodyLeftDiv>
         <BodyRightDiv>
+          <BodyRightScrollDiv>
+            <BodyRightScrollText>드래그</BodyRightScrollText>
+            <BodyRightScrollLine>
+              <BodyRightScrollArrow animationIndex={4} url={icon_arrow_left} />
+              <BodyRightScrollArrow animationIndex={3} url={icon_arrow_left} />
+              <BodyRightScrollArrow animationIndex={2} url={icon_arrow_left} />
+              <BodyRightScrollArrow animationIndex={1} url={icon_arrow_left} />
+            </BodyRightScrollLine>
+          </BodyRightScrollDiv>
           <BodyRightLineDiv>
             <BodyRightLineBox>
               <BodyRightLineText
@@ -240,10 +380,6 @@ export default ({ siteTheme, dragNext }) => {
               />
             </BodyRightLineBox>
           </BodyRightLineDiv>
-          <BodyRightScrollDiv>
-            <BodyRightScrollText>드래그</BodyRightScrollText>
-            <BodyRightScrollLine />
-          </BodyRightScrollDiv>
         </BodyRightDiv>
       </BodyDiv>
     </>

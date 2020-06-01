@@ -45,7 +45,7 @@ const CardDiv = styled.div`
   border-radius: 4px;
 `;
 
-export default ({ page, loading, data }) => {
+export default ({ page, loading, data, searchIndex }) => {
   // console.log(data);
   return (
     <>
@@ -73,6 +73,7 @@ export default ({ page, loading, data }) => {
                       tierNum={sum.tierNum}
                       tierRank={sum.rank}
                       tierPoint={sum.points}
+                      searchIndex={searchIndex}
                     />
                   );
                 })}

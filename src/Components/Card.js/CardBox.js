@@ -9,7 +9,9 @@ const CardBox = styled.div`
   display: flex;
   opacity: 0.9;
   background-color: ${(props) =>
-    props.rankText % 2 === 1
+    props.searchIndex === props.rankText
+      ? "crimson"
+      : props.rankText % 2 === 1
       ? props.theme.bgMainColor
       : props.theme.bgFooterColor};
   :first-child {
@@ -20,16 +22,19 @@ const CardBox = styled.div`
     border-bottom-right-radius: 4px;
     border-bottom-left-radius: 4px;
   }
+  transition: background-color 0.5s;
 `;
 
 const CardInner = styled.div`
   width: 890x;
   margin: 5px;
   display: flex;
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 400;
-  color: white;
+  color: ${(props) =>
+    props.searchIndex === props.rankText ? "lightgoldenrodyellow" : "white"};
   opacity: 1;
+  transition: color 0.5s;
 `;
 
 const CardRankBox = styled.div`
@@ -132,6 +137,7 @@ export default ({
   tierNum,
   tierRank,
   tierPoint,
+  searchIndex,
 }) => {
   const logo_platform = broadPlatform === "TWITCH" ? logo_twitch : null;
   // const fixedBroadIcon = broadIcon.replace("300x300", "70x70");
@@ -140,8 +146,8 @@ export default ({
 
   return (
     <>
-      <CardBox className={broadId} rankText={rankText}>
-        <CardInner>
+      <CardBox searchIndex={searchIndex} rankText={rankText}>
+        <CardInner searchIndex={searchIndex} rankText={rankText}>
           <CardRankBox>
             <CardRankText>#{rankText}</CardRankText>
           </CardRankBox>

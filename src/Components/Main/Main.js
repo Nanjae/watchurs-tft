@@ -74,6 +74,7 @@ export default ({ windowWidth, windowHeight, siteTheme }) => {
   const [dragNext, setDragNext] = useState(0);
   const countMax = Math.ceil(21 / 10);
   const { data: sumdata, loading: sumloading } = useQuery(SEE_SORT_SUMMONERS);
+  const [searchIndex, setSearchIndex] = useState(0);
 
   const { data: broadData, loading: broadLoading } = useQuery(
     SEE_ALL_BROADCASTERS
@@ -100,12 +101,14 @@ export default ({ windowWidth, windowHeight, siteTheme }) => {
         dragNext={dragNext}
         data={sumdata}
         loading={sumloading}
+        searchIndex={searchIndex}
       />
       <SearchBox dragNext={dragNext}>
         <CustomAutosuggest
           data={sumdata}
           loading={sumloading ? 1 : 0}
           setDragNext={setDragNext}
+          setSearchIndex={setSearchIndex}
         />
       </SearchBox>
     </Wrapper>

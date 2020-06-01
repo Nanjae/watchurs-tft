@@ -6,9 +6,9 @@ export default createGlobalStyle`
     /* @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=fallback'); */
     /* @import url('https://fonts.googleapis.com/css2?family=Monoton&display=fallback'); */
     body {
-        font-family: 'Gaegu', sans-serif;
-        font-weight: 400;
-        font-size: 14px;
+        font-family: 'Noto Sans KR', 'Gaegu', sans-serif;
+        font-weight: 500;
+        font-size: 20px;
         -webkit-tap-highlight-color: transparent;
     }
     a {
@@ -19,12 +19,13 @@ export default createGlobalStyle`
     div {
     }
     input {
-        font-family: 'Gaegu', sans-serif;
-        font-weight: 400;
+        font-family:  'Noto Sans KR','Gaegu', sans-serif;
+        font-weight: 500;
+        font-size: 20px;
         outline: none;
         background-color: unset;
         ::placeholder {
-            color: lightgoldenrodyellow;
+            color: white;
             background-color: unset;
         }
     }
