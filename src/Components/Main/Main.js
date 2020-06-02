@@ -63,7 +63,7 @@ const Wrapper = styled.div`
 
 const SearchBox = styled.div`
   position: absolute;
-  z-index: 150;
+  z-index: 200;
   margin-top: ${(props) => (props.dragNext > 0 ? 20 : 600)}px;
   margin-bottom: 30px;
   height: 50px;
@@ -73,7 +73,7 @@ const SearchBox = styled.div`
 
 const ScrollWhiteOpacity = styled.div`
   position: absolute;
-  z-index: ${(props) => (props.scrollY >= 650 ? 300 : 0)};
+  z-index: ${(props) => (props.scrollY >= 650 ? 400 : 0)};
   width: 100%;
   height: 100%;
   background-color: white;
@@ -113,11 +113,7 @@ export default ({
         setDragNext={setDragNext}
         siteTheme={siteTheme}
         handleVisitFalse={handleVisitFalse}
-      />
-      <MainContent
-        countMax={countMax}
         windowWidth={windowWidth}
-        dragNext={dragNext}
         data={sumdata}
         loading={sumloading}
         searchIndex={searchIndex}

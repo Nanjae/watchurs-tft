@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import CardBox from "../../Card.js/CardBox";
+import CardBox from "../../Card/CardBox";
 
 const Wrapper = styled.div`
   position: absolute;
@@ -10,19 +10,6 @@ const Wrapper = styled.div`
   min-height: 800px;
   transform: translateX(${(props) => props.page * 100}%);
   justify-content: center;
-`;
-
-const Opacity = styled.div`
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  min-height: 800px;
-  background-color: ${(props) =>
-    props.page % 2 === 1
-      ? props.theme.fontSubColor
-      : props.theme.bgFooterColor};
-  transform: translateX(${(props) => props.page * 100}%);
-  opacity: 0.5;
 `;
 
 const Inner = styled.div`
@@ -49,7 +36,6 @@ export default ({ page, loading, data, searchIndex }) => {
   // console.log(data);
   return (
     <>
-      <Opacity page={page} />
       <Wrapper page={page}>
         <Inner>
           <CardDiv>

@@ -7,7 +7,7 @@ import useWindowDimensions from "../../Hooks/useWindowDimensions";
 import { useWindowScroll } from "@react-hook/window-scroll";
 import About from "../../Components/About/About";
 import Footer from "../../Components/Footer";
-import CookieHelp from "../../Components/Main/MainUpper/CookieHelp";
+import CookieHelp from "../../Components/Common/CookieHelp";
 
 const Wrapper = styled.div`
   /* overflow-y: hidden; */

@@ -1,16 +1,16 @@
 import React from "react";
 import styled from "styled-components";
-import icon_help_close from "../../../Assets/Icons/icon_help_close.png";
-import icon_help_top_right from "../../../Assets/Icons/icon_help_top_right.png";
-import icon_help_top_left from "../../../Assets/Icons/icon_help_top_left.png";
-import icon_help_bottom_right from "../../../Assets/Icons/icon_help_bottom_right.png";
-import icon_help_right_bottom from "../../../Assets/Icons/icon_help_right_bottom.png";
-import icon_help_right_top from "../../../Assets/Icons/icon_help_right_top.png";
-import icon_help_left_bottom from "../../../Assets/Icons/icon_help_left_bottom.png";
+import icon_help_close from "../../Assets/Icons/icon_help_close.png";
+import icon_help_top_right from "../../Assets/Icons/icon_help_top_right.png";
+import icon_help_top_left from "../../Assets/Icons/icon_help_top_left.png";
+import icon_help_bottom_right from "../../Assets/Icons/icon_help_bottom_right.png";
+import icon_help_right_bottom from "../../Assets/Icons/icon_help_right_bottom.png";
+import icon_help_right_top from "../../Assets/Icons/icon_help_right_top.png";
+import icon_help_left_bottom from "../../Assets/Icons/icon_help_left_bottom.png";
 
 const Wrapper = styled.div`
   position: absolute;
-  z-index: 250;
+  z-index: 300;
   width: 100%;
   height: 100%;
   min-height: 800px;

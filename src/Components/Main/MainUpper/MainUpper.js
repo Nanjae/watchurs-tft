@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import UpperSide from "./UpperSide";
 import { useDrag } from "react-use-gesture";
+import MainContent from "../MainContent/MainContent";
 
 const Wrapper = styled.div`
   position: absolute;
@@ -27,7 +28,6 @@ const Wrapper = styled.div`
 `;
 
 const Inner = styled.div`
-  position: absolute;
   width: 100%;
   height: 100%;
   display: flex;
@@ -41,6 +41,10 @@ export default ({
   setDragNext,
   siteTheme,
   handleVisitFalse,
+  windowWidth,
+  data,
+  sumloading,
+  searchIndex,
 }) => {
   const bind = useDrag(({ down, movement: [mx] }) => {
     if (!down && mx < -30) {
@@ -56,6 +60,14 @@ export default ({
           dragNext={dragNext}
           siteTheme={siteTheme}
           handleVisitFalse={handleVisitFalse}
+        />
+        <MainContent
+          countMax={countMax}
+          windowWidth={windowWidth}
+          dragNext={dragNext}
+          data={data}
+          loading={sumloading}
+          searchIndex={searchIndex}
         />
       </Inner>
     </Wrapper>

@@ -23,6 +23,7 @@ const Wrapper = styled.div`
     border-bottom-left-radius: 4px;
   }
   transition: background-color 0.5s;
+  cursor: pointer;
 `;
 
 const Inner = styled.div`

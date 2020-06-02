@@ -6,8 +6,6 @@ import icon_arrow_bottom from "../../../Assets/Icons/icon_arrow_bottom.png";
 import icon_arrow_left from "../../../Assets/Icons/icon_arrow_left.png";
 
 const HeaderDiv = styled.div`
-  position: relative;
-  z-index: 100;
   width: 100%;
   height: 80px;
   display: flex;
@@ -22,6 +20,8 @@ const HeaderLeftDiv = styled.div`
 `;
 
 const HeaderLeftLogoDiv = styled.div`
+  position: relative;
+  z-index: 100;
   width: fit-content;
   padding: 5px;
   cursor: pointer;
@@ -45,6 +45,8 @@ const HeaderRightDiv = styled.div`
 `;
 
 const HeaderRightBox = styled.div`
+  position: relative;
+  z-index: 100;
   display: flex;
   height: 100%;
   margin-right: 20px;
@@ -80,6 +82,8 @@ const BodyLeftDiv = styled.div`
 const BodyLeftTopDiv = styled.div``;
 
 const BodyLeftTopBox = styled.div`
+  position: relative;
+  z-index: 100;
   margin-bottom: 40px;
   cursor: pointer;
 `;

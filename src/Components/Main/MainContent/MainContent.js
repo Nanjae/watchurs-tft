@@ -5,7 +5,6 @@ import Intro from "../../Intro/Intro";
 
 const Wrapper = styled.div`
   position: absolute;
-  z-index: 50;
   height: 100%;
   width: 100%;
   min-height: 800px;
@@ -35,7 +34,7 @@ export default ({
       <Wrapper>
         <Inner dragNext={dragNext}>
           <Intro windowWidth={windowWidth} />
-          {countMaxArray.map((arr, index) => {
+          {countMaxArray.map((_, index) => {
             return (
               <ContentRank
                 key={index}
