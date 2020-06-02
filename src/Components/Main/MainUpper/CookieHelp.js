@@ -120,6 +120,14 @@ const HubText = styled.div`
   margin-top: 5px;
 `;
 
+const MainBox = styled.div`
+  position: absolute;
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+`;
+
 const RightBox = styled.div`
   margin-right: 30px;
 `;
@@ -148,6 +156,8 @@ const RouteText = styled.div`
 const BottomDiv = styled.div`
   width: 100%;
   height: 25%;
+  display: flex;
+  justify-content: space-between;
 `;
 
 const ScrollBox = styled.div`
@@ -165,6 +175,23 @@ const ScrollInner = styled.div`
 
 const ScrollText = styled.div`
   margin-bottom: 10px;
+`;
+
+const SearchBox = styled.div`
+  width: 50%;
+  height: 100%;
+  display: flex;
+  margin-top: 60px;
+`;
+
+const SearchInner = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+
+const SearchText = styled.div`
+  display: flex;
+  justify-content: flex-start;
 `;
 
 export default ({ handleVisitTrue }) => {
@@ -214,6 +241,7 @@ export default ({ handleVisitTrue }) => {
                 <HubText>와쳐스가 뭔데요?</HubText>
               </HubInner>
             </HubBox>
+            <MainBox></MainBox>
             <RightBox>
               <DragInner>
                 <CommonIcon
@@ -241,6 +269,23 @@ export default ({ handleVisitTrue }) => {
                 <ScrollText>아래엔 뭐가 있을까요?</ScrollText>
               </ScrollInner>
             </ScrollBox>
+            <SearchBox>
+              <CommonIcon
+                url={icon_help_top_right}
+                style={{ marginRight: 10 }}
+              />
+              <SearchInner>
+                <SearchText style={{ marginTop: 10 }}>
+                  여기에 검색어를 입력하시면 되요!
+                </SearchText>
+                <SearchText style={{ marginTop: 25, marginBottom: 5 }}>
+                  예) 브로드캐스터 닉네임 : 한동숙
+                </SearchText>
+                <SearchText style={{ marginLeft: 50 }}>
+                  브로드캐스터 ID : handongsuk
+                </SearchText>
+              </SearchInner>
+            </SearchBox>
           </BottomDiv>
         </Inner>
       </Wrapper>
