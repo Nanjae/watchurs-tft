@@ -3,7 +3,6 @@ import styled from "styled-components";
 import MainUnder from "./MainUnder/MainUnder";
 import MainUpper from "./MainUpper/MainUpper";
 import CustomAutosuggest from "../Common/Autosuggest";
-import MainContent from "./MainContent/MainContent";
 import { gql } from "apollo-boost";
 import { useQuery } from "react-apollo-hooks";
 import { setBroadList, getBroadList } from "../Common/BroadList";

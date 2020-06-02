@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import CardBox from "../../Card/CardBox";
+import { BlockLoading } from "react-loadingg";
 
 const Wrapper = styled.div`
   position: absolute;
@@ -24,24 +25,27 @@ const Inner = styled.div`
 
 const CardDiv = styled.div`
   width: 900px;
-  height: fit-content;
+  height: ${(props) =>
+    props.page === props.countMax ? "fit-content" : "650px"};
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.8);
   box-shadow: 0px 0px 8px 4px ${(props) => props.theme.bgMainColor};
   border-radius: 4px;
+  color: white;
 `;
 
-export default ({ page, loading, data, searchIndex }) => {
+export default ({ page, loading, data, searchIndex, countMax }) => {
   // console.log(data);
+  console.log(loading);
   return (
     <>
       <Wrapper page={page}>
         <Inner>
-          <CardDiv>
-            {!loading &&
-              data &&
-              data.seeSortSummoners &&
+          <CardDiv page={page} countMax={countMax}>
+            {!loading && data && data.seeSortSummoners ? (
               data.seeSortSummoners
                 .slice((page - 1) * 10, page * 10)
                 .map((sum, index) => {
@@ -62,7 +66,10 @@ export default ({ page, loading, data, searchIndex }) => {
                       searchIndex={searchIndex}
                     />
                   );
-                })}
+                })
+            ) : (
+              <BlockLoading style={{ position: "relative" }} size={"large"} />
+            )}
           </CardDiv>
         </Inner>
       </Wrapper>

@@ -42,6 +42,7 @@ export default ({
                 loading={loading}
                 data={data}
                 searchIndex={searchIndex}
+                countMax={countMax}
               />
             );
           })}

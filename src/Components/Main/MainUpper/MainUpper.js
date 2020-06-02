@@ -43,7 +43,7 @@ export default ({
   handleVisitFalse,
   windowWidth,
   data,
-  sumloading,
+  loading,
   searchIndex,
 }) => {
   const bind = useDrag(({ down, movement: [mx] }) => {
@@ -66,7 +66,7 @@ export default ({
           windowWidth={windowWidth}
           dragNext={dragNext}
           data={data}
-          loading={sumloading}
+          loading={loading ? 1 : 0}
           searchIndex={searchIndex}
         />
       </Inner>

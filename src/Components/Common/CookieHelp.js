@@ -49,9 +49,7 @@ const LogoBox = styled.div`
   margin-left: 40px;
 `;
 
-const LogoText = styled.div`
-  margin-top: 10px;
-`;
+const LogoText = styled.div``;
 
 const CloseBox = styled.div`
   position: absolute;
@@ -226,7 +224,10 @@ export default ({ handleVisitTrue }) => {
                 url={icon_help_top_right}
                 style={{ marginRight: 10 }}
               />
-              <LogoText>저는 와쳐스 로고예요</LogoText>
+              <div style={{ display: "flex", flexDirection: "column" }}>
+                <LogoText>저는 와쳐스 로고예요</LogoText>
+                <LogoText>누르면 새로고침을 해줘요</LogoText>
+              </div>
             </LogoBox>
             <CloseBox>
               <CloseBoxInner
