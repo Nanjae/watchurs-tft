@@ -73,7 +73,7 @@ const SearchBox = styled.div`
 
 const ScrollWhiteOpacity = styled.div`
   position: absolute;
-  z-index: ${(props) => (props.scrollY >= 650 ? 200 : 0)};
+  z-index: ${(props) => (props.scrollY >= 650 ? 300 : 0)};
   width: 100%;
   height: 100%;
   background-color: white;
@@ -81,7 +81,13 @@ const ScrollWhiteOpacity = styled.div`
   transition: opacity 0.8s, z-index 0.3s;
 `;
 
-export default ({ windowWidth, windowHeight, siteTheme, scrollY }) => {
+export default ({
+  windowWidth,
+  windowHeight,
+  siteTheme,
+  scrollY,
+  handleVisitFalse,
+}) => {
   const [dragNext, setDragNext] = useState(0);
   const countMax = Math.ceil(21 / 10);
   const { data: sumdata, loading: sumloading } = useQuery(SEE_SORT_SUMMONERS);
@@ -99,13 +105,14 @@ export default ({ windowWidth, windowHeight, siteTheme, scrollY }) => {
 
   return (
     <Wrapper style={{ height: windowHeight }}>
-      <MainUnder />
       <ScrollWhiteOpacity scrollY={scrollY} />
+      <MainUnder />
       <MainUpper
         countMax={countMax}
         dragNext={dragNext}
         setDragNext={setDragNext}
         siteTheme={siteTheme}
+        handleVisitFalse={handleVisitFalse}
       />
       <MainContent
         countMax={countMax}

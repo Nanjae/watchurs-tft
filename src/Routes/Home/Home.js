@@ -7,6 +7,7 @@ import useWindowDimensions from "../../Hooks/useWindowDimensions";
 import { useWindowScroll } from "@react-hook/window-scroll";
 import About from "../../Components/About/About";
 import Footer from "../../Components/Footer";
+import CookieHelp from "../../Components/Main/MainUpper/CookieHelp";
 
 const Wrapper = styled.div`
   /* overflow-y: hidden; */
@@ -33,7 +34,7 @@ const Inner = styled.div`
   }
 `;
 
-export default () => {
+export default ({ visit, handleVisitTrue, handleVisitFalse }) => {
   const [siteTheme] = useState(false);
   // const [siteTheme, setSiteTheme] = useState(false);
   const { windowWidth, windowHeight } = useWindowDimensions();
@@ -45,12 +46,17 @@ export default () => {
     <>
       <ThemeProvider theme={siteTheme ? ThemeLight : ThemeDark}>
         <Wrapper style={{ height: windowHeight }}>
+          {visit === "false" ? (
+            <CookieHelp handleVisitTrue={handleVisitTrue} />
+          ) : null}
           <Inner>
             <Main
               windowWidth={windowWidth}
               windowHeight={windowHeight}
               siteTheme={siteTheme}
               scrollY={scrollY}
+              handleVisitTrue={handleVisitTrue}
+              handleVisitFalse={handleVisitFalse}
             />
             <About />
             <Footer />

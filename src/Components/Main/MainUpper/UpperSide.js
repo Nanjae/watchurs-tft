@@ -293,7 +293,7 @@ const BodyRightLine = styled.div`
   transition: opacity 0.5s, width 0.5s, height 0.5s;
 `;
 
-export default ({ siteTheme, dragNext }) => {
+export default ({ siteTheme, dragNext, handleVisitFalse }) => {
   const logo_watchurs = siteTheme ? logo_watchurs_light : logo_watchurs_dark;
 
   return (
@@ -305,7 +305,11 @@ export default ({ siteTheme, dragNext }) => {
           </HeaderLeftLogoDiv>
         </HeaderLeftDiv>
         <HeaderRightDiv>
-          <HeaderRightBox>
+          <HeaderRightBox
+            onClick={() => {
+              handleVisitFalse();
+            }}
+          >
             <HeaderRightText>도움말</HeaderRightText>
           </HeaderRightBox>
           <HeaderRightBox>

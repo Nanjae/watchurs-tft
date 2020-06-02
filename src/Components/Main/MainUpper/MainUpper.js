@@ -35,7 +35,13 @@ const Inner = styled.div`
   justify-content: space-between;
 `;
 
-export default ({ countMax, dragNext, setDragNext, siteTheme }) => {
+export default ({
+  countMax,
+  dragNext,
+  setDragNext,
+  siteTheme,
+  handleVisitFalse,
+}) => {
   const bind = useDrag(({ down, movement: [mx] }) => {
     if (!down && mx < -30) {
       setDragNext(dragNext < countMax ? dragNext + 1 : 0);
@@ -46,7 +52,11 @@ export default ({ countMax, dragNext, setDragNext, siteTheme }) => {
   return (
     <Wrapper {...bind()}>
       <Inner>
-        <UpperSide dragNext={dragNext} siteTheme={siteTheme} />
+        <UpperSide
+          dragNext={dragNext}
+          siteTheme={siteTheme}
+          handleVisitFalse={handleVisitFalse}
+        />
       </Inner>
     </Wrapper>
   );

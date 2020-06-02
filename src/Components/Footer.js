@@ -271,11 +271,15 @@ export default () => {
                   }}
                   style={
                     textEnter === 2
-                      ? { color: ThemeDark.highlightColor, cursor: "pointer" }
-                      : { cursor: "pointer" }
+                      ? {
+                          color: "crimson",
+                          cursor: "pointer",
+                          transition: "null",
+                        }
+                      : { cursor: "pointer", transition: "null" }
                   }
                 >
-                  리그 오브 레전드 : LOL
+                  {textEnter === 2 ? "준비중입니다." : "리그 오브 레전드_LOL"}
                 </TopSubText>
                 <TopSubText
                   onClick={() => {
@@ -293,7 +297,7 @@ export default () => {
                       : { cursor: "pointer" }
                   }
                 >
-                  전략적 팀 전투 : TFT
+                  전략적 팀 전투_TFT
                 </TopSubText>
               </TopSubTextBox>
             </TopBox>

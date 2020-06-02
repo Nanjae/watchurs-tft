@@ -120,10 +120,13 @@ export default () => {
                 주요 기능
               </AboutContentLeftFeatureTitle>
               <AboutContentLeftFeatureText>
-                브로드캐스터 소환사명 자동 업데이트
+                브로드캐스터 닉네임 또는 ID로 검색
               </AboutContentLeftFeatureText>
               <AboutContentLeftFeatureText>
-                브로드캐스터 랭크 정보 및 승률 조회
+                브로드캐스터 간 랭크 순위 및 정보 조회
+              </AboutContentLeftFeatureText>
+              <AboutContentLeftFeatureText>
+                소환사명 변경 시 자동 업데이트
               </AboutContentLeftFeatureText>
             </AboutContentLeftDiv>
             <AbountContentRightDiv>
