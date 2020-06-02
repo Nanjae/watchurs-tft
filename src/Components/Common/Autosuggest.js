@@ -77,7 +77,7 @@ const getSuggestions = (value) => {
     ? []
     : getBroadList().filter(
         (broad) =>
-          broad.name.toLowerCase().slice(0, inputLength) === inputValue ||
+          broad.name.toLowerCase().includes(inputValue) ||
           broad.broadId.toLowerCase().slice(0, inputLength) === inputValue
       );
 };
