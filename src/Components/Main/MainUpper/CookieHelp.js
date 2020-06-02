@@ -276,7 +276,7 @@ export default ({ handleVisitTrue }) => {
               />
               <SearchInner>
                 <SearchText style={{ marginTop: 10 }}>
-                  여기에 검색어를 입력하시면 되요!
+                  여기에 검색어를 입력해주세요
                 </SearchText>
                 <SearchText style={{ marginTop: 25, marginBottom: 5 }}>
                   예) 브로드캐스터 닉네임 : 한동숙
