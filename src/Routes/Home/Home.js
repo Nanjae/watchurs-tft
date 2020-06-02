@@ -46,7 +46,7 @@ export default ({ visit, handleVisitTrue, handleVisitFalse }) => {
     <>
       <ThemeProvider theme={siteTheme ? ThemeLight : ThemeDark}>
         <Wrapper style={{ height: windowHeight }}>
-          {visit === "false" ? (
+          {visit !== "true" ? (
             <CookieHelp handleVisitTrue={handleVisitTrue} />
           ) : null}
           <Inner>
