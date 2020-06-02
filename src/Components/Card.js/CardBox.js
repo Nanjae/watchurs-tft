@@ -3,7 +3,7 @@ import styled from "styled-components";
 import logo_twitch from "../../Assets/Twitch/logo_twitch.png";
 import SetEmblem from "../Common/SetEmblem";
 
-const CardBox = styled.div`
+const Wrapper = styled.div`
   width: 100%;
   height: 65px;
   display: flex;
@@ -25,7 +25,7 @@ const CardBox = styled.div`
   transition: background-color 0.5s;
 `;
 
-const CardInner = styled.div`
+const Inner = styled.div`
   width: 890x;
   margin: 5px;
   display: flex;
@@ -37,7 +37,7 @@ const CardInner = styled.div`
   transition: color 0.5s;
 `;
 
-const CardRankBox = styled.div`
+const RankBox = styled.div`
   width: 70px;
   height: 100%;
   display: flex;
@@ -45,18 +45,18 @@ const CardRankBox = styled.div`
   align-items: center;
 `;
 
-const CardRankText = styled.div`
+const RankText = styled.div`
   margin-left: 5px;
 `;
 
-const CardBroadBox = styled.div`
+const BroadBox = styled.div`
   width: 270px;
   display: flex;
   justify-content: flex-start;
   align-items: center;
 `;
 
-const CardBroadPlatform = styled.div`
+const BroadPlatform = styled.div`
   background-image: url(${(props) => props.url});
   background-size: cover;
   background-position: center;
@@ -65,7 +65,7 @@ const CardBroadPlatform = styled.div`
   margin-left: 5px;
 `;
 
-const CardBroadIcon = styled.div`
+const BroadIcon = styled.div`
   background-image: url(${(props) => props.url});
   background-size: cover;
   background-position: center;
@@ -76,16 +76,16 @@ const CardBroadIcon = styled.div`
   margin: 0px 8px;
 `;
 
-const CardBroadName = styled.div``;
+const BroadName = styled.div``;
 
-const CardSumBox = styled.div`
+const SumBox = styled.div`
   width: 250px;
   display: flex;
   justify-content: flex-start;
   align-items: center;
 `;
 
-const CardSumIcon = styled.div`
+const SumIcon = styled.div`
   background-image: url(${(props) => props.url});
   background-size: cover;
   background-position: center;
@@ -96,19 +96,19 @@ const CardSumIcon = styled.div`
   margin-left: 5px;
 `;
 
-const CardSumName = styled.div`
+const SumName = styled.div`
   margin: 0px 8px;
   /* color: orangered; */
 `;
 
-const CardTierBox = styled.div`
+const TierBox = styled.div`
   width: 300px;
   display: flex;
   justify-content: flex-start;
   align-items: center;
 `;
 
-const CardTierIcon = styled.div`
+const TierIcon = styled.div`
   background-image: url(${(props) => props.url});
   background-size: contain;
   background-repeat: no-repeat;
@@ -118,12 +118,12 @@ const CardTierIcon = styled.div`
   margin-left: 5px;
 `;
 
-const CardTierText = styled.div`
+const TierText = styled.div`
   margin-left: 8px;
   margin-right: 5px;
 `;
 
-const CardTierPoint = styled.div``;
+const TierPoint = styled.div``;
 
 export default ({
   rankText,
@@ -146,38 +146,38 @@ export default ({
 
   return (
     <>
-      <CardBox searchIndex={searchIndex} rankText={rankText}>
-        <CardInner searchIndex={searchIndex} rankText={rankText}>
-          <CardRankBox>
-            <CardRankText>#{rankText}</CardRankText>
-          </CardRankBox>
-          <CardBroadBox>
-            <CardBroadPlatform url={logo_platform} />
-            <CardBroadIcon url={broadIcon} />
-            <CardBroadName>{broadName}</CardBroadName>
-          </CardBroadBox>
-          <CardSumBox>
-            <CardSumIcon url={sumIcon} />
-            <CardSumName>{sumName}</CardSumName>
-          </CardSumBox>
+      <Wrapper searchIndex={searchIndex} rankText={rankText}>
+        <Inner searchIndex={searchIndex} rankText={rankText}>
+          <RankBox>
+            <RankText>#{rankText}</RankText>
+          </RankBox>
+          <BroadBox>
+            <BroadPlatform url={logo_platform} />
+            <BroadIcon url={broadIcon} />
+            <BroadName>{broadName}</BroadName>
+          </BroadBox>
+          <SumBox>
+            <SumIcon url={sumIcon} />
+            <SumName>{sumName}</SumName>
+          </SumBox>
           {tierTier === "UNRANKED" ? (
-            <CardTierBox>
-              <CardTierIcon url={tierIcon} />
-              <CardTierText>{tierTier}</CardTierText>
-            </CardTierBox>
+            <TierBox>
+              <TierIcon url={tierIcon} />
+              <TierText>{tierTier}</TierText>
+            </TierBox>
           ) : (
-            <CardTierBox>
-              <CardTierIcon url={tierIcon} />
-              <CardTierText>
+            <TierBox>
+              <TierIcon url={tierIcon} />
+              <TierText>
                 {tierTier} {tierRank}
-              </CardTierText>
-              <CardTierPoint>
+              </TierText>
+              <TierPoint>
                 {tierPoint === "" ? null : `(${tierPoint}pt)`}
-              </CardTierPoint>
-            </CardTierBox>
+              </TierPoint>
+            </TierBox>
           )}
-        </CardInner>
-      </CardBox>
+        </Inner>
+      </Wrapper>
     </>
   );
 };
