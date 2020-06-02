@@ -38,7 +38,7 @@ const CommonIcon = styled.div`
 
 const TopDiv = styled.div`
   width: 100%;
-  height: 25%;
+  height: 30%;
   display: flex;
   justify-content: space-between;
 `;
@@ -101,7 +101,7 @@ const MenuText = styled.div`
 
 const CenterDiv = styled.div`
   width: 100%;
-  height: 50%;
+  height: 45%;
   display: flex;
   justify-content: space-between;
 `;
@@ -112,7 +112,7 @@ const HubInner = styled.div`
   margin-left: 60px;
   display: flex;
   flex-direction: column;
-  margin-top: 80px;
+  margin-top: 50px;
 `;
 
 const HubText = styled.div`
@@ -136,6 +136,7 @@ const DragInner = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-end;
+  margin-top: -50px;
   margin-bottom: 20px;
 `;
 
@@ -178,15 +179,16 @@ const ScrollText = styled.div`
 `;
 
 const SearchBox = styled.div`
-  width: 50%;
-  height: 100%;
+  position: absolute;
+  width: 100%;
   display: flex;
-  margin-top: 60px;
+  justify-content: center;
+  margin-top: 660px;
 `;
 
 const SearchInner = styled.div`
   display: flex;
-  flex-direction: column;
+  margin-left: 150px;
 `;
 
 const SearchText = styled.div`
@@ -199,6 +201,25 @@ export default ({ handleVisitTrue }) => {
     <>
       <Wrapper>
         <Inner>
+          <SearchBox>
+            <SearchInner>
+              <CommonIcon
+                url={icon_help_top_right}
+                style={{ marginRight: 10 }}
+              />
+              <div>
+                <SearchText style={{ marginTop: 10 }}>
+                  여기에 검색어를 입력해주세요
+                </SearchText>
+                <SearchText style={{ marginTop: 20, marginBottom: 5 }}>
+                  예) 브로드캐스터 닉네임 : 한동숙
+                </SearchText>
+                <SearchText style={{ marginLeft: 50 }}>
+                  브로드캐스터 ID : handongsuk
+                </SearchText>
+              </div>
+            </SearchInner>
+          </SearchBox>
           <TopDiv>
             <LogoBox>
               <CommonIcon
@@ -269,23 +290,6 @@ export default ({ handleVisitTrue }) => {
                 <ScrollText>아래엔 뭐가 있을까요?</ScrollText>
               </ScrollInner>
             </ScrollBox>
-            <SearchBox>
-              <CommonIcon
-                url={icon_help_top_right}
-                style={{ marginRight: 10 }}
-              />
-              <SearchInner>
-                <SearchText style={{ marginTop: 10 }}>
-                  여기에 검색어를 입력해주세요
-                </SearchText>
-                <SearchText style={{ marginTop: 25, marginBottom: 5 }}>
-                  예) 브로드캐스터 닉네임 : 한동숙
-                </SearchText>
-                <SearchText style={{ marginLeft: 50 }}>
-                  브로드캐스터 ID : handongsuk
-                </SearchText>
-              </SearchInner>
-            </SearchBox>
           </BottomDiv>
         </Inner>
       </Wrapper>
