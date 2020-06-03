@@ -14,7 +14,7 @@ const Wrapper = styled.div`
   width: 100%;
   height: 100%;
   min-height: 800px;
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: rgba(0, 0, 0, 0.4);
   font-family: "Gaegu", sans-serif;
   font-weight: 400;
   font-size: 30px;

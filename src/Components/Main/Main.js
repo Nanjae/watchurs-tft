@@ -18,10 +18,10 @@ const SEE_ALL_BROADCASTERS = gql`
   }
 `;
 
-const SEE_SORT_SUMMONERS = gql`
-  query seeSortSummoners {
-    seeSortSummoners {
-      summoner {
+const SEE_SORT_TFT_SUMMONERS = gql`
+  query seeSortTFTSummoners {
+    seeSortTFTSummoners {
+      tftSummoner {
         name
         avatar
         broadcaster {
@@ -88,13 +88,21 @@ export default ({
   handleVisitFalse,
 }) => {
   const [dragNext, setDragNext] = useState(0);
-  const countMax = Math.ceil(21 / 10);
-  const { data: sumdata, loading: sumloading } = useQuery(SEE_SORT_SUMMONERS);
+  const [countMax, setCountMax] = useState(0);
+  const { data: sumData, loading: sumLoading } = useQuery(
+    SEE_SORT_TFT_SUMMONERS
+  );
   const [searchIndex, setSearchIndex] = useState(0);
 
   const { data: broadData, loading: broadLoading } = useQuery(
     SEE_ALL_BROADCASTERS
   );
+
+  if (!sumLoading && sumData && sumData.seeSortTFTSummoners) {
+    if (countMax === 0) {
+      setCountMax(Math.ceil(sumData.seeSortTFTSummoners.length / 10));
+    }
+  }
 
   if (!broadLoading && broadData && broadData.seeAllBroadcasters) {
     if (getBroadList().length === 0) {
@@ -113,14 +121,14 @@ export default ({
         siteTheme={siteTheme}
         handleVisitFalse={handleVisitFalse}
         windowWidth={windowWidth}
-        data={sumdata}
-        loading={sumloading}
+        data={sumData}
+        loading={sumLoading}
         searchIndex={searchIndex}
       />
       <SearchBox dragNext={dragNext}>
         <CustomAutosuggest
-          data={sumdata}
-          loading={sumloading ? 1 : 0}
+          data={sumData}
+          loading={sumLoading ? 1 : 0}
           setDragNext={setDragNext}
           setSearchIndex={setSearchIndex}
         />

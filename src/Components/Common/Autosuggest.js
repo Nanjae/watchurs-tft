@@ -68,7 +68,6 @@ const setDragNextNum = (index) => {
   }
 };
 
-// Teach Autosuggest how to calculate suggestions for any given input value.
 const getSuggestions = (value) => {
   const inputValue = value.trim().toLowerCase();
   const inputLength = inputValue.length;
@@ -82,12 +81,8 @@ const getSuggestions = (value) => {
       );
 };
 
-// When suggestion is clicked, Autosuggest needs to populate the input
-// based on the clicked suggestion. Teach Autosuggest how to calculate the
-// input value for every given suggestion.
 const getSuggestionValue = (suggestion) => suggestion.name;
 
-// Use your imagination to render suggestions.
 const renderSuggestion = (suggestion) => (
   <SuggestionDiv>
     <SuggestionBox>
@@ -104,10 +99,10 @@ const renderInputComponent = (inputProps) => (
       onKeyPress={(event) => {
         if (!inputProps.loading) {
           if (event.key === "Enter") {
-            const searchResult = inputProps.data.seeSortSummoners.findIndex(
+            const searchResult = inputProps.data.seeSortTFTSummoners.findIndex(
               (x) =>
-                x.summoner.broadcaster.name === inputProps.value ||
-                x.summoner.broadcaster.broadId === inputProps.value
+                x.tftSummoner.broadcaster.name === inputProps.value ||
+                x.tftSummoner.broadcaster.broadId === inputProps.value
             );
             inputProps.setDragNext(setDragNextNum(searchResult));
             inputProps.setSearchIndex(searchResult + 1);
@@ -118,10 +113,10 @@ const renderInputComponent = (inputProps) => (
     <SearchIcon
       onClick={() => {
         if (!inputProps.loading) {
-          const searchResult = inputProps.data.seeSortSummoners.findIndex(
+          const searchResult = inputProps.data.seeSortTFTSummoners.findIndex(
             (x) =>
-              x.summoner.broadcaster.name === inputProps.value ||
-              x.summoner.broadcaster.broadId === inputProps.value
+              x.tftSummoner.broadcaster.name === inputProps.value ||
+              x.tftSummoner.broadcaster.broadId === inputProps.value
           );
           inputProps.setDragNext(setDragNextNum(searchResult));
           inputProps.setSearchIndex(searchResult + 1);
@@ -135,11 +130,6 @@ const renderInputComponent = (inputProps) => (
 export default class CustomAutosuggest extends React.Component {
   constructor() {
     super();
-    // Autosuggest is a controlled component.
-    // This means that you need to provide an input value
-    // and an onChange handler that updates this value (see below).
-    // Suggestions also need to be provided to the Autosuggest,
-    // and they are initially empty because the Autosuggest is closed.
     this.state = {
       value: "",
       suggestions: [],
@@ -152,15 +142,12 @@ export default class CustomAutosuggest extends React.Component {
     });
   };
 
-  // Autosuggest will call this function every time you need to update suggestions.
-  // You already implemented this logic above, so just use it.
   onSuggestionsFetchRequested = ({ value }) => {
     this.setState({
       suggestions: getSuggestions(value),
     });
   };
 
-  // Autosuggest will call this function every time you need to clear suggestions.
   onSuggestionsClearRequested = () => {
     this.setState({
       suggestions: [],
@@ -180,7 +167,6 @@ export default class CustomAutosuggest extends React.Component {
   render() {
     const { value, suggestions } = this.state;
 
-    // Autosuggest will pass through all these props to the input.
     const inputProps = {
       placeholder: "브로드캐스터 닉네임 또는 ID를 입력해주세요.",
       value,
@@ -191,7 +177,6 @@ export default class CustomAutosuggest extends React.Component {
       setSearchIndex: this.props.setSearchIndex,
     };
 
-    // Finally, render it!
     return (
       <Autosuggest
         suggestions={suggestions}

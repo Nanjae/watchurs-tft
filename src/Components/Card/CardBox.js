@@ -99,7 +99,7 @@ const SumIcon = styled.div`
 
 const SumName = styled.div`
   margin: 0px 8px;
-  /* color: orangered; */
+  /* color: yellow; */
 `;
 
 const TierBox = styled.div`
