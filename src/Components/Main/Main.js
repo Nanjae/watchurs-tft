@@ -81,13 +81,14 @@ const ScrollWhiteOpacity = styled.div`
 `;
 
 export default ({
+  dragNext,
+  setDragNext,
   windowWidth,
   windowHeight,
   siteTheme,
   scrollY,
   handleVisitFalse,
 }) => {
-  const [dragNext, setDragNext] = useState(0);
   const [countMax, setCountMax] = useState(0);
   const { data: sumData, loading: sumLoading } = useQuery(
     SEE_SORT_TFT_SUMMONERS

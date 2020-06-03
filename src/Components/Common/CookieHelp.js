@@ -14,7 +14,7 @@ const Wrapper = styled.div`
   width: 100%;
   height: 100%;
   min-height: 800px;
-  background-color: rgba(0, 0, 0, 0.4);
+  background-color: rgba(0, 0, 0, 0.5);
   font-family: "Gaegu", sans-serif;
   font-weight: 400;
   font-size: 30px;
@@ -194,7 +194,7 @@ const SearchText = styled.div`
   justify-content: flex-start;
 `;
 
-export default ({ handleVisitTrue }) => {
+export default ({ handleVisitTrue, dragNext }) => {
   return (
     <>
       <Wrapper>
@@ -206,15 +206,28 @@ export default ({ handleVisitTrue }) => {
                 style={{ marginRight: 10 }}
               />
               <div>
-                <SearchText style={{ marginTop: 10 }}>
-                  여기에 검색어를 입력해주세요
-                </SearchText>
-                <SearchText style={{ marginTop: 20, marginBottom: 5 }}>
-                  예) 브로드캐스터 닉네임 : 한동숙
-                </SearchText>
-                <SearchText style={{ marginLeft: 50 }}>
-                  브로드캐스터 ID : handongsuk
-                </SearchText>
+                {dragNext === 0 ? (
+                  <>
+                    <SearchText style={{ marginTop: 10 }}>
+                      여기에 검색어를 입력해주세요
+                    </SearchText>
+                    <SearchText style={{ marginTop: 20, marginBottom: 5 }}>
+                      예) 브로드캐스터 닉네임 : 한동숙
+                    </SearchText>
+                    <SearchText style={{ marginLeft: 50 }}>
+                      브로드캐스터 ID : handongsuk
+                    </SearchText>
+                  </>
+                ) : (
+                  <>
+                    <SearchText style={{ marginTop: 10 }}>
+                      원하시는 브로드캐스터를
+                    </SearchText>
+                    <SearchText style={{ marginTop: 5, marginBottom: 5 }}>
+                      클릭하면 좀 더 보여드릴께요 :D
+                    </SearchText>
+                  </>
+                )}
               </div>
             </SearchInner>
           </SearchBox>
