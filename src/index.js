@@ -9,6 +9,7 @@ import App from "./Components/App";
 import { ApolloProvider } from "react-apollo-hooks";
 import Client from "./Apollo/Client";
 import { CookiesProvider } from "react-cookie";
+import "./env";
 
 ReactDOM.render(
   <ApolloProvider client={Client}>
