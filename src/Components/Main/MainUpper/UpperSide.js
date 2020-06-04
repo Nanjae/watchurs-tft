@@ -277,14 +277,13 @@ const BodyRightLineBox = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
-  height: 30px;
+  height: 25px;
   justify-content: space-between;
   align-items: flex-start;
 `;
 
 const BodyRightLineText = styled.div`
   margin-left: 20px;
-
   color: white;
   transition: opacity 0.5s;
 `;
@@ -297,7 +296,7 @@ const BodyRightLine = styled.div`
   transition: opacity 0.5s, width 0.5s, height 0.5s;
 `;
 
-export default ({ siteTheme, dragNext, handleVisitFalse }) => {
+export default ({ siteTheme, dragNext, handleVisitFalse, clickCard }) => {
   const logo_watchurs = siteTheme ? logo_watchurs_light : logo_watchurs_dark;
 
   return (
@@ -362,7 +361,9 @@ export default ({ siteTheme, dragNext, handleVisitFalse }) => {
         </BodyLeftDiv>
         <BodyRightDiv>
           <BodyRightScrollDiv>
-            <BodyRightScrollText>드래그</BodyRightScrollText>
+            <BodyRightScrollText>
+              {clickCard === 0 ? "드래그" : "다음 계정"}
+            </BodyRightScrollText>
             <BodyRightScrollLine>
               <BodyRightScrollArrow animationIndex={4} url={icon_arrow_left} />
               <BodyRightScrollArrow animationIndex={3} url={icon_arrow_left} />
@@ -379,17 +380,39 @@ export default ({ siteTheme, dragNext, handleVisitFalse }) => {
               </BodyRightLineText>
               <BodyRightLine
                 style={
-                  dragNext === 0 ? null : { opacity: 0.2, width: 50, height: 1 }
+                  dragNext === 0 && clickCard === 0
+                    ? null
+                    : { opacity: 0.2, width: 50, height: 1 }
                 }
               />
             </BodyRightLineBox>
             <BodyRightLineBox>
-              <BodyRightLineText style={dragNext > 0 ? null : { opacity: 0.2 }}>
+              <BodyRightLineText
+                style={
+                  dragNext > 0 && clickCard === 0 ? null : { opacity: 0.2 }
+                }
+              >
                 RANK
               </BodyRightLineText>
               <BodyRightLine
                 style={
-                  dragNext > 0 ? null : { opacity: 0.2, width: 50, height: 1 }
+                  dragNext > 0 && clickCard === 0
+                    ? null
+                    : { opacity: 0.2, width: 50, height: 1 }
+                }
+              />
+            </BodyRightLineBox>{" "}
+            <BodyRightLineBox>
+              <BodyRightLineText
+                style={clickCard !== 0 ? null : { opacity: 0.2 }}
+              >
+                DETAIL
+              </BodyRightLineText>
+              <BodyRightLine
+                style={
+                  clickCard !== 0
+                    ? null
+                    : { opacity: 0.2, width: 50, height: 1 }
                 }
               />
             </BodyRightLineBox>

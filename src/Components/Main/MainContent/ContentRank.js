@@ -1,7 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import CardBox from "../../Card/CardBox";
-import { BlockLoading } from "react-loadingg";
+import icon_detail_close from "../../../Assets/Icons/icon_detail_close.png";
 
 const Wrapper = styled.div`
   position: absolute;
@@ -25,6 +25,7 @@ const Inner = styled.div`
 `;
 
 const CardDiv = styled.div`
+  position: relative;
   width: 900px;
   height: ${(props) =>
     props.page === props.countMax ? "fit-content" : "650px"};
@@ -32,21 +33,97 @@ const CardDiv = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  /* background-color: rgba(0, 0, 0, 0.8); */
   box-shadow: 0px 0px 8px 4px ${(props) => props.theme.bgMainColor};
   border-radius: 4px;
   color: white;
+  transition: opacity 0.5s;
 `;
 
-export default ({ page, loading, data, searchIndex, countMax }) => {
+const DetailWarpper = styled.div`
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: ${(props) => (props.clickCard === 0 ? 0 : 50)};
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+const DetailDiv = styled.div`
+  width: ${(props) => (props.clickCard === 0 ? "0%" : "100%")};
+  height: ${(props) => (props.clickCard === 0 ? "0%" : "100%")};
+  background-color: black;
+  opacity: ${(props) => (props.clickCard === 0 ? 0 : 0.8)};
+  transition: opacity 0.5s, width 0.5s, height 0.5s;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+`;
+
+const DetailCloseBox = styled.div`
+  width: 100px;
+  height: 40px;
+  margin-bottom: 20px;
+  border: 4px solid white;
+  border-radius: 4px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+`;
+
+const DetailCloseText = styled.div`
+  margin-right: 5px;
+  color: white;
+`;
+
+const DetailCloseIcon = styled.div`
+  background-image: url(${(props) => props.url});
+  background-size: cover;
+  background-position: center;
+  width: 20px;
+  height: 20px;
+`;
+
+export default ({
+  page,
+  dragNext,
+  loading,
+  data,
+  searchIndex,
+  countMax,
+  clickCard,
+  setClickCard,
+}) => {
+  const [onCard, setOnCard] = useState(0);
+
   // console.log(data);
   // console.log(loading);
+
   return (
     <>
       <Wrapper page={page}>
+        <DetailWarpper clickCard={clickCard}>
+          <DetailDiv clickCard={clickCard}>
+            <DetailCloseBox
+              onClick={() => {
+                setClickCard(0);
+              }}
+            >
+              <DetailCloseText>나가기</DetailCloseText>
+              <DetailCloseIcon url={icon_detail_close} />
+            </DetailCloseBox>
+          </DetailDiv>
+        </DetailWarpper>
         <Inner>
-          <CardDiv page={page} countMax={countMax}>
-            {!loading && data && data.seeSortTFTSummoners ? (
+          <CardDiv
+            style={clickCard !== 0 ? { opacity: 0 } : null}
+            page={page}
+            countMax={countMax}
+          >
+            {!loading &&
+              data &&
+              data.seeSortTFTSummoners &&
               data.seeSortTFTSummoners
                 .slice((page - 1) * 10, page * 10)
                 .map((sum, index) => {
@@ -65,12 +142,15 @@ export default ({ page, loading, data, searchIndex, countMax }) => {
                       tierRank={sum.rank}
                       tierPoint={sum.points}
                       searchIndex={searchIndex}
+                      onCard={onCard}
+                      setOnCard={setOnCard}
+                      clickCard={clickCard}
+                      setClickCard={setClickCard}
+                      page={page}
+                      dragNext={dragNext}
                     />
                   );
-                })
-            ) : (
-              <BlockLoading style={{ position: "relative" }} size={"large"} />
-            )}
+                })}
           </CardDiv>
         </Inner>
       </Wrapper>

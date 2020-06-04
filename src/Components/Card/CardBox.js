@@ -22,8 +22,8 @@ const Wrapper = styled.div`
     border-bottom-right-radius: 4px;
     border-bottom-left-radius: 4px;
   }
-  transition: background-color 0.5s;
-  cursor: pointer;
+  transition: background-color 0.5s, cursor 0.5s;
+  cursor: ${(props) => (props.clickCard === 0 ? "pointer" : "unset")};
 `;
 
 const Inner = styled.div`
@@ -139,6 +139,12 @@ export default ({
   tierRank,
   tierPoint,
   searchIndex,
+  onCard,
+  setOnCard,
+  clickCard,
+  setClickCard,
+  page,
+  dragNext,
 }) => {
   const logo_platform = broadPlatform === "TWITCH" ? logo_twitch : null;
   // const fixedBroadIcon = broadIcon.replace("300x300", "70x70");
@@ -147,7 +153,23 @@ export default ({
 
   return (
     <>
-      <Wrapper searchIndex={searchIndex} rankText={rankText}>
+      <Wrapper
+        onMouseEnter={() => {
+          setOnCard(rankText);
+        }}
+        onMouseLeave={() => {
+          setOnCard(0);
+        }}
+        onClick={() => {
+          if (clickCard === 0 && page === dragNext) {
+            setClickCard(rankText);
+          }
+        }}
+        clickCard={clickCard}
+        searchIndex={searchIndex}
+        rankText={rankText}
+        style={onCard === rankText ? { backgroundColor: "magenta" } : null}
+      >
         <Inner searchIndex={searchIndex} rankText={rankText}>
           <RankBox>
             <RankText>#{rankText}</RankText>

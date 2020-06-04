@@ -26,6 +26,8 @@ export default ({
   data,
   loading,
   searchIndex,
+  clickCard,
+  setClickCard,
 }) => {
   const countMaxArray = new Array(countMax).fill("0");
 
@@ -39,10 +41,13 @@ export default ({
               <ContentRank
                 key={index}
                 page={index + 1}
+                dragNext={dragNext}
                 loading={loading}
                 data={data}
                 searchIndex={searchIndex}
                 countMax={countMax}
+                clickCard={clickCard}
+                setClickCard={setClickCard}
               />
             );
           })}

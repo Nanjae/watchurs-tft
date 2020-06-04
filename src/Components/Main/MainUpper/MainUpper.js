@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import UpperSide from "./UpperSide";
 import { useDrag } from "react-use-gesture";
@@ -46,11 +46,15 @@ export default ({
   loading,
   searchIndex,
 }) => {
+  const [clickCard, setClickCard] = useState(0);
+
   const bind = useDrag(({ down, movement: [mx] }) => {
-    if (!down && mx < -30) {
-      setDragNext(dragNext < countMax ? dragNext + 1 : 0);
-    } else if (!down && mx > 30) {
-      setDragNext(dragNext > 0 ? dragNext - 1 : 0);
+    if (clickCard === 0) {
+      if (!down && mx < -30) {
+        setDragNext(dragNext < countMax ? dragNext + 1 : 0);
+      } else if (!down && mx > 30) {
+        setDragNext(dragNext > 0 ? dragNext - 1 : 0);
+      }
     }
   });
   return (
@@ -60,6 +64,7 @@ export default ({
           dragNext={dragNext}
           siteTheme={siteTheme}
           handleVisitFalse={handleVisitFalse}
+          clickCard={clickCard}
         />
         <MainContent
           countMax={countMax}
@@ -68,6 +73,8 @@ export default ({
           data={data}
           loading={loading ? 1 : 0}
           searchIndex={searchIndex}
+          clickCard={clickCard}
+          setClickCard={setClickCard}
         />
       </Inner>
     </Wrapper>
