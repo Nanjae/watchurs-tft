@@ -24,6 +24,7 @@ const SEE_SORT_TFT_SUMMONERS = gql`
       tftSummoner {
         name
         avatar
+        level
         broadcaster {
           broadId
           name
@@ -35,6 +36,9 @@ const SEE_SORT_TFT_SUMMONERS = gql`
       tierNum
       rank
       points
+      wins
+      losses
+      updatedAt
     }
   }
 `;
