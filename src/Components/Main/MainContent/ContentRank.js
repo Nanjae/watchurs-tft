@@ -53,8 +53,6 @@ export default ({
   setClickCard,
 }) => {
   const [onCard, setOnCard] = useState(0);
-  // console.log(data);
-  // console.log(loading);
 
   return (
     <>
