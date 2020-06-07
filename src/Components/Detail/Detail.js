@@ -341,7 +341,6 @@ export default ({ data, clickCard, setClickCard }) => {
     enter === 1 ? icon_detail_close_focus : icon_detail_close_base;
 
   const summoner = data.seeSortTFTSummoners[clickCard - 1];
-  //   console.log(summoner);
 
   return (
     <>
@@ -385,7 +384,10 @@ export default ({ data, clickCard, setClickCard }) => {
                           ({summoner.tftSummoner.broadcaster.broadId})
                         </BroadIdText>
                       </BroadNameBox>
-                      <BroadSumCount>연결된 소환사 계정 : 2</BroadSumCount>
+                      <BroadSumCount>
+                        연결된 소환사 계정 :{" "}
+                        {summoner.tftSummoner.broadcaster.countSumPerBroad}
+                      </BroadSumCount>
                     </BroadInfoBottomDiv>
                   </BroadInfoBox>
                 </TopDiv>

@@ -14,6 +14,9 @@ const SEE_ALL_BROADCASTERS = gql`
       name
       avatar
       platform
+      tftSummoners {
+        name
+      }
     }
   }
 `;
@@ -30,6 +33,7 @@ const SEE_SORT_TFT_SUMMONERS = gql`
           name
           avatar
           platform
+          countSumPerBroad
         }
       }
       tier
