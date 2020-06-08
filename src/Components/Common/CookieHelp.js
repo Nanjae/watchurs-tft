@@ -112,7 +112,7 @@ const HubInner = styled.div`
   margin-left: 60px;
   display: flex;
   flex-direction: column;
-  margin-top: 50px;
+  margin-top: 120px;
 `;
 
 const HubText = styled.div`

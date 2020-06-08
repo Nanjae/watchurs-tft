@@ -4,6 +4,7 @@ import logo_watchurs_dark from "../../../Assets/Logos/logo_watchurs_dark.png";
 import logo_watchurs_light from "../../../Assets/Logos/logo_watchurs_light.png";
 import icon_arrow_bottom from "../../../Assets/Icons/icon_arrow_bottom.png";
 import icon_arrow_left from "../../../Assets/Icons/icon_arrow_left.png";
+import icon_arrow_right from "../../../Assets/Icons/icon_arrow_right.png";
 
 const HeaderDiv = styled.div`
   position: relative;
@@ -79,10 +80,69 @@ const BodyLeftDiv = styled.div`
   align-items: flex-start;
 `;
 
-const BodyLeftTopDiv = styled.div``;
+const BodyLeftScrollWrapper = styled.div`
+  margin-top: -100px;
+  width: 100%;
+  height: 305px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-start;
+`;
+
+const BodyLeftScrollDiv = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  cursor: pointer;
+`;
+
+const BodyLeftScrollText = styled.div`
+  color: white;
+  padding: 5px;
+  margin-left: 10px;
+  margin-bottom: 5px;
+`;
+
+const BodyLeftScrollLine = styled.div`
+  width: 100px;
+  height: 2px;
+  display: flex;
+  justify-content: flex-start;
+`;
+
+const BodyLeftScrollArrow = styled.div`
+  background-image: url(${(props) => props.url});
+  background-size: cover;
+  background-position: center;
+  width: 20px;
+  height: 20px;
+  margin-left: -5px;
+  transition: animation 0.5s;
+  animation: ${(props) =>
+    props.animationIndex === 1
+      ? css`
+          ${arrowAnimation1} 1.0s infinite running
+        `
+      : props.animationIndex === 2
+      ? css`
+          ${arrowAnimation2} 1.0s infinite running
+        `
+      : props.animationIndex === 3
+      ? css`
+          ${arrowAnimation3} 1.0s infinite running
+        `
+      : css`
+          ${arrowAnimation4} 1.0s infinite running
+        `};
+`;
+
+const BodyLeftTopDiv = styled.div`
+  margin-top: 120px;
+`;
 
 const BodyLeftTopBox = styled.div`
-  margin-bottom: 40px;
   cursor: pointer;
 `;
 
@@ -335,15 +395,44 @@ export default ({
       </HeaderDiv>
       <BodyDiv>
         <BodyLeftDiv>
-          <BodyLeftTopDiv>
-            <BodyLeftTopBox
-              onClick={() => {
-                window.open(`https://watchurs.com`);
-              }}
-            >
-              <BodyLeftTopText>WATCHURS?</BodyLeftTopText>
-            </BodyLeftTopBox>
-          </BodyLeftTopDiv>
+          <BodyLeftScrollWrapper>
+            {dragNext !== 0 && clickCard === 0 && (
+              <BodyLeftScrollDiv
+                onClick={() => {
+                  setDragNext(dragNext > 0 ? dragNext - 1 : 0);
+                }}
+              >
+                <BodyLeftScrollText>PREV</BodyLeftScrollText>
+                <BodyLeftScrollLine>
+                  <BodyLeftScrollArrow
+                    animationIndex={1}
+                    url={icon_arrow_right}
+                  />
+                  <BodyLeftScrollArrow
+                    animationIndex={2}
+                    url={icon_arrow_right}
+                  />
+                  <BodyLeftScrollArrow
+                    animationIndex={3}
+                    url={icon_arrow_right}
+                  />
+                  <BodyLeftScrollArrow
+                    animationIndex={4}
+                    url={icon_arrow_right}
+                  />
+                </BodyLeftScrollLine>
+              </BodyLeftScrollDiv>
+            )}
+            <BodyLeftTopDiv>
+              <BodyLeftTopBox
+                onClick={() => {
+                  window.open(`https://watchurs.com`);
+                }}
+              >
+                <BodyLeftTopText>WATCHURS?</BodyLeftTopText>
+              </BodyLeftTopBox>
+            </BodyLeftTopDiv>
+          </BodyLeftScrollWrapper>
           <BodyLeftBottomDiv>
             <BodyLeftBottomBox>
               <BodyLeftBottomText>스크롤</BodyLeftBottomText>
