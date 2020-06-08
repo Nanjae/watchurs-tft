@@ -262,7 +262,7 @@ const SumUpdate = styled.div`
 
 const TierDiv = styled.div`
   width: 360px;
-  height: 250px;
+  height: 260px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -280,7 +280,7 @@ const TierBg = styled.div`
 
 const TierBox = styled.div`
   width: 360px;
-  height: 250px;
+  height: 260px;
   position: absolute;
   z-index: 10;
   display: flex;
@@ -302,7 +302,7 @@ const RefreshBox = styled.div`
   display: flex;
   justify-content: center;
   align-items: flex-end;
-  height: 40px;
+  height: 30px;
   width: 100%;
   font-size: 14px;
 `;
