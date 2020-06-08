@@ -6,6 +6,7 @@ const AdWrapper = styled.div`
 `;
 
 const AdBlockBox = styled.div`
+  z-index: 0;
   position: absolute;
   display: flex;
   background-color: crimson;
@@ -18,6 +19,7 @@ const AdBlockBox = styled.div`
 const AdBlockText = styled.div``;
 
 const AdBox = styled.div`
+  z-index: 10;
   position: absolute;
   display: flex;
   justify-content: center;
