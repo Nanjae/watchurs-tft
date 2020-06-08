@@ -13,4 +13,5 @@ export default {
   lineSubColor: "#808080",
   bgFooterColor: "#0F0F12",
   fontFooterColor: "#FFFFFF",
+  twitchColor: "#B167FF",
 };

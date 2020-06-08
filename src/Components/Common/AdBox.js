@@ -32,7 +32,7 @@ export default ({ adTitle, adWidth, adHeight, adSrc }) => {
       <AdWrapper style={{ width: adWidth, height: adHeight }}>
         <AdBlockBox style={{ width: adWidth, height: adHeight }}>
           <AdBlockText style={{ marginBottom: 5 }}>
-            애드블록을 꺼주시면
+            AdBlock을 꺼주시면
           </AdBlockText>
           <AdBlockText>감사하겠습니다. (_ _)</AdBlockText>
         </AdBlockBox>
@@ -43,7 +43,7 @@ export default ({ adTitle, adWidth, adHeight, adSrc }) => {
             height={adHeight}
             allowtransparency="true"
             src={adSrc}
-            frameborder="0"
+            frameBorder="0"
             scrolling="no"
           ></iframe>
         </AdBox>
