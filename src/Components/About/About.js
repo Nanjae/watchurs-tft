@@ -47,7 +47,7 @@ const AboutInner = styled.div`
   }
   @media only screen and (min-width: 1200px) {
     width: 1050px;
-    height: 600px;
+    height: 620px;
   }
   @media only screen and (min-width: 1536px) {
   }
@@ -169,6 +169,7 @@ const AboutContentDiv = styled.div`
     align-items: center;
   }
   @media only screen and (min-width: 576px) {
+    margin-top: 40px;
     height: fit-content;
     display: flex;
     flex-direction: column;
@@ -180,6 +181,7 @@ const AboutContentDiv = styled.div`
   @media only screen and (min-width: 992px) {
   }
   @media only screen and (min-width: 1200px) {
+    margin-top: 20px;
     height: 400px;
     display: flex;
     flex-direction: row;
@@ -203,14 +205,14 @@ const AboutContentLeftDiv = styled.div`
     align-items: center;
   }
   @media only screen and (min-width: 576px) {
-    margin-top: 30px;
+    margin-top: 40px;
     width: 100%;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
   }
   @media only screen and (min-width: 768px) {
-    margin-top: 60px;
+    margin-top: 80px;
   }
   @media only screen and (min-width: 992px) {
   }
@@ -246,7 +248,6 @@ const AboutContentLeftFeatureTitle = styled.div`
     margin-top: 0px;
   }
   @media only screen and (min-width: 768px) {
-    margin-bottom: 40px;
   }
   @media only screen and (min-width: 992px) {
   }
