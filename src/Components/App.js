@@ -75,9 +75,7 @@ class App extends Component {
                 <BlockLoading size={"large"} />
               </BlockLoadingDiv>
             ) : (
-              <BlockLoadingDiv style={{ opacity: 0, zIndex: -50 }}>
-                <BlockLoading size={"large"} />
-              </BlockLoadingDiv>
+              <BlockLoadingDiv style={{ opacity: 0, zIndex: -50 }} />
             )}
             <Home
               visit={visit}
