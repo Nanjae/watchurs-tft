@@ -480,7 +480,7 @@ export default ({ data, clickCard, setClickCard }) => {
                           >
                             TOP 1
                           </WinTotalText>
-                          <WinTotalText>{summoner.wins + 0}</WinTotalText>
+                          <WinTotalText>{summoner.wins + 0}승</WinTotalText>
                         </WinTotalBox>
                         <WinRateDiv>
                           <PieChart
@@ -537,7 +537,7 @@ export default ({ data, clickCard, setClickCard }) => {
                             플레이 수
                           </WinTotalText>
                           <WinTotalText>
-                            {summoner.wins + summoner.losses}
+                            {summoner.wins + summoner.losses}전
                           </WinTotalText>
                         </WinTotalBox>
                       </SumWinDiv>
