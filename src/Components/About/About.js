@@ -4,39 +4,100 @@ import styled from "styled-components";
 const AboutWrapper = styled.div`
   position: relative;
   width: 100%;
-  height: 850px;
   background-color: ${(props) => props.theme.bgSubColor};
   display: flex;
   justify-content: center;
   align-items: center;
+  @media only screen and (max-width: 575.99px) {
+    height: fit-content;
+  }
+  @media only screen and (min-width: 576px) {
+    height: fit-content;
+  }
+  @media only screen and (min-width: 768px) {
+  }
+  @media only screen and (min-width: 992px) {
+  }
+  @media only screen and (min-width: 1200px) {
+    height: 850px;
+  }
+  @media only screen and (min-width: 1536px) {
+  }
+  @media only screen and (min-width: 1800px) {
+  }
 `;
 
 const AboutInner = styled.div`
-  width: 1050px;
-  height: 600px;
   margin-top: 50px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  @media only screen and (max-width: 575.99px) {
+    width: 96%;
+    height: fit-content;
+  }
+  @media only screen and (min-width: 576px) {
+    width: 530px;
+    height: fit-content;
+  }
+  @media only screen and (min-width: 768px) {
+    width: 700px;
+  }
+  @media only screen and (min-width: 992px) {
+  }
+  @media only screen and (min-width: 1200px) {
+    width: 1050px;
+    height: 600px;
+  }
+  @media only screen and (min-width: 1536px) {
+  }
+  @media only screen and (min-width: 1800px) {
+  }
 `;
 
 const AboutTitleDiv = styled.div`
   width: 100%;
-  height: 200px;
+  height: 150px;
   display: flex;
   flex-direction: column;
 `;
 
 const AboutTitleBgText = styled.div`
   position: absolute;
-  width: 1050px;
-  height: 300px;
-  font-size: 220px;
   font-weight: 900;
-  letter-spacing: -10px;
-  opacity: 0.05;
+  opacity: 0.1;
   display: flex;
   align-items: center;
+  @media only screen and (max-width: 575.99px) {
+    justify-content: center;
+    letter-spacing: -5px;
+    height: 220px;
+    width: 96%;
+    font-size: 75px;
+  }
+  @media only screen and (min-width: 576px) {
+    letter-spacing: -5px;
+    height: 280px;
+    width: 530px;
+    font-size: 120px;
+  }
+  @media only screen and (min-width: 768px) {
+    letter-spacing: -10px;
+    height: 320px;
+    width: 700px;
+    font-size: 160px;
+  }
+  @media only screen and (min-width: 992px) {
+  }
+  @media only screen and (min-width: 1200px) {
+    height: 300px;
+    width: 1050px;
+    font-size: 220px;
+  }
+  @media only screen and (min-width: 1536px) {
+  }
+  @media only screen and (min-width: 1800px) {
+  }
 `;
 
 const AboutTitleHeaderBox = styled.div`
@@ -47,6 +108,24 @@ const AboutTitleHeaderBox = styled.div`
   margin-top: 30px;
   margin-bottom: 20px;
   font-weight: 700;
+  @media only screen and (max-width: 575.99px) {
+    display: flex;
+    justify-content: center;
+    font-size: 18px;
+  }
+  @media only screen and (min-width: 576px) {
+    font-size: 20px;
+  }
+  @media only screen and (min-width: 768px) {
+  }
+  @media only screen and (min-width: 992px) {
+  }
+  @media only screen and (min-width: 1200px) {
+  }
+  @media only screen and (min-width: 1536px) {
+  }
+  @media only screen and (min-width: 1800px) {
+  }
 `;
 
 const AboutTitleTextBox = styled.div`
@@ -57,51 +136,203 @@ const AboutTitleTextBox = styled.div`
 const AboutTitleText = styled.div`
   width: 100%;
   height: fit-content;
-  font-size: 48px;
   font-weight: 900;
-  margin-bottom: 15px;
+  @media only screen and (max-width: 575.99px) {
+    text-align: center;
+    margin-bottom: 10px;
+    font-size: 22px;
+  }
+  @media only screen and (min-width: 576px) {
+    margin-bottom: 15px;
+    font-size: 36px;
+  }
+  @media only screen and (min-width: 768px) {
+    font-size: 48px;
+  }
+  @media only screen and (min-width: 992px) {
+  }
+  @media only screen and (min-width: 1200px) {
+  }
+  @media only screen and (min-width: 1536px) {
+  }
+  @media only screen and (min-width: 1800px) {
+  }
 `;
 
 const AboutContentDiv = styled.div`
   width: 100%;
-  height: 400px;
-  display: flex;
-  justify-content: space-between;
+  @media only screen and (max-width: 575.99px) {
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+  }
+  @media only screen and (min-width: 576px) {
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+  }
+  @media only screen and (min-width: 768px) {
+  }
+  @media only screen and (min-width: 992px) {
+  }
+  @media only screen and (min-width: 1200px) {
+    height: 400px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+  @media only screen and (min-width: 1536px) {
+  }
+  @media only screen and (min-width: 1800px) {
+  }
 `;
 
 const AboutContentLeftDiv = styled.div`
-  width: 350px;
   height: fit-content;
-  margin-top: 50px;
+  display: flex;
+  @media only screen and (max-width: 575.99px) {
+    margin-top: 30px;
+    width: 100%;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+  }
+  @media only screen and (min-width: 576px) {
+    margin-top: 30px;
+    width: 100%;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+  }
+  @media only screen and (min-width: 768px) {
+    margin-top: 60px;
+  }
+  @media only screen and (min-width: 992px) {
+  }
+  @media only screen and (min-width: 1200px) {
+    margin-top: 50px;
+    width: 350px;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
+  @media only screen and (min-width: 1536px) {
+  }
+  @media only screen and (min-width: 1800px) {
+  }
 `;
 
 const AboutContentLeftFeatureTitle = styled.div`
-  font-size: 24px;
   font-weight: 900;
   color: crimson;
-  margin-bottom: 40px;
+  display: flex;
+  @media only screen and (max-width: 575.99px) {
+    margin-bottom: 30px;
+    font-size: 22px;
+    width: fit-content;
+    justify-content: flex-start;
+    margin-top: 0px;
+  }
+  @media only screen and (min-width: 576px) {
+    margin-bottom: 30px;
+    font-size: 24px;
+    width: fit-content;
+    justify-content: flex-start;
+    margin-top: 0px;
+  }
+  @media only screen and (min-width: 768px) {
+    margin-bottom: 40px;
+  }
+  @media only screen and (min-width: 992px) {
+  }
+  @media only screen and (min-width: 1200px) {
+    width: 100%;
+    justify-content: flex-start;
+    margin-top: 10px;
+  }
+  @media only screen and (min-width: 1536px) {
+  }
+  @media only screen and (min-width: 1800px) {
+  }
 `;
 
 const AboutContentLeftFeatureText = styled.div`
-  margin-bottom: 20px;
+  margin-bottom: 15px;
   font-weight: 500;
+  @media only screen and (max-width: 575.99px) {
+    font-size: 18px;
+  }
+  @media only screen and (min-width: 576px) {
+  }
+  @media only screen and (min-width: 768px) {
+  }
+  @media only screen and (min-width: 992px) {
+  }
+  @media only screen and (min-width: 1200px) {
+  }
+  @media only screen and (min-width: 1536px) {
+  }
+  @media only screen and (min-width: 1800px) {
+  }
 `;
 
 const AbountContentRightDiv = styled.div`
-  width: 600px;
   height: 100%;
-  margin-top: 50px;
+  @media only screen and (max-width: 575.99px) {
+    margin-top: 30px;
+    margin-bottom: 60px;
+    width: 100%;
+  }
+  @media only screen and (min-width: 576px) {
+    margin-top: 30px;
+    margin-bottom: 60px;
+    width: 100%;
+  }
+  @media only screen and (min-width: 768px) {
+  }
+  @media only screen and (min-width: 992px) {
+  }
+  @media only screen and (min-width: 1200px) {
+    width: 600px;
+    margin-top: 50px;
+    margin-bottom: 0px;
+  }
+  @media only screen and (min-width: 1536px) {
+  }
+  @media only screen and (min-width: 1800px) {
+  }
 `;
 
 const AbountContentRightText = styled.div`
   margin-left: 10px;
   margin-right: 10px;
   height: fit-content;
-  line-height: 40px;
   color: gray;
+  @media only screen and (max-width: 575.99px) {
+    font-size: 18px;
+    line-height: 32px;
+  }
+  @media only screen and (min-width: 576px) {
+    line-height: 40px;
+  }
+  @media only screen and (min-width: 768px) {
+  }
+  @media only screen and (min-width: 992px) {
+  }
+  @media only screen and (min-width: 1200px) {
+  }
+  @media only screen and (min-width: 1536px) {
+  }
+  @media only screen and (min-width: 1800px) {
+  }
 `;
 
-export default () => {
+export default ({ windowWidth }) => {
   return (
     <>
       <AboutWrapper>
