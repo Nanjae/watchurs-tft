@@ -184,7 +184,7 @@ const BroadSumCount = styled.div`
 `;
 
 const CenterDiv = styled.div`
-  width: 830px;
+  width: 728px;
   height: 430px;
   display: flex;
   flex-direction: column;
@@ -198,7 +198,7 @@ const SumMainDiv = styled.div`
 `;
 
 const SumMainLeftDiv = styled.div`
-  width: 410px;
+  width: 360px;
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -242,7 +242,7 @@ const SumLevel = styled.div`
 `;
 
 const SumNameBox = styled.div`
-  margin-left: 20px;
+  margin-left: 10px;
   width: 240px;
   display: flex;
   flex-direction: column;
@@ -261,8 +261,8 @@ const SumUpdate = styled.div`
 `;
 
 const TierDiv = styled.div`
-  width: 410px;
-  height: 300px;
+  width: 360px;
+  height: 250px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -273,14 +273,14 @@ const TierBg = styled.div`
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center;
-  width: 410px;
-  height: 200px;
+  width: 360px;
+  height: 230px;
   opacity: 0.6;
 `;
 
 const TierBox = styled.div`
-  width: 410px;
-  height: 300px;
+  width: 360px;
+  height: 250px;
   position: absolute;
   z-index: 10;
   display: flex;
@@ -298,8 +298,17 @@ const RankText = styled.div`
 
 const PointText = styled.div``;
 
+const RefreshBox = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  height: 40px;
+  width: 100%;
+  font-size: 14px;
+`;
+
 const SumMainRightDiv = styled.div`
-  width: 410px;
+  width: 360px;
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -307,7 +316,7 @@ const SumMainRightDiv = styled.div`
 `;
 
 const SumWinDiv = styled.div`
-  height: 200px;
+  height: 150px;
   width: 100%;
   display: flex;
   justify-content: center;
@@ -315,15 +324,7 @@ const SumWinDiv = styled.div`
 `;
 
 const WinRateDiv = styled.div`
-  width: 150px;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`;
-
-const WinTotalDiv = styled.div`
-  width: 220px;
+  width: 160px;
   height: 100%;
   display: flex;
   justify-content: center;
@@ -338,15 +339,15 @@ const WinTotalBox = styled.div`
 `;
 
 const WinTotalText = styled.div`
-  width: 100px;
+  width: 90px;
   text-align: center;
 `;
 
 const BottomAdDiv = styled.div`
   width: 100%;
-  height: 200px;
+  height: 250px;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   margin-top: 20px;
 `;
 
@@ -467,90 +468,85 @@ export default ({ data, clickCard, setClickCard }) => {
                           )}
                         </TierBox>
                       </TierDiv>
+                      <RefreshBox>
+                        * 소환사 정보는 평균 2시간 이내로 자동 업데이트됩니다.
+                      </RefreshBox>
                     </SumMainLeftDiv>
                     <SumMainRightDiv>
                       <SumWinDiv>
-                        <WinTotalDiv>
-                          <WinTotalBox>
-                            <WinTotalText
-                              style={{ color: "yellow", marginBottom: 10 }}
-                            >
-                              TOP 1
-                            </WinTotalText>
-                            <WinTotalText>{summoner.wins + 0}</WinTotalText>
-                          </WinTotalBox>
-                          <WinRateDiv>
-                            <PieChart
-                              animate={true}
-                              animationDuration={500}
-                              animationEasing="ease-out"
-                              center={[50, 50]}
-                              data={[
-                                {
-                                  color: "crimson",
-                                  title: "TOP 1",
-                                  value: summoner.wins,
-                                  key: 0,
-                                },
-                                {
-                                  color: "#6A2135",
-                                  title: "Others",
-                                  value: summoner.losses,
-                                  key: 1,
-                                },
-                              ]}
-                              label={({ dataEntry }) => {
-                                if (dataEntry.key === 0)
-                                  return Math.round(dataEntry.percentage) + "%";
-                                else return null;
-                              }}
-                              labelStyle={{
-                                fontSize: 16,
-                                fontWeight: "bold",
-                                fill: "white",
-                              }}
-                              labelPosition={0}
-                              lengthAngle={360}
-                              lineWidth={30}
-                              onClick={undefined}
-                              onMouseOut={undefined}
-                              onMouseOver={undefined}
-                              paddingAngle={4}
-                              radius={50}
-                              rounded={false}
-                              startAngle={180}
-                              viewBoxSize={[100, 100]}
-                              style={{
-                                height: 150,
-                                width: 150,
-                                margin: "0px 10px",
-                              }}
-                            />
-                          </WinRateDiv>
-                          <WinTotalBox>
-                            <WinTotalText
-                              style={{ color: "crimson", marginBottom: 10 }}
-                            >
-                              총 게임 수
-                            </WinTotalText>
-                            <WinTotalText>
-                              {summoner.wins + summoner.losses}
-                            </WinTotalText>
-                          </WinTotalBox>
-                        </WinTotalDiv>
+                        <WinTotalBox>
+                          <WinTotalText
+                            style={{ color: "yellow", marginBottom: 10 }}
+                          >
+                            TOP 1
+                          </WinTotalText>
+                          <WinTotalText>{summoner.wins + 0}</WinTotalText>
+                        </WinTotalBox>
+                        <WinRateDiv>
+                          <PieChart
+                            animate={true}
+                            animationDuration={500}
+                            animationEasing="ease-out"
+                            center={[50, 50]}
+                            data={[
+                              {
+                                color: "crimson",
+                                title: "TOP 1",
+                                value: summoner.wins,
+                                key: 0,
+                              },
+                              {
+                                color: "#6A2135",
+                                title: "Others",
+                                value: summoner.losses,
+                                key: 1,
+                              },
+                            ]}
+                            label={({ dataEntry }) => {
+                              if (dataEntry.key === 0)
+                                return Math.round(dataEntry.percentage) + "%";
+                              else return null;
+                            }}
+                            labelStyle={{
+                              fontSize: 16,
+                              fontWeight: "bold",
+                              fill: "white",
+                            }}
+                            labelPosition={0}
+                            lengthAngle={360}
+                            lineWidth={30}
+                            onClick={undefined}
+                            onMouseOut={undefined}
+                            onMouseOver={undefined}
+                            paddingAngle={4}
+                            radius={50}
+                            rounded={false}
+                            startAngle={180}
+                            viewBoxSize={[100, 100]}
+                            style={{
+                              height: 150,
+                              width: 150,
+                              margin: "0px 5px",
+                            }}
+                          />
+                        </WinRateDiv>
+                        <WinTotalBox>
+                          <WinTotalText
+                            style={{ color: "crimson", marginBottom: 10 }}
+                          >
+                            플레이 수
+                          </WinTotalText>
+                          <WinTotalText>
+                            {summoner.wins + summoner.losses}
+                          </WinTotalText>
+                        </WinTotalBox>
                       </SumWinDiv>
                       <BottomAdDiv>
                         <AdBox
-                          adTitle={"TFT_200x200_1"}
-                          adWidth={200}
-                          adHeight={200}
-                          adSrc={`https://tab2.clickmon.co.kr/pop/wp_ad_200.php?PopAd=CM_M_1003067%7C%5E%7CCM_A_1065774%7C%5E%7CAdver_M_1046207&rt_ad_id_code=RTA_106390&mon_rf=REFERRER_URL`}
-                        />
-                        <AdBox
-                          adTitle={"TFT_200x200_2"}
-                          adWidth={200}
-                          adHeight={200}
-                          adSrc={`https://tab2.clickmon.co.kr/pop/wp_ad_200.php?PopAd=CM_M_1003067%7C%5E%7CCM_A_1065774%7C%5E%7CAdver_M_1046207&rt_ad_id_code=RTA_106391&mon_rf=REFERRER_URL`}
+                          adTitle={"TFT_300x250"}
+                          adWidth={300}
+                          adHeight={250}
+                          adSrc={`https://tab2.clickmon.co.kr/pop/wp_ad_300.php?PopAd=CM_M_1003067%7C%5E%7CCM_A_1065774%7C%5E%7CAdver_M_1046207&rt_ad_id_code=RTA_106390&mon_rf=REFERRER_URL`}
                         />
                       </BottomAdDiv>
                     </SumMainRightDiv>

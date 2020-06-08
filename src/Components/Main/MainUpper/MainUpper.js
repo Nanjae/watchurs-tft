@@ -62,9 +62,12 @@ export default ({
       <Inner>
         <UpperSide
           dragNext={dragNext}
+          setDragNext={setDragNext}
+          countMax={countMax}
           siteTheme={siteTheme}
           handleVisitFalse={handleVisitFalse}
           clickCard={clickCard}
+          setClickCard={setClickCard}
         />
         <MainContent
           countMax={countMax}

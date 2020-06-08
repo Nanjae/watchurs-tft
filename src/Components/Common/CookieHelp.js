@@ -54,7 +54,7 @@ const LogoText = styled.div``;
 const CloseBox = styled.div`
   position: absolute;
   width: 100%;
-  height: 50px;
+  height: 55px;
   margin-top: 80px;
   display: flex;
   justify-content: center;
@@ -63,9 +63,11 @@ const CloseBox = styled.div`
 const CloseBoxInner = styled.div`
   display: flex;
   cursor: pointer;
-  padding: 5px;
-  border-bottom: 3px solid white;
+  padding: 0px 15px;
+  border: 3px solid white;
+  border-radius: 8px;
   align-items: center;
+  background-color: black;
 `;
 
 const CloseText = styled.div``;
@@ -283,7 +285,7 @@ export default ({ handleVisitTrue, dragNext }) => {
                   url={icon_help_right_bottom}
                   style={{ marginRight: 75 }}
                 />
-                <DragText>왼쪽으로 드래그 해보세요!</DragText>
+                <DragText>클릭 또는 왼쪽으로 드래그 해보세요!</DragText>
               </DragInner>
               <RouteInner>
                 <RouteText>현재 페이지 위치예요</RouteText>

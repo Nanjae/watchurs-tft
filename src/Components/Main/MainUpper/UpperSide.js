@@ -228,6 +228,7 @@ const BodyRightScrollDiv = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
+  cursor: pointer;
 `;
 
 const BodyRightScrollText = styled.div`
@@ -296,7 +297,15 @@ const BodyRightLine = styled.div`
   transition: opacity 0.5s, width 0.5s, height 0.5s;
 `;
 
-export default ({ siteTheme, dragNext, handleVisitFalse, clickCard }) => {
+export default ({
+  siteTheme,
+  dragNext,
+  setDragNext,
+  handleVisitFalse,
+  clickCard,
+  setClickCard,
+  countMax,
+}) => {
   const logo_watchurs = siteTheme ? logo_watchurs_light : logo_watchurs_dark;
 
   return (
@@ -360,9 +369,15 @@ export default ({ siteTheme, dragNext, handleVisitFalse, clickCard }) => {
           </BodyLeftBottomDiv>
         </BodyLeftDiv>
         <BodyRightDiv>
-          <BodyRightScrollDiv>
+          <BodyRightScrollDiv
+            onClick={() => {
+              clickCard === 0
+                ? setDragNext(dragNext < countMax ? dragNext + 1 : 0)
+                : setClickCard(0);
+            }}
+          >
             <BodyRightScrollText>
-              {clickCard === 0 ? "드래그" : "다음 계정"}
+              {clickCard === 0 ? "NEXT" : "BACK"}
             </BodyRightScrollText>
             <BodyRightScrollLine>
               <BodyRightScrollArrow animationIndex={4} url={icon_arrow_left} />
