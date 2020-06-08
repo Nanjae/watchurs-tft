@@ -98,6 +98,8 @@ export default ({
   handleVisitFalse,
 }) => {
   const [countMax, setCountMax] = useState(0);
+  const [clickCard, setClickCard] = useState(0);
+
   const { data: sumData, loading: sumLoading } = useQuery(
     SEE_SORT_TFT_SUMMONERS
   );
@@ -133,6 +135,8 @@ export default ({
         data={sumData}
         loading={sumLoading}
         searchIndex={searchIndex}
+        clickCard={clickCard}
+        setClickCard={setClickCard}
       />
       <SearchBox dragNext={dragNext}>
         <CustomAutosuggest
@@ -140,6 +144,7 @@ export default ({
           loading={sumLoading ? 1 : 0}
           setDragNext={setDragNext}
           setSearchIndex={setSearchIndex}
+          setClickCard={setClickCard}
         />
       </SearchBox>
     </Wrapper>

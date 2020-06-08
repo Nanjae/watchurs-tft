@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import styled from "styled-components";
 import UpperSide from "./UpperSide";
 import { useDrag } from "react-use-gesture";
@@ -45,9 +45,9 @@ export default ({
   data,
   loading,
   searchIndex,
+  clickCard,
+  setClickCard,
 }) => {
-  const [clickCard, setClickCard] = useState(0);
-
   const bind = useDrag(({ down, movement: [mx] }) => {
     if (clickCard === 0) {
       if (!down && mx < -30) {

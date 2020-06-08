@@ -104,6 +104,7 @@ const renderInputComponent = (inputProps) => (
                 x.tftSummoner.broadcaster.name === inputProps.value ||
                 x.tftSummoner.broadcaster.broadId === inputProps.value
             );
+            inputProps.setClickCard(0);
             inputProps.setDragNext(setDragNextNum(searchResult));
             inputProps.setSearchIndex(searchResult + 1);
           }
@@ -118,6 +119,7 @@ const renderInputComponent = (inputProps) => (
               x.tftSummoner.broadcaster.name === inputProps.value ||
               x.tftSummoner.broadcaster.broadId === inputProps.value
           );
+          inputProps.setClickCard(0);
           inputProps.setDragNext(setDragNextNum(searchResult));
           inputProps.setSearchIndex(searchResult + 1);
         }
@@ -175,6 +177,7 @@ export default class CustomAutosuggest extends React.Component {
       loading: this.props.loading,
       setDragNext: this.props.setDragNext,
       setSearchIndex: this.props.setSearchIndex,
+      setClickCard: this.props.setClickCard,
     };
 
     return (

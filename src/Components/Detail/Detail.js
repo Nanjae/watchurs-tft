@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import icon_detail_close_base from "../../Assets/Icons/icon_detail_close_base.png";
 import icon_detail_close_focus from "../../Assets/Icons/icon_detail_close_focus.png";
+import SetEmblem from "../Common/SetEmblem";
+import AdBox from "../Common/AdBox";
 
 const Warpper = styled.div`
   position: absolute;
@@ -66,7 +68,7 @@ const BroadAvatar = styled.div`
   width: 108px;
   height: 108px;
   border: 1px solid white;
-  border-radius: 50%;
+  /* border-radius: 50%; */
   margin-right: 20px;
 `;
 
@@ -179,7 +181,7 @@ const BroadSumCount = styled.div`
 `;
 
 const CenterDiv = styled.div`
-  width: 730px;
+  width: 830px;
   height: 430px;
   display: flex;
   flex-direction: column;
@@ -187,14 +189,13 @@ const CenterDiv = styled.div`
 
 const SumMainDiv = styled.div`
   width: 100%;
-  height: 420px;
+  height: 440px;
   display: flex;
   justify-content: space-between;
-  margin-top: 10px;
 `;
 
 const SumMainLeftDiv = styled.div`
-  width: 360px;
+  width: 410px;
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -211,20 +212,19 @@ const SumInfoDiv = styled.div`
 
 const SumInfoBox = styled.div`
   display: flex;
-  height: 90px;
+  height: 100px;
   width: fit-content;
   align-items: flex-end;
-  margin-bottom: 10px;
-  margin-left: 20px;
 `;
 
 const SumAvatar = styled.div`
   background-image: url(${(props) => props.url});
   background-size: cover;
   background-position: center;
-  width: 88px;
-  height: 88px;
-  border: 1px solid white;
+  width: 98px;
+  height: 98px;
+  border-radius: 50%;
+  border: 1px solid white;  
   display: flex;
   align-items: flex-end;
   justify-content: flex-end;
@@ -232,10 +232,9 @@ const SumAvatar = styled.div`
 
 const SumLevel = styled.div`
   font-size: 16px;
-  background-color: black;
+  background-color: white;
   padding: 2px 4px;
-  border-top: 1px solid white;
-  border-left: 1px solid white;
+  color: black;
 `;
 
 const SumNameBox = styled.div`
@@ -257,7 +256,7 @@ const SumUpdate = styled.div`
 `;
 
 const SumWinDiv = styled.div`
-  height: 320px;
+  height: 340px;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -274,7 +273,7 @@ const WinRateDiv = styled.div`
 `;
 
 const SumMainRightDiv = styled.div`
-  width: 360px;
+  width: 410px;
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -287,18 +286,20 @@ const TierBg = styled.div`
   background-size: contain;
   background-position: center;
   position: absolute;
-  width: 360px;
-  height: 160px;
-  opacity: 0.2;
+  z-index: 0;
+  width: 410px;
+  height: 220px;
+  opacity: 0.6;
 `;
 
 const TierDiv = styled.div`
-  width: 100%;
-  height: 160px;
+  width: 410px;
+  height: 220px;
+  position: absolute;
+  z-index: 10;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom: 10px;
   font-size: 24px;
 `;
 
@@ -311,27 +312,22 @@ const RankText = styled.div`
 
 const PointText = styled.div``;
 
-const CenterAdDiv = styled.div`
-  width: 298px;
-  height: 248px;
-  border: 1px solid white;
+const BottomAdDiv = styled.div`
+  margin-top: 240px;
+  width: 100%;
+  height: 200px;
+  display: flex;
+  justify-content: space-between;
 `;
 
-const BottomDiv = styled.div`
+const CenterAdDiv = styled.div`
   width: 100%;
   height: 90px;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  padding-top: 20px;
-  padding-bottom: 10px;
-`;
-
-const BottomAdDiv = styled.div`
-  width: 726px;
-  height: 88px;
-  border: 1px solid white;
+  padding: 10px 0px;
 `;
 
 export default ({ data, clickCard, setClickCard }) => {
@@ -391,9 +387,14 @@ export default ({ data, clickCard, setClickCard }) => {
                     </BroadInfoBottomDiv>
                   </BroadInfoBox>
                 </TopDiv>
-                <BottomDiv>
-                  <BottomAdDiv />
-                </BottomDiv>
+                <CenterAdDiv>
+                  <AdBox
+                    adTitle={"TFT_728_90"}
+                    adWidth={728}
+                    adHeight={90}
+                    adSrc={`https://tab2.clickmon.co.kr/pop/wp_ad_728.php?PopAd=CM_M_1003067%7C%5E%7CCM_A_1065774%7C%5E%7CAdver_M_1046207&rt_ad_id_code=RTA_106389&mon_rf=REFERRER_URL`}
+                  />
+                </CenterAdDiv>
                 <CenterDiv>
                   <SumMainDiv>
                     <SumMainLeftDiv>
@@ -416,13 +417,30 @@ export default ({ data, clickCard, setClickCard }) => {
                       </SumWinDiv>
                     </SumMainLeftDiv>
                     <SumMainRightDiv>
+                      <TierBg
+                        url={() => {
+                          return SetEmblem(summoner.tierNum);
+                        }}
+                      />
                       <TierDiv>
-                        <TierBg />
                         <TierText>{summoner.tier}</TierText>
                         <RankText>{summoner.rank}</RankText>
                         <PointText>({summoner.points}LP)</PointText>
                       </TierDiv>
-                      <CenterAdDiv />
+                      <BottomAdDiv>
+                        <AdBox
+                          adTitle={"TFT_200x200_1"}
+                          adWidth={200}
+                          adHeight={200}
+                          adSrc={`https://tab2.clickmon.co.kr/pop/wp_ad_200.php?PopAd=CM_M_1003067%7C%5E%7CCM_A_1065774%7C%5E%7CAdver_M_1046207&rt_ad_id_code=RTA_106390&mon_rf=REFERRER_URL`}
+                        />
+                        <AdBox
+                          adTitle={"TFT_200x200_2"}
+                          adWidth={200}
+                          adHeight={200}
+                          adSrc={`https://tab2.clickmon.co.kr/pop/wp_ad_200.php?PopAd=CM_M_1003067%7C%5E%7CCM_A_1065774%7C%5E%7CAdver_M_1046207&rt_ad_id_code=RTA_106391&mon_rf=REFERRER_URL`}
+                        />
+                      </BottomAdDiv>
                     </SumMainRightDiv>
                   </SumMainDiv>
                 </CenterDiv>
