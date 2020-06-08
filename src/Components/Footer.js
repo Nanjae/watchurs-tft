@@ -153,21 +153,46 @@ const BottomDiv = styled.div`
   width: 100%;
   height: 25%;
   display: flex;
-  justify-content: space-between;
-`;
-
-const BottomLeftBox = styled.div`
-  width: 65%;
-  height: 100%;
-  display: flex;
   @media only screen and (max-width: 575.99px) {
+    flex-direction: column;
     justify-content: center;
   }
   @media only screen and (min-width: 576px) {
-    justify-content: flex-start;
+    flex-direction: column;
+    justify-content: center;
+  }
+  @media only screen and (min-width: 768px) {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+  @media only screen and (min-width: 992px) {
+  }
+  @media only screen and (min-width: 1200px) {
+  }
+  @media only screen and (min-width: 1536px) {
+  }
+  @media only screen and (min-width: 1800px) {
+  }
+`;
+
+const BottomLeftBox = styled.div`
+  height: 100%;
+  display: flex;
+  @media only screen and (max-width: 575.99px) {
+    width: 100%;
+    justify-content: center;
+    align-items: flex-end;
+  }
+  @media only screen and (min-width: 576px) {
+    width: 100%;
+    justify-content: center;
     align-items: flex-end;
   }
   @media only screen and (min-width: 768px) {
+    width: 65%;
+    justify-content: flex-start;
+    align-items: flex-end;
   }
   @media only screen and (min-width: 992px) {
   }
@@ -184,6 +209,7 @@ const BottomText = styled.div`
   text-align: center;
   @media only screen and (max-width: 575.99px) {
     font-size: 16px;
+    line-height: 20px;
   }
   @media only screen and (min-width: 576px) {
     font-size: 16px;
@@ -202,17 +228,25 @@ const BottomText = styled.div`
 `;
 
 const BottomRightBox = styled.div`
-  width: 30%;
   height: 100%;
   display: flex;
   @media only screen and (max-width: 575.99px) {
+    margin-top: 15px;
+    width: 100%;
     justify-content: center;
+    align-items: flex-end;
   }
   @media only screen and (min-width: 576px) {
-    justify-content: flex-end;
+    margin-top: 15px;
+    width: 100%;
+    justify-content: center;
     align-items: flex-end;
   }
   @media only screen and (min-width: 768px) {
+    margin-top: 0px;
+    width: 30%;
+    justify-content: flex-end;
+    align-items: flex-end;
   }
   @media only screen and (min-width: 992px) {
   }
