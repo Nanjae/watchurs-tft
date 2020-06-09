@@ -4,17 +4,19 @@ import UpperSide from "./UpperSide";
 import { useDrag } from "react-use-gesture";
 import MainContent from "../MainContent/MainContent";
 import MainContentSm from "../../Small/MainSm/MainContentSm";
+import UpperSideSm from "../../Small/MainSm/UpperSideSm";
 
 const Wrapper = styled.div`
   position: absolute;
   z-index: 100;
   width: 100%;
-  height: 100%;
   display: flex;
   @media only screen and (max-width: 575.99px) {
-    min-height: 600px;
+    height: 640px;
+    min-height: 640px;
   }
   @media only screen and (min-width: 576px) {
+    height: 100%;
     min-height: 800px;
   }
   @media only screen and (min-width: 768px) {
@@ -88,6 +90,15 @@ export default ({
       ) : (
         <>
           <Inner>
+            <UpperSideSm
+              dragNext={dragNext}
+              setDragNext={setDragNext}
+              countMax={countMax}
+              siteTheme={siteTheme}
+              handleVisitFalse={handleVisitFalse}
+              clickCard={clickCard}
+              setClickCard={setClickCard}
+            />
             <MainContentSm
               countMax={countMax}
               windowWidth={windowWidth}

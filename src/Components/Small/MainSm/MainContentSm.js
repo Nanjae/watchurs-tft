@@ -2,12 +2,13 @@ import React from "react";
 import styled from "styled-components";
 // import ContentRank from "./ContentRank";
 import IntroSm from "../IntroSm";
+import ContentRankSm from "./ContentRankSm";
 
 const Wrapper = styled.div`
   position: absolute;
-  height: 100%;
+  height: 640px;
   width: 100%;
-  min-height: 800px;
+  min-height: 640px;
   overflow-x: hidden;
 `;
 
@@ -36,9 +37,9 @@ export default ({
       <Wrapper>
         <Inner dragNext={dragNext}>
           <IntroSm windowWidth={windowWidth} />
-          {/* {countMaxArray.map((_, index) => {
+          {countMaxArray.map((_, index) => {
             return (
-              <ContentRank
+              <ContentRankSm
                 key={index}
                 page={index + 1}
                 dragNext={dragNext}
@@ -50,7 +51,7 @@ export default ({
                 setClickCard={setClickCard}
               />
             );
-          })} */}
+          })}
         </Inner>
       </Wrapper>
     </>
