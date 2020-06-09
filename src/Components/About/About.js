@@ -4,14 +4,16 @@ import styled from "styled-components";
 const AboutWrapper = styled.div`
   position: relative;
   width: 100%;
-  background-color: ${(props) => props.theme.bgSubColor};
   display: flex;
   justify-content: center;
   align-items: center;
   @media only screen and (max-width: 575.99px) {
+    color: white;
+    background-color: ${(props) => props.theme.bgMainColor};
     height: fit-content;
   }
   @media only screen and (min-width: 576px) {
+    background-color: ${(props) => props.theme.bgSubColor};
     height: fit-content;
   }
   @media only screen and (min-width: 768px) {
@@ -103,17 +105,18 @@ const AboutTitleBgText = styled.div`
 const AboutTitleHeaderBox = styled.div`
   width: 100%;
   height: fit-content;
-  color: crimson;
-  opacity: 0.5;
   margin-top: 30px;
   margin-bottom: 20px;
   font-weight: 700;
   @media only screen and (max-width: 575.99px) {
+    opacity: 0.3;
     display: flex;
     justify-content: center;
     font-size: 18px;
   }
   @media only screen and (min-width: 576px) {
+    color: crimson;
+    opacity: 0.5;
     font-size: 20px;
   }
   @media only screen and (min-width: 768px) {
@@ -313,12 +316,13 @@ const AbountContentRightText = styled.div`
   margin-left: 10px;
   margin-right: 10px;
   height: fit-content;
-  color: gray;
   @media only screen and (max-width: 575.99px) {
+    opacity: 0.6;
     font-size: 18px;
     line-height: 32px;
   }
   @media only screen and (min-width: 576px) {
+    color: gray;
     line-height: 40px;
   }
   @media only screen and (min-width: 768px) {
