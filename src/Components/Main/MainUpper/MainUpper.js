@@ -3,17 +3,19 @@ import styled from "styled-components";
 import UpperSide from "./UpperSide";
 import { useDrag } from "react-use-gesture";
 import MainContent from "../MainContent/MainContent";
+import MainContentSm from "../../Small/MainSm/MainContentSm";
 
 const Wrapper = styled.div`
   position: absolute;
   z-index: 100;
   width: 100%;
   height: 100%;
-  min-height: 800px;
   display: flex;
   @media only screen and (max-width: 575.99px) {
+    min-height: 600px;
   }
   @media only screen and (min-width: 576px) {
+    min-height: 800px;
   }
   @media only screen and (min-width: 768px) {
   }
@@ -59,27 +61,46 @@ export default ({
   });
   return (
     <Wrapper {...bind()}>
-      <Inner>
-        <UpperSide
-          dragNext={dragNext}
-          setDragNext={setDragNext}
-          countMax={countMax}
-          siteTheme={siteTheme}
-          handleVisitFalse={handleVisitFalse}
-          clickCard={clickCard}
-          setClickCard={setClickCard}
-        />
-        <MainContent
-          countMax={countMax}
-          windowWidth={windowWidth}
-          dragNext={dragNext}
-          data={data}
-          loading={loading ? 1 : 0}
-          searchIndex={searchIndex}
-          clickCard={clickCard}
-          setClickCard={setClickCard}
-        />
-      </Inner>
+      {windowWidth >= 1200 ? (
+        <>
+          <Inner>
+            <UpperSide
+              dragNext={dragNext}
+              setDragNext={setDragNext}
+              countMax={countMax}
+              siteTheme={siteTheme}
+              handleVisitFalse={handleVisitFalse}
+              clickCard={clickCard}
+              setClickCard={setClickCard}
+            />
+            <MainContent
+              countMax={countMax}
+              windowWidth={windowWidth}
+              dragNext={dragNext}
+              data={data}
+              loading={loading ? 1 : 0}
+              searchIndex={searchIndex}
+              clickCard={clickCard}
+              setClickCard={setClickCard}
+            />
+          </Inner>
+        </>
+      ) : (
+        <>
+          <Inner>
+            <MainContentSm
+              countMax={countMax}
+              windowWidth={windowWidth}
+              dragNext={dragNext}
+              data={data}
+              loading={loading ? 1 : 0}
+              searchIndex={searchIndex}
+              clickCard={clickCard}
+              setClickCard={setClickCard}
+            ></MainContentSm>
+          </Inner>
+        </>
+      )}
     </Wrapper>
   );
 };

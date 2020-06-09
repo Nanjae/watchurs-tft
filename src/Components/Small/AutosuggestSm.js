@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import Autosuggest from "react-autosuggest";
 import icon_search from "../../Assets/Icons/icon_search.png";
-import { getBroadList } from "./BroadList";
+import { getBroadList } from "../Common/BroadList";
 
 const InputDiv = styled.div`
   width: 100%;
@@ -15,11 +15,11 @@ const InputDiv = styled.div`
 const InputText = styled.input`
   width: 500px;
   height: 30px;
-  padding: 10px;
+  padding: 5px;
   border: 0px;
   color: white;
   text-align: center;
-  font-size: 20px;
+  font-size: 18px;
 `;
 
 const SearchIcon = styled.div`
@@ -41,13 +41,14 @@ const SuggestionDiv = styled.div`
   margin-top: 3px;
   border-radius: 6px;
   opacity: 0.8;
+  font-size: 14px;
 `;
 
 const SuggestionBox = styled.div`
+  width: 100%;
   display: flex;
   align-items: center;
-  padding: 10px;
-  width: 580px;
+  padding: 4px 8px;
   color: black;
 `;
 
@@ -55,8 +56,8 @@ const SuggestionAvatar = styled.div`
   background-image: url(${(props) => props.url});
   background-size: cover;
   background-position: center;
-  width: 30px;
-  height: 30px;
+  width: 24px;
+  height: 24px;
   margin-right: 5px;
   border-radius: 50%;
 `;
@@ -177,8 +178,8 @@ export default class CustomAutosuggest extends React.Component {
     const inputProps = {
       placeholder:
         this.props.countMax === 0
-          ? "등록된 브로드캐스터 데이터 로딩 중..."
-          : "브로드캐스터 닉네임 또는 ID를 입력해주세요.",
+          ? "등록된 데이터 로딩 중..."
+          : "브로드캐스터 닉네임 또는 ID 입력",
       value,
       onChange: this.props.countMax === 0 ? () => {} : this.onChange,
       data: this.props.data,

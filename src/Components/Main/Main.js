@@ -3,9 +3,11 @@ import styled from "styled-components";
 import MainUnder from "./MainUnder/MainUnder";
 import MainUpper from "./MainUpper/MainUpper";
 import CustomAutosuggest from "../Common/Autosuggest";
+import CustomAutosuggestSm from "../Small/AutosuggestSm";
 import { gql } from "apollo-boost";
 import { useQuery } from "react-apollo-hooks";
 import { setBroadList, getBroadList } from "../Common/BroadList";
+import HeaderSm from "../Small/HeaderSm";
 
 const SEE_ALL_BROADCASTERS = gql`
   query seeAllBroadcasters {
@@ -50,11 +52,12 @@ const SEE_SORT_TFT_SUMMONERS = gql`
 const Wrapper = styled.div`
   width: 100%;
   display: flex;
-  min-height: 800px;
   justify-content: center;
   @media only screen and (max-width: 575.99px) {
+    min-height: 600px;
   }
   @media only screen and (min-width: 576px) {
+    min-height: 800px;
   }
   @media only screen and (min-width: 768px) {
   }
@@ -71,11 +74,28 @@ const Wrapper = styled.div`
 const SearchBox = styled.div`
   position: absolute;
   z-index: 200;
-  margin-top: ${(props) => (props.dragNext > 0 ? 20 : 600)}px;
   margin-bottom: 30px;
   height: 50px;
   width: 600px;
   transition: margin-top 0.3s;
+  @media only screen and (max-width: 575.99px) {
+    margin-top: ${(props) => (props.dragNext > 0 ? 60 : 400)}px;
+    width: 90%;
+  }
+  @media only screen and (min-width: 576px) {
+    margin-top: ${(props) => (props.dragNext > 0 ? 20 : 600)}px;
+    width: 600px;
+  }
+  @media only screen and (min-width: 768px) {
+  }
+  @media only screen and (min-width: 992px) {
+  }
+  @media only screen and (min-width: 1200px) {
+  }
+  @media only screen and (min-width: 1536px) {
+  }
+  @media only screen and (min-width: 1800px) {
+  }
 `;
 
 const ScrollWhiteOpacity = styled.div`
@@ -83,6 +103,7 @@ const ScrollWhiteOpacity = styled.div`
   z-index: ${(props) => (props.scrollY >= 650 ? 400 : 0)};
   width: 100%;
   height: 100%;
+  min-height: 800px;
   background-color: white;
   opacity: ${(props) => (props.scrollY >= 650 ? 1 : 0)};
   transition: opacity 0.8s, z-index 0.3s;
@@ -124,31 +145,63 @@ export default ({
 
   return (
     <Wrapper style={{ height: windowHeight }}>
-      <ScrollWhiteOpacity scrollY={scrollY} />
-      <MainUnder />
-      <MainUpper
-        countMax={countMax}
-        dragNext={dragNext}
-        setDragNext={setDragNext}
-        siteTheme={siteTheme}
-        handleVisitFalse={handleVisitFalse}
-        windowWidth={windowWidth}
-        data={sumData}
-        loading={sumLoading}
-        searchIndex={searchIndex}
-        clickCard={clickCard}
-        setClickCard={setClickCard}
-      />
-      <SearchBox dragNext={dragNext}>
-        <CustomAutosuggest
-          countMax={countMax}
-          data={sumData}
-          loading={sumLoading ? 1 : 0}
-          setDragNext={setDragNext}
-          setSearchIndex={setSearchIndex}
-          setClickCard={setClickCard}
-        />
-      </SearchBox>
+      {windowWidth >= 1200 ? (
+        <>
+          <ScrollWhiteOpacity scrollY={scrollY} />
+          <MainUnder />
+          <MainUpper
+            countMax={countMax}
+            dragNext={dragNext}
+            setDragNext={setDragNext}
+            siteTheme={siteTheme}
+            handleVisitFalse={handleVisitFalse}
+            windowWidth={windowWidth}
+            data={sumData}
+            loading={sumLoading}
+            searchIndex={searchIndex}
+            clickCard={clickCard}
+            setClickCard={setClickCard}
+          />
+          <SearchBox dragNext={dragNext}>
+            <CustomAutosuggest
+              countMax={countMax}
+              data={sumData}
+              loading={sumLoading ? 1 : 0}
+              setDragNext={setDragNext}
+              setSearchIndex={setSearchIndex}
+              setClickCard={setClickCard}
+            />
+          </SearchBox>
+        </>
+      ) : (
+        <>
+          <HeaderSm />
+          <MainUnder />
+          <MainUpper
+            countMax={countMax}
+            dragNext={dragNext}
+            setDragNext={setDragNext}
+            siteTheme={siteTheme}
+            handleVisitFalse={handleVisitFalse}
+            windowWidth={windowWidth}
+            data={sumData}
+            loading={sumLoading}
+            searchIndex={searchIndex}
+            clickCard={clickCard}
+            setClickCard={setClickCard}
+          />
+          <SearchBox dragNext={dragNext}>
+            <CustomAutosuggestSm
+              countMax={countMax}
+              data={sumData}
+              loading={sumLoading ? 1 : 0}
+              setDragNext={setDragNext}
+              setSearchIndex={setSearchIndex}
+              setClickCard={setClickCard}
+            />
+          </SearchBox>
+        </>
+      )}
     </Wrapper>
   );
 };
