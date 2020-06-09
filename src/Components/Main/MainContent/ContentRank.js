@@ -67,11 +67,13 @@ export default ({
       >
         {!loading && data && data.seeSortTFTSummoners && (
           <>
-            <Detail
-              data={data}
-              clickCard={clickCard}
-              setClickCard={setClickCard}
-            />
+            {dragNext === page && (
+              <Detail
+                data={data}
+                clickCard={clickCard}
+                setClickCard={setClickCard}
+              />
+            )}
             <Inner>
               <CardDiv
                 style={clickCard !== 0 ? { opacity: 0 } : null}
