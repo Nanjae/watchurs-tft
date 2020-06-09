@@ -74,15 +74,18 @@ const Wrapper = styled.div`
 const SearchBox = styled.div`
   position: absolute;
   z-index: 200;
-  margin-bottom: 30px;
-  height: 50px;
   width: 600px;
   transition: margin-top 0.3s;
   @media only screen and (max-width: 575.99px) {
+    height: 40px;
+    margin-bottom: 0px;
     margin-top: ${(props) => (props.dragNext > 0 ? 60 : 400)}px;
     width: 90%;
+    max-width: 400px;
   }
   @media only screen and (min-width: 576px) {
+    height: 50px;
+    margin-bottom: 30px;
     margin-top: ${(props) => (props.dragNext > 0 ? 20 : 600)}px;
     width: 600px;
   }
@@ -144,9 +147,9 @@ export default ({
   }
 
   return (
-    <Wrapper style={{ height: windowHeight }}>
+    <>
       {windowWidth >= 1200 ? (
-        <>
+        <Wrapper style={{ height: windowHeight }}>
           <ScrollWhiteOpacity scrollY={scrollY} />
           <MainUnder />
           <MainUpper
@@ -172,9 +175,9 @@ export default ({
               setClickCard={setClickCard}
             />
           </SearchBox>
-        </>
+        </Wrapper>
       ) : (
-        <>
+        <Wrapper style={{ height: 640 }}>
           <HeaderSm />
           <MainUnder />
           <MainUpper
@@ -200,8 +203,8 @@ export default ({
               setClickCard={setClickCard}
             />
           </SearchBox>
-        </>
+        </Wrapper>
       )}
-    </Wrapper>
+    </>
   );
 };
