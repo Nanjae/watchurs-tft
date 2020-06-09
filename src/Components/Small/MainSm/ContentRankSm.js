@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import CardBox from "../../Card/CardBox";
-import Detail from "../../Detail/Detail";
+// import CardBox from "../../Card/CardBox";
+// import Detail from "../../Detail/Detail";
 import CardBoxSm from "../CardSm/CardBoxSm";
 import DetailSm from "../DetailSm/DetailSm";
 

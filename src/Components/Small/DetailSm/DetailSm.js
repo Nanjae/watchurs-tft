@@ -162,16 +162,16 @@ const BroadIdText = styled.div`
   font-size: 16px;
 `;
 
-const BroadSumCount = styled.div`
-  border: 1px solid white;
-  width: fit-content;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 2px 4px;
-  border-radius: 4px;
-  font-size: 12px;
-`;
+// const BroadSumCount = styled.div`
+//   border: 1px solid white;
+//   width: fit-content;
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+//   padding: 2px 4px;
+//   border-radius: 4px;
+//   font-size: 12px;
+// `;
 
 const CenterDiv = styled.div`
   width: 100%;
@@ -180,12 +180,12 @@ const CenterDiv = styled.div`
   flex-direction: column;
 `;
 
-const SumMainDiv = styled.div`
-  width: 100%;
-  height: 420px;
-  display: flex;
-  justify-content: space-between;
-`;
+// const SumMainDiv = styled.div`
+//   width: 100%;
+//   height: 420px;
+//   display: flex;
+//   justify-content: space-between;
+// `;
 
 const SumMainLeftDiv = styled.div`
   width: 100%;

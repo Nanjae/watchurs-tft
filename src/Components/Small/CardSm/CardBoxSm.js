@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import logo_twitch from "../../../Assets/Twitch/logo_twitch.png";
-import SetEmblem from "../../Common/SetEmblem";
+// import SetEmblem from "../../Common/SetEmblem";
 
 const Wrapper = styled.div`
   width: 100%;
@@ -148,7 +148,7 @@ export default ({
   const logo_platform = broadPlatform === "TWITCH" ? logo_twitch : null;
   // const fixedBroadIcon = broadIcon.replace("300x300", "70x70");
 
-  const tierIcon = SetEmblem(tierNum);
+  // const tierIcon = SetEmblem(tierNum);
 
   return (
     <>
