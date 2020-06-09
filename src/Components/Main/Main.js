@@ -73,10 +73,10 @@ const Wrapper = styled.div`
 
 const SearchBox = styled.div`
   position: absolute;
-  z-index: 200;
   width: 600px;
   transition: margin-top 0.3s;
   @media only screen and (max-width: 575.99px) {
+    z-index: ${(props) => (props.clickCard === 0 ? 100 : 0)};
     height: 40px;
     margin-bottom: 0px;
     margin-top: ${(props) => (props.dragNext > 0 ? 60 : 400)}px;
@@ -84,6 +84,7 @@ const SearchBox = styled.div`
     max-width: 400px;
   }
   @media only screen and (min-width: 576px) {
+    z-index: 200;
     height: 50px;
     margin-bottom: 30px;
     margin-top: ${(props) => (props.dragNext > 0 ? 20 : 600)}px;
@@ -178,7 +179,7 @@ export default ({
         </Wrapper>
       ) : (
         <Wrapper style={{ height: 640 }}>
-          <HeaderSm />
+          <HeaderSm clickCard={clickCard} />
           <MainUnder />
           <MainUpper
             countMax={countMax}
@@ -193,7 +194,7 @@ export default ({
             clickCard={clickCard}
             setClickCard={setClickCard}
           />
-          <SearchBox dragNext={dragNext}>
+          <SearchBox clickCard={clickCard} dragNext={dragNext}>
             <CustomAutosuggestSm
               countMax={countMax}
               data={sumData}

@@ -9,6 +9,7 @@ import AdBox from "../../Common/AdBox";
 
 const Wrapper = styled.div`
   position: absolute;
+  z-index: 300;
   width: 100%;
   height: 640px;
   min-height: 640px;
@@ -30,29 +31,22 @@ const Inner = styled.div`
   align-items: center;
 `;
 
-const CloseBg = styled.div`
-  z-index: 0;
-  position: absolute;
-  height: 100%;
-  width: 100%;
-`;
-
 const ContentInner = styled.div`
   position: relative;
-  z-index: 10;
+  z-index: 200;
   width: 100%;
-  padding-top: 110px;
-  height: 530px;
+  height: 640px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: rgba(0, 0, 0, 1);
 `;
 
 const TopDiv = styled.div`
   width: 100%;
-  height: 80px;
+  height: 90px;
+  padding-top: 20px;
   display: flex;
   justify-content: flex-start;
   align-items: flex-end;
@@ -62,16 +56,16 @@ const BroadAvatar = styled.div`
   background-image: url(${(props) => props.url});
   background-size: cover;
   background-position: center;
-  width: 78px;
-  height: 78px;
+  width: 88px;
+  height: 88px;
   border: 1px solid white;
   /* border-radius: 50%; */
-  margin: 0px 8px;
+  margin: 0px 10px;
 `;
 
 const BroadInfoBox = styled.div`
-  height: 70px;
-  width: ${(props) => props.windowWidth - 104}px;
+  height: 82px;
+  width: ${(props) => props.windowWidth - 118}px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -181,7 +175,7 @@ const BroadSumCount = styled.div`
 
 const CenterDiv = styled.div`
   width: 100%;
-  height: 430px;
+  height: 450px;
   display: flex;
   flex-direction: column;
 `;
@@ -211,7 +205,7 @@ const SumInfoDiv = styled.div`
 
 const SumInfoBox = styled.div`
   display: flex;
-  height: 60px;
+  height: 70px;
   width: fit-content;
   align-items: flex-end;
 `;
@@ -220,8 +214,8 @@ const SumAvatar = styled.div`
   background-image: url(${(props) => props.url});
   background-size: cover;
   background-position: center;
-  width: 58px;
-  height: 58px;
+  width: 68px;
+  height: 68px;
   border-radius: 50%;
   border: 1px solid white;
   display: flex;
@@ -238,7 +232,7 @@ const SumLevel = styled.div`
 
 const SumNameBox = styled.div`
   margin-left: 10px;
-  /* width: 240px; */
+  width: 240px;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
@@ -250,14 +244,17 @@ const SumName = styled.div`
 `;
 
 const SumUpdate = styled.div`
+  width: 100%;
   font-size: 12px;
   margin: 4px 0px;
   color: darkgray;
+  display: flex;
+  justify-content: flex-end;
 `;
 
 const TierDiv = styled.div`
   width: 320px;
-  height: 100px;
+  height: 120px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -269,13 +266,14 @@ const TierBg = styled.div`
   background-size: contain;
   background-position: center;
   width: 100%;
-  height: 100px;
+  height: 110px;
   opacity: 0.6;
+  margin: 5px 0px;
 `;
 
 const TierBox = styled.div`
   width: 100%;
-  height: 100px;
+  height: 120px;
   position: absolute;
   z-index: 10;
   display: flex;
@@ -297,7 +295,7 @@ const RefreshBox = styled.div`
   display: flex;
   justify-content: center;
   align-items: flex-end;
-  height: 16px;
+  height: 20px;
   width: 100%;
   font-size: 11px;
 `;
@@ -310,12 +308,13 @@ const SumMainRightDiv = styled.div`
 `;
 
 const SumWinDiv = styled.div`
-  height: 88px;
+  height: 90px;
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   font-size: 14px;
+  margin: 5px 0px;
 `;
 
 const WinRateDiv = styled.div`
@@ -343,7 +342,7 @@ const BottomAdDiv = styled.div`
   height: 100px;
   display: flex;
   justify-content: center;
-  padding: 9px 0px;
+  padding: 15px 0px;
 `;
 
 const CenterAdDiv = styled.div`
@@ -353,7 +352,7 @@ const CenterAdDiv = styled.div`
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  padding: 8px 0px;
+  padding: 20px 0px;
 `;
 
 export default ({ data, clickCard, setClickCard, windowWidth }) => {
@@ -379,11 +378,6 @@ export default ({ data, clickCard, setClickCard, windowWidth }) => {
   return (
     <>
       <Wrapper clickCard={clickCard}>
-        <CloseBg
-          onClick={() => {
-            setClickCard(0);
-          }}
-        />
         <Inner clickCard={clickCard}>
           <ContentInner>
             {clickCard !== 0 && (
