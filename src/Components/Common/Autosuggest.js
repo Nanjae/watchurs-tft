@@ -98,7 +98,25 @@ const renderInputComponent = (inputProps) => (
       {...inputProps}
       onKeyPress={(event) => {
         if (!inputProps.loading) {
-          if (event.key === "Enter") {
+          if (inputProps.countMax !== 0) {
+            if (event.key === "Enter") {
+              const searchResult = inputProps.data.seeSortTFTSummoners.findIndex(
+                (x) =>
+                  x.tftSummoner.broadcaster.name === inputProps.value ||
+                  x.tftSummoner.broadcaster.broadId === inputProps.value
+              );
+              inputProps.setClickCard(0);
+              inputProps.setDragNext(setDragNextNum(searchResult));
+              inputProps.setSearchIndex(searchResult + 1);
+            }
+          }
+        }
+      }}
+    />
+    <SearchIcon
+      onClick={() => {
+        if (!inputProps.loading) {
+          if (inputProps.countMax !== 0) {
             const searchResult = inputProps.data.seeSortTFTSummoners.findIndex(
               (x) =>
                 x.tftSummoner.broadcaster.name === inputProps.value ||
@@ -108,20 +126,6 @@ const renderInputComponent = (inputProps) => (
             inputProps.setDragNext(setDragNextNum(searchResult));
             inputProps.setSearchIndex(searchResult + 1);
           }
-        }
-      }}
-    />
-    <SearchIcon
-      onClick={() => {
-        if (!inputProps.loading) {
-          const searchResult = inputProps.data.seeSortTFTSummoners.findIndex(
-            (x) =>
-              x.tftSummoner.broadcaster.name === inputProps.value ||
-              x.tftSummoner.broadcaster.broadId === inputProps.value
-          );
-          inputProps.setClickCard(0);
-          inputProps.setDragNext(setDragNextNum(searchResult));
-          inputProps.setSearchIndex(searchResult + 1);
         }
       }}
       url={icon_search}
@@ -170,14 +174,18 @@ export default class CustomAutosuggest extends React.Component {
     const { value, suggestions } = this.state;
 
     const inputProps = {
-      placeholder: "브로드캐스터 닉네임 또는 ID를 입력해주세요.",
+      placeholder:
+        this.props.countMax === 0
+          ? "와쳐스 브로드캐스터 데이터 로딩 중..."
+          : "브로드캐스터 닉네임 또는 ID를 입력해주세요.",
       value,
-      onChange: this.onChange,
+      onChange: this.props.countMax === 0 ? () => {} : this.onChange,
       data: this.props.data,
       loading: this.props.loading,
       setDragNext: this.props.setDragNext,
       setSearchIndex: this.props.setSearchIndex,
       setClickCard: this.props.setClickCard,
+      countMax: this.props.countMax,
     };
 
     return (

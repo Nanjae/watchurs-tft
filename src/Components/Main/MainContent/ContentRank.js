@@ -67,7 +67,7 @@ export default ({
       >
         {!loading && data && data.seeSortTFTSummoners && (
           <>
-            {dragNext === page && (
+            {dragNext === page && clickCard !== 0 && (
               <Detail
                 data={data}
                 clickCard={clickCard}

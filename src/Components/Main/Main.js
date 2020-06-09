@@ -140,6 +140,7 @@ export default ({
       />
       <SearchBox dragNext={dragNext}>
         <CustomAutosuggest
+          countMax={countMax}
           data={sumData}
           loading={sumLoading ? 1 : 0}
           setDragNext={setDragNext}

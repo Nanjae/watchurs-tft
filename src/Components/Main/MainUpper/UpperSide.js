@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import styled, { keyframes, css } from "styled-components";
 import logo_watchurs_dark from "../../../Assets/Logos/logo_watchurs_dark.png";
 import logo_watchurs_light from "../../../Assets/Logos/logo_watchurs_light.png";
 import icon_arrow_bottom from "../../../Assets/Icons/icon_arrow_bottom.png";
 import icon_arrow_left from "../../../Assets/Icons/icon_arrow_left.png";
 import icon_arrow_right from "../../../Assets/Icons/icon_arrow_right.png";
+import MovePopMenu from "../../Common/MovePopMenu";
 
 const HeaderDiv = styled.div`
   position: relative;
@@ -59,6 +60,7 @@ const HeaderRightText = styled.div`
   align-items: center;
   padding: 5px;
   cursor: pointer;
+  transition: opacity 0.3s;
 `;
 
 const BodyDiv = styled.div`
@@ -121,21 +123,23 @@ const BodyLeftScrollArrow = styled.div`
   margin-left: -5px;
   transition: animation 0.5s;
   animation: ${(props) =>
-    props.animationIndex === 1
-      ? css`
-          ${arrowAnimation1} 1.0s infinite running
-        `
-      : props.animationIndex === 2
-      ? css`
-          ${arrowAnimation2} 1.0s infinite running
-        `
-      : props.animationIndex === 3
-      ? css`
-          ${arrowAnimation3} 1.0s infinite running
-        `
-      : css`
-          ${arrowAnimation4} 1.0s infinite running
-        `};
+    props.countMax !== 0
+      ? props.animationIndex === 1
+        ? css`
+            ${arrowAnimation1} 1.0s infinite running
+          `
+        : props.animationIndex === 2
+        ? css`
+            ${arrowAnimation2} 1.0s infinite running
+          `
+        : props.animationIndex === 3
+        ? css`
+            ${arrowAnimation3} 1.0s infinite running
+          `
+        : css`
+            ${arrowAnimation4} 1.0s infinite running
+          `
+      : null};
 `;
 
 const BodyLeftTopDiv = styled.div`
@@ -291,21 +295,22 @@ const BodyRightScrollDiv = styled.div`
   cursor: pointer;
 `;
 
-const BodyRightScrollText = styled.div`
+const BodyRightArrowText = styled.div`
   color: white;
   padding: 5px;
   margin-left: 20px;
   margin-bottom: 5px;
+  transition: opacity 0.3s;
 `;
 
-const BodyRightScrollLine = styled.div`
+const BodyRightArrowBox = styled.div`
   width: 100px;
   height: 2px;
   display: flex;
   justify-content: flex-end;
 `;
 
-const BodyRightScrollArrow = styled.div`
+const BodyRightArrowIcon = styled.div`
   background-image: url(${(props) => props.url});
   background-size: cover;
   background-position: center;
@@ -313,22 +318,25 @@ const BodyRightScrollArrow = styled.div`
   height: 20px;
   margin-left: -5px;
   transition: animation 0.5s;
+  opacity: 0.3;
   animation: ${(props) =>
-    props.animationIndex === 1
-      ? css`
-          ${arrowAnimation1} 1.0s infinite running
-        `
-      : props.animationIndex === 2
-      ? css`
-          ${arrowAnimation2} 1.0s infinite running
-        `
-      : props.animationIndex === 3
-      ? css`
-          ${arrowAnimation3} 1.0s infinite running
-        `
-      : css`
-          ${arrowAnimation4} 1.0s infinite running
-        `};
+    props.countMax !== 0
+      ? props.animationIndex === 1
+        ? css`
+            ${arrowAnimation1} 1.0s infinite running
+          `
+        : props.animationIndex === 2
+        ? css`
+            ${arrowAnimation2} 1.0s infinite running
+          `
+        : props.animationIndex === 3
+        ? css`
+            ${arrowAnimation3} 1.0s infinite running
+          `
+        : css`
+            ${arrowAnimation4} 1.0s infinite running
+          `
+      : null};
 `;
 
 const BodyRightLineDiv = styled.div``;
@@ -366,6 +374,7 @@ export default ({
   setClickCard,
   countMax,
 }) => {
+  const [movePop, setMovePop] = useState(false);
   const logo_watchurs = siteTheme ? logo_watchurs_light : logo_watchurs_dark;
 
   return (
@@ -389,8 +398,30 @@ export default ({
             <HeaderRightText>도움말</HeaderRightText>
           </HeaderRightBox>
           <HeaderRightBox>
-            <HeaderRightText>메뉴</HeaderRightText>
+            <HeaderRightText
+              style={
+                countMax !== 0
+                  ? { width: 90 }
+                  : {
+                      width: 90,
+                      cursor: "unset",
+                      opacity: 0.5,
+                    }
+              }
+              onClick={() => {
+                countMax !== 0 && setMovePop(!movePop);
+              }}
+            >
+              {countMax !== 0 ? "빠른 이동" : "로딩 중.."}
+            </HeaderRightText>
           </HeaderRightBox>
+          {movePop && countMax !== 0 && (
+            <MovePopMenu
+              setDragNext={setDragNext}
+              setMovePop={setMovePop}
+              countMax={countMax}
+            />
+          )}
         </HeaderRightDiv>
       </HeaderDiv>
       <BodyDiv>
@@ -405,18 +436,22 @@ export default ({
                 <BodyLeftScrollText>PREV</BodyLeftScrollText>
                 <BodyLeftScrollLine>
                   <BodyLeftScrollArrow
+                    countMax={countMax}
                     animationIndex={1}
                     url={icon_arrow_right}
                   />
                   <BodyLeftScrollArrow
+                    countMax={countMax}
                     animationIndex={2}
                     url={icon_arrow_right}
                   />
                   <BodyLeftScrollArrow
+                    countMax={countMax}
                     animationIndex={3}
                     url={icon_arrow_right}
                   />
                   <BodyLeftScrollArrow
+                    countMax={countMax}
                     animationIndex={4}
                     url={icon_arrow_right}
                   />
@@ -465,15 +500,39 @@ export default ({
                 : setClickCard(0);
             }}
           >
-            <BodyRightScrollText>
+            <BodyRightArrowText
+              style={
+                countMax !== 0
+                  ? null
+                  : {
+                      opacity: 0.5,
+                    }
+              }
+            >
               {clickCard === 0 ? "NEXT" : "BACK"}
-            </BodyRightScrollText>
-            <BodyRightScrollLine>
-              <BodyRightScrollArrow animationIndex={4} url={icon_arrow_left} />
-              <BodyRightScrollArrow animationIndex={3} url={icon_arrow_left} />
-              <BodyRightScrollArrow animationIndex={2} url={icon_arrow_left} />
-              <BodyRightScrollArrow animationIndex={1} url={icon_arrow_left} />
-            </BodyRightScrollLine>
+            </BodyRightArrowText>
+            <BodyRightArrowBox>
+              <BodyRightArrowIcon
+                countMax={countMax}
+                animationIndex={4}
+                url={icon_arrow_left}
+              />
+              <BodyRightArrowIcon
+                countMax={countMax}
+                animationIndex={3}
+                url={icon_arrow_left}
+              />
+              <BodyRightArrowIcon
+                countMax={countMax}
+                animationIndex={2}
+                url={icon_arrow_left}
+              />
+              <BodyRightArrowIcon
+                countMax={countMax}
+                animationIndex={1}
+                url={icon_arrow_left}
+              />
+            </BodyRightArrowBox>
           </BodyRightScrollDiv>
           <BodyRightLineDiv>
             <BodyRightLineBox>
