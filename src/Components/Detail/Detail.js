@@ -21,23 +21,24 @@ const Warpper = styled.div`
 `;
 
 const Inner = styled.div`
-  /* width: ${(props) => (props.clickCard === 0 ? "0%" : "100%")};
-  height: ${(props) => (props.clickCard === 0 ? "0%" : "100%")}; */
-  /* background-color: rgba(
-    255,
-    255,
-    255,
-    ${(props) => (props.clickCard === 0 ? 0 : 0.2)}
-  ); */
-  width:100%;
-  height:100%;
+  width: 100%;
+  height: 100%;
   transition: background-color 0.5s, width 0.5s, height 0.5s;
   display: flex;
   justify-content: center;
   align-items: center;
 `;
 
+const CloseBg = styled.div`
+  z-index: 0;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+`;
+
 const ContentInner = styled.div`
+  position: relative;
+  z-index: 10;
   margin-top: 80px;
   margin-left: 120px;
   margin-right: 120px;
@@ -384,6 +385,11 @@ export default ({ data, clickCard, setClickCard }) => {
   return (
     <>
       <Warpper clickCard={clickCard}>
+        <CloseBg
+          onClick={() => {
+            setClickCard(0);
+          }}
+        />
         <Inner clickCard={clickCard}>
           <ContentInner>
             {clickCard !== 0 && (
