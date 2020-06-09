@@ -82,7 +82,7 @@ const HelpInner = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-  margin-right: 180px;
+  margin-right: 220px;
   margin-top: 35px;
 `;
 
@@ -92,7 +92,7 @@ const HelpText = styled.div`
 
 const MenuInner = styled.div`
   display: flex;
-  margin-right: 35px;
+  margin-right: 75px;
 `;
 
 const MenuText = styled.div`
@@ -263,7 +263,7 @@ export default ({ handleVisitTrue, dragNext }) => {
                 <HelpText>도움이 필요하시면?</HelpText>
               </HelpInner>
               <MenuInner>
-                <MenuText>차린 건 없지만 메뉴예요</MenuText>
+                <MenuText>보고싶은 순위로 이동할 수 있어요!</MenuText>
                 <CommonIcon
                   url={icon_help_top_left}
                   style={{ marginLeft: 10 }}
