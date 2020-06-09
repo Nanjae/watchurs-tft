@@ -96,9 +96,10 @@ export default ({
   siteTheme,
   scrollY,
   handleVisitFalse,
+  clickCard,
+  setClickCard,
 }) => {
   const [countMax, setCountMax] = useState(0);
-  const [clickCard, setClickCard] = useState(0);
 
   const { data: sumData, loading: sumLoading } = useQuery(
     SEE_SORT_TFT_SUMMONERS

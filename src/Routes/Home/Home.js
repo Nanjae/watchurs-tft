@@ -37,6 +37,7 @@ const Inner = styled.div`
 export default ({ visit, handleVisitTrue, handleVisitFalse }) => {
   const [siteTheme] = useState(false);
   const [dragNext, setDragNext] = useState(0);
+  const [clickCard, setClickCard] = useState(0);
   // const [siteTheme, setSiteTheme] = useState(false);
   const { windowWidth, windowHeight } = useWindowDimensions();
   const scrollY = useWindowScroll();
@@ -48,7 +49,11 @@ export default ({ visit, handleVisitTrue, handleVisitFalse }) => {
       <ThemeProvider theme={siteTheme ? ThemeLight : ThemeDark}>
         <Wrapper style={{ height: windowHeight }}>
           {visit !== "true" ? (
-            <CookieHelp handleVisitTrue={handleVisitTrue} dragNext={dragNext} />
+            <CookieHelp
+              handleVisitTrue={handleVisitTrue}
+              dragNext={dragNext}
+              clickCard={clickCard}
+            />
           ) : null}
           <Inner>
             <Main
@@ -60,6 +65,8 @@ export default ({ visit, handleVisitTrue, handleVisitFalse }) => {
               scrollY={scrollY}
               handleVisitTrue={handleVisitTrue}
               handleVisitFalse={handleVisitFalse}
+              clickCard={clickCard}
+              setClickCard={setClickCard}
             />
             <About />
             <Footer />

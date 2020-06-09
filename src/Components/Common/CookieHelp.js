@@ -14,10 +14,10 @@ const Wrapper = styled.div`
   width: 100%;
   height: 100%;
   min-height: 800px;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.6);
   font-family: "Gaegu", sans-serif;
   font-weight: 400;
-  font-size: 30px;
+  font-size: 24px;
   color: white;
 `;
 
@@ -70,7 +70,9 @@ const CloseBoxInner = styled.div`
   background-color: black;
 `;
 
-const CloseText = styled.div``;
+const CloseText = styled.div`
+  font-size: 30px;
+`;
 
 const ButtonBox = styled.div`
   display: flex;
@@ -196,54 +198,139 @@ const SearchText = styled.div`
   justify-content: flex-start;
 `;
 
-export default ({ handleVisitTrue, dragNext }) => {
+export default ({ handleVisitTrue, dragNext, clickCard }) => {
   return (
     <>
-      <Wrapper>
-        <Inner>
-          <SearchBox>
-            <SearchInner>
-              <CommonIcon
-                url={icon_help_top_right}
-                style={{ marginRight: 10 }}
-              />
-              <div>
-                {dragNext === 0 ? (
-                  <>
-                    <SearchText style={{ marginTop: 10 }}>
-                      여기에 검색어를 입력해주세요
-                    </SearchText>
-                    <SearchText style={{ marginTop: 20, marginBottom: 5 }}>
-                      예) 브로드캐스터 닉네임 : 한동숙
-                    </SearchText>
-                    <SearchText style={{ marginLeft: 50 }}>
-                      브로드캐스터 ID : handongsuk
-                    </SearchText>
-                  </>
-                ) : (
-                  <>
-                    <SearchText style={{ marginTop: 10 }}>
-                      원하시는 브로드캐스터를
-                    </SearchText>
-                    <SearchText style={{ marginTop: 5, marginBottom: 5 }}>
-                      클릭하면 좀 더 보여드릴께요 :D
-                    </SearchText>
-                  </>
-                )}
-              </div>
-            </SearchInner>
-          </SearchBox>
-          <TopDiv>
-            <LogoBox>
-              <CommonIcon
-                url={icon_help_top_right}
-                style={{ marginRight: 10 }}
-              />
-              <div style={{ display: "flex", flexDirection: "column" }}>
-                <LogoText>저는 와쳐스 로고예요</LogoText>
-                <LogoText>누르면 새로고침을 해줘요</LogoText>
-              </div>
-            </LogoBox>
+      {clickCard === 0 ? (
+        <Wrapper>
+          <Inner>
+            <SearchBox>
+              <SearchInner>
+                <CommonIcon
+                  url={icon_help_top_right}
+                  style={{ marginRight: 10 }}
+                />
+                <div>
+                  {dragNext === 0 ? (
+                    <>
+                      <SearchText style={{ marginTop: 10 }}>
+                        여기에 검색어를 입력해주세요
+                      </SearchText>
+                      <SearchText style={{ marginTop: 20, marginBottom: 5 }}>
+                        예) 브로드캐스터 닉네임 : 한동숙
+                      </SearchText>
+                      <SearchText style={{ marginLeft: 50 }}>
+                        브로드캐스터 ID : handongsuk
+                      </SearchText>
+                    </>
+                  ) : (
+                    <>
+                      <SearchText style={{ marginTop: 10 }}>
+                        원하시는 브로드캐스터를
+                      </SearchText>
+                      <SearchText style={{ marginTop: 5, marginBottom: 5 }}>
+                        클릭하면 좀 더 보여드릴께요 :D
+                      </SearchText>
+                    </>
+                  )}
+                </div>
+              </SearchInner>
+            </SearchBox>
+            <TopDiv>
+              <LogoBox>
+                <CommonIcon
+                  url={icon_help_top_right}
+                  style={{ marginRight: 10 }}
+                />
+                <div style={{ display: "flex", flexDirection: "column" }}>
+                  <LogoText>저는 와쳐스 로고예요</LogoText>
+                  <LogoText>누르면 새로고침을 해줘요</LogoText>
+                </div>
+              </LogoBox>
+              <CloseBox>
+                <CloseBoxInner
+                  onClick={() => {
+                    handleVisitTrue();
+                  }}
+                >
+                  <CloseText>도움말 끄기</CloseText>
+                  <CommonIcon
+                    url={icon_help_close}
+                    style={{ marginLeft: 10 }}
+                  />
+                </CloseBoxInner>
+              </CloseBox>
+              <ButtonBox>
+                <HelpInner>
+                  <CommonIcon
+                    url={icon_help_right_bottom}
+                    style={{ marginBottom: 10 }}
+                  />
+                  <HelpText>도움이 필요하시면?</HelpText>
+                </HelpInner>
+                <MenuInner>
+                  <MenuText>원하는 페이지로 슝~</MenuText>
+                  <CommonIcon
+                    url={icon_help_top_left}
+                    style={{ marginLeft: 10 }}
+                  />
+                </MenuInner>
+              </ButtonBox>
+            </TopDiv>
+            <CenterDiv>
+              <HubBox>
+                <HubInner>
+                  <CommonIcon url={icon_help_left_bottom} />
+                  <HubText>와쳐스가 뭔데요?</HubText>
+                </HubInner>
+              </HubBox>
+              <MainBox></MainBox>
+              <RightBox>
+                <DragInner>
+                  <CommonIcon
+                    url={icon_help_right_bottom}
+                    style={{ marginRight: 75 }}
+                  />
+                  <DragText>클릭 또는 왼쪽으로 드래그 해보세요!</DragText>
+                </DragInner>
+                <RouteInner>
+                  <RouteText>현재 페이지 위치예요</RouteText>
+                  <CommonIcon
+                    url={icon_help_right_top}
+                    style={{ marginRight: 85 }}
+                  />
+                </RouteInner>
+              </RightBox>
+            </CenterDiv>
+            <BottomDiv>
+              <ScrollBox>
+                <ScrollInner>
+                  <CommonIcon
+                    url={icon_help_bottom_right}
+                    style={{ marginRight: 10 }}
+                  />
+                  <ScrollText>아래엔 뭐가 있을까요?</ScrollText>
+                </ScrollInner>
+              </ScrollBox>
+            </BottomDiv>
+          </Inner>
+        </Wrapper>
+      ) : (
+        <Wrapper>
+          <Inner>
+            <SearchBox>
+              <SearchInner>
+                <CommonIcon
+                  url={icon_help_top_right}
+                  style={{ marginRight: 10 }}
+                />
+                <div>
+                  <SearchText style={{ marginTop: 10 }}>
+                    도움말 준비 중 입니다 (_ _)
+                  </SearchText>
+                </div>
+              </SearchInner>
+            </SearchBox>
             <CloseBox>
               <CloseBoxInner
                 onClick={() => {
@@ -254,61 +341,9 @@ export default ({ handleVisitTrue, dragNext }) => {
                 <CommonIcon url={icon_help_close} style={{ marginLeft: 10 }} />
               </CloseBoxInner>
             </CloseBox>
-            <ButtonBox>
-              <HelpInner>
-                <CommonIcon
-                  url={icon_help_right_bottom}
-                  style={{ marginBottom: 10 }}
-                />
-                <HelpText>도움이 필요하시면?</HelpText>
-              </HelpInner>
-              <MenuInner>
-                <MenuText>원하는 페이지로 슝~</MenuText>
-                <CommonIcon
-                  url={icon_help_top_left}
-                  style={{ marginLeft: 10 }}
-                />
-              </MenuInner>
-            </ButtonBox>
-          </TopDiv>
-          <CenterDiv>
-            <HubBox>
-              <HubInner>
-                <CommonIcon url={icon_help_left_bottom} />
-                <HubText>와쳐스가 뭔데요?</HubText>
-              </HubInner>
-            </HubBox>
-            <MainBox></MainBox>
-            <RightBox>
-              <DragInner>
-                <CommonIcon
-                  url={icon_help_right_bottom}
-                  style={{ marginRight: 75 }}
-                />
-                <DragText>클릭 또는 왼쪽으로 드래그 해보세요!</DragText>
-              </DragInner>
-              <RouteInner>
-                <RouteText>현재 페이지 위치예요</RouteText>
-                <CommonIcon
-                  url={icon_help_right_top}
-                  style={{ marginRight: 85 }}
-                />
-              </RouteInner>
-            </RightBox>
-          </CenterDiv>
-          <BottomDiv>
-            <ScrollBox>
-              <ScrollInner>
-                <CommonIcon
-                  url={icon_help_bottom_right}
-                  style={{ marginRight: 10 }}
-                />
-                <ScrollText>아래엔 뭐가 있을까요?</ScrollText>
-              </ScrollInner>
-            </ScrollBox>
-          </BottomDiv>
-        </Inner>
-      </Wrapper>
+          </Inner>
+        </Wrapper>
+      )}
     </>
   );
 };
