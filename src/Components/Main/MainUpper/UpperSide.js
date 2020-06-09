@@ -49,7 +49,7 @@ const HeaderRightDiv = styled.div`
 const HeaderRightBox = styled.div`
   display: flex;
   height: 100%;
-  margin-right: 20px;
+  margin-left: 20px;
   justify-content: flex-end;
   align-items: center;
 `;

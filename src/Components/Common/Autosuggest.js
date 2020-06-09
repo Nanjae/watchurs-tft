@@ -176,7 +176,7 @@ export default class CustomAutosuggest extends React.Component {
     const inputProps = {
       placeholder:
         this.props.countMax === 0
-          ? "와쳐스 브로드캐스터 데이터 로딩 중..."
+          ? "등록된 브로드캐스터 데이터 로딩 중..."
           : "브로드캐스터 닉네임 또는 ID를 입력해주세요.",
       value,
       onChange: this.props.countMax === 0 ? () => {} : this.onChange,
