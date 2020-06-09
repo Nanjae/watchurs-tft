@@ -285,7 +285,7 @@ const BodyRightDiv = styled.div`
   justify-content: flex-start;
 `;
 
-const BodyRightScrollDiv = styled.div`
+const BodyRightArrowDiv = styled.div`
   margin-top: -80px;
   margin-bottom: 100px;
   display: flex;
@@ -493,9 +493,10 @@ export default ({
           </BodyLeftBottomDiv>
         </BodyLeftDiv>
         <BodyRightDiv>
-          <BodyRightScrollDiv
+          <BodyRightArrowDiv
+            style={countMax !== 0 ? null : { cursor: "unset" }}
             onClick={() => {
-              clickCard === 0
+              clickCard === 0 && countMax !== 0
                 ? setDragNext(dragNext < countMax ? dragNext + 1 : 0)
                 : setClickCard(0);
             }}
@@ -533,7 +534,7 @@ export default ({
                 url={icon_arrow_left}
               />
             </BodyRightArrowBox>
-          </BodyRightScrollDiv>
+          </BodyRightArrowDiv>
           <BodyRightLineDiv>
             <BodyRightLineBox>
               <BodyRightLineText
