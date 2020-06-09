@@ -263,7 +263,7 @@ export default ({ handleVisitTrue, dragNext }) => {
                 <HelpText>도움이 필요하시면?</HelpText>
               </HelpInner>
               <MenuInner>
-                <MenuText>보고싶은 순위로 이동할 수 있어요!</MenuText>
+                <MenuText>원하는 페이지로 슝~</MenuText>
                 <CommonIcon
                   url={icon_help_top_left}
                   style={{ marginLeft: 10 }}
