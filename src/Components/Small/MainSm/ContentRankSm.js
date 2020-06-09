@@ -3,6 +3,7 @@ import styled from "styled-components";
 import CardBox from "../../Card/CardBox";
 import Detail from "../../Detail/Detail";
 import CardBoxSm from "../CardSm/CardBoxSm";
+import DetailSm from "../DetailSm/DetailSm";
 
 const Wrapper = styled.div`
   position: absolute;
@@ -45,6 +46,7 @@ export default ({
   countMax,
   clickCard,
   setClickCard,
+  windowWidth,
 }) => {
   const [onCard, setOnCard] = useState(0);
 
@@ -59,15 +61,18 @@ export default ({
           }
         }}
       >
-        {/* {!loading && data && data.seeSortTFTSummoners && (
+        {!loading && data && data.seeSortTFTSummoners && (
           <>
             {dragNext === page && clickCard !== 0 && (
-              <Detail
+              <DetailSm
                 data={data}
                 clickCard={clickCard}
                 setClickCard={setClickCard}
+                windowWidth={windowWidth}
               />
-            )} */}
+            )}
+          </>
+        )}
         <Inner>
           <CardDiv page={page} countMax={countMax}>
             {data.seeSortTFTSummoners

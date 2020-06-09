@@ -1,16 +1,17 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import icon_detail_close_base from "../../Assets/Icons/icon_detail_close_base.png";
-import icon_detail_close_focus from "../../Assets/Icons/icon_detail_close_focus.png";
-import logo_twitch from "../../Assets/Twitch/logo_twitch.png";
+import icon_detail_close_base from "../../../Assets/Icons/icon_detail_close_base.png";
+import icon_detail_close_focus from "../../../Assets/Icons/icon_detail_close_focus.png";
+import logo_twitch from "../../../Assets/Twitch/logo_twitch.png";
 import { PieChart } from "react-minimal-pie-chart";
-import SetEmblem from "../Common/SetEmblem";
-import AdBox from "../Common/AdBox";
+import SetEmblem from "../../Common/SetEmblem";
+import AdBox from "../../Common/AdBox";
 
 const Wrapper = styled.div`
   position: absolute;
   width: 100%;
-  height: 100%;
+  height: 640px;
+  min-height: 640px;
   z-index: ${(props) => (props.clickCard === 0 ? 0 : 50)};
   display: flex;
   justify-content: center;
@@ -39,26 +40,19 @@ const CloseBg = styled.div`
 const ContentInner = styled.div`
   position: relative;
   z-index: 10;
-  margin-top: 80px;
-  margin-left: 120px;
-  margin-right: 120px;
-  margin-bottom: 10px;
-  width: 880px;
-  height: 660px;
-  padding: 20px;
+  width: 100%;
+  padding-top: 110px;
+  height: 530px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  border-radius: 8px;
-  box-shadow: 0px 0px 10px 2px black;
-  /* border: 2px solid white; */
   background-color: rgba(0, 0, 0, 0.8);
 `;
 
 const TopDiv = styled.div`
   width: 100%;
-  height: 110px;
+  height: 80px;
   display: flex;
   justify-content: flex-start;
   align-items: flex-end;
@@ -68,20 +62,20 @@ const BroadAvatar = styled.div`
   background-image: url(${(props) => props.url});
   background-size: cover;
   background-position: center;
-  width: 108px;
-  height: 108px;
+  width: 78px;
+  height: 78px;
   border: 1px solid white;
   /* border-radius: 50%; */
-  margin-right: 20px;
+  margin: 0px 8px;
 `;
 
 const BroadInfoBox = styled.div`
-  height: 100px;
-  width: 750px;
+  height: 70px;
+  width: ${(props) => props.windowWidth - 104}px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  margin: 5px 0px;
+  margin: 4px 0px;
 `;
 
 const BroadInfoTopDiv = styled.div`
@@ -101,9 +95,9 @@ const BroadRanking = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 4px 8px;
+  padding: 2px 4px;
   border-radius: 4px;
-  font-size: 14px;
+  font-size: 12px;
 `;
 
 const BroadPlatformBox = styled.div`
@@ -113,22 +107,22 @@ const BroadPlatformBox = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 4px 8px;
+  padding: 2px 4px;
   border-radius: 4px;
-  margin-top: 5px;
+  margin-top: 4px;
 `;
 
 const BroadPlatformIcon = styled.div`
   background-image: url(${(props) => props.url});
   background-size: cover;
   background-position: center;
-  width: 14px;
-  height: 14px;
-  margin-right: 5px;
+  width: 12px;
+  height: 12px;
+  margin-right: 4px;
 `;
 
 const BroadPlatformText = styled.div`
-  font-size: 14px;
+  font-size: 12px;
 `;
 
 const CloseBox = styled.div`
@@ -141,17 +135,16 @@ const CloseBox = styled.div`
   align-items: center;
   cursor: pointer;
   transition: border-color 0.3s;
-  padding: 5px;
-  margin-top: -10px;
-  margin-right: -5px;
+  padding: 4px 8px;
+  margin-top: -8px;
 `;
 
 const CloseIcon = styled.div`
   background-image: url(${(props) => props.url});
   background-size: cover;
   background-position: center;
-  width: 24px;
-  height: 24px;
+  width: 28px;
+  height: 28px;
   transition: background-image 0.3s;
 `;
 
@@ -167,11 +160,13 @@ const BroadNameBox = styled.div`
 `;
 
 const BroadNameText = styled.div`
-  font-size: 28px;
-  margin-right: 5px;
+  font-size: 20px;
+  margin-right: 4px;
 `;
 
-const BroadIdText = styled.div``;
+const BroadIdText = styled.div`
+  font-size: 16px;
+`;
 
 const BroadSumCount = styled.div`
   border: 1px solid white;
@@ -179,13 +174,13 @@ const BroadSumCount = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 4px 8px;
+  padding: 2px 4px;
   border-radius: 4px;
-  font-size: 14px;
+  font-size: 12px;
 `;
 
 const CenterDiv = styled.div`
-  width: 728px;
+  width: 100%;
   height: 430px;
   display: flex;
   flex-direction: column;
@@ -199,8 +194,8 @@ const SumMainDiv = styled.div`
 `;
 
 const SumMainLeftDiv = styled.div`
-  width: 360px;
-  height: 100%;
+  width: 100%;
+  height: fit-content;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -208,16 +203,15 @@ const SumMainLeftDiv = styled.div`
 
 const SumInfoDiv = styled.div`
   height: fit-content;
-  width: 100%;
+  width: 320px;
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
-  margin-top: 10px;
 `;
 
 const SumInfoBox = styled.div`
   display: flex;
-  height: 110px;
+  height: 60px;
   width: fit-content;
   align-items: flex-end;
 `;
@@ -226,8 +220,8 @@ const SumAvatar = styled.div`
   background-image: url(${(props) => props.url});
   background-size: cover;
   background-position: center;
-  width: 108px;
-  height: 108px;
+  width: 58px;
+  height: 58px;
   border-radius: 50%;
   border: 1px solid white;
   display: flex;
@@ -236,34 +230,34 @@ const SumAvatar = styled.div`
 `;
 
 const SumLevel = styled.div`
-  font-size: 16px;
+  font-size: 12px;
   background-color: white;
-  padding: 3px 6px;
+  padding: 2px 4px;
   color: black;
 `;
 
 const SumNameBox = styled.div`
   margin-left: 10px;
-  width: 240px;
+  /* width: 240px; */
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
 `;
 
 const SumName = styled.div`
-  font-size: 24px;
-  margin-bottom: 15px;
+  font-size: 20px;
+  margin-bottom: 8px;
 `;
 
 const SumUpdate = styled.div`
-  font-size: 16px;
-  margin: 5px 0px;
+  font-size: 12px;
+  margin: 4px 0px;
   color: darkgray;
 `;
 
 const TierDiv = styled.div`
-  width: 360px;
-  height: 260px;
+  width: 320px;
+  height: 100px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -274,20 +268,20 @@ const TierBg = styled.div`
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center;
-  width: 360px;
-  height: 230px;
+  width: 100%;
+  height: 100px;
   opacity: 0.6;
 `;
 
 const TierBox = styled.div`
-  width: 360px;
-  height: 260px;
+  width: 100%;
+  height: 100px;
   position: absolute;
   z-index: 10;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 28px;
+  font-size: 24px;
 `;
 
 const TierText = styled.div``;
@@ -303,29 +297,29 @@ const RefreshBox = styled.div`
   display: flex;
   justify-content: center;
   align-items: flex-end;
-  height: 30px;
+  height: 16px;
   width: 100%;
-  font-size: 14px;
+  font-size: 11px;
 `;
 
 const SumMainRightDiv = styled.div`
-  width: 360px;
-  height: 100%;
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
 `;
 
 const SumWinDiv = styled.div`
-  height: 150px;
+  height: 88px;
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
+  font-size: 14px;
 `;
 
 const WinRateDiv = styled.div`
-  width: 160px;
+  width: 88px;
   height: 100%;
   display: flex;
   justify-content: center;
@@ -340,29 +334,29 @@ const WinTotalBox = styled.div`
 `;
 
 const WinTotalText = styled.div`
-  width: 90px;
+  width: 80px;
   text-align: center;
 `;
 
 const BottomAdDiv = styled.div`
   width: 100%;
-  height: 250px;
+  height: 100px;
   display: flex;
   justify-content: center;
-  margin-top: 20px;
+  padding: 9px 0px;
 `;
 
 const CenterAdDiv = styled.div`
   width: 100%;
-  height: 90px;
+  height: 50px;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  padding: 20px 0px;
+  padding: 8px 0px;
 `;
 
-export default ({ data, clickCard, setClickCard }) => {
+export default ({ data, clickCard, setClickCard, windowWidth }) => {
   const [enter, setEnter] = useState(0);
 
   let icon_detail_close =
@@ -396,7 +390,7 @@ export default ({ data, clickCard, setClickCard }) => {
               <>
                 <TopDiv>
                   <BroadAvatar url={summoner.tftSummoner.broadcaster.avatar} />
-                  <BroadInfoBox>
+                  <BroadInfoBox windowWidth={windowWidth}>
                     <BroadInfoTopDiv>
                       <BroadInfoTopBox>
                         <BroadRanking>전체 {clickCard}위</BroadRanking>
@@ -429,134 +423,134 @@ export default ({ data, clickCard, setClickCard }) => {
                           ({summoner.tftSummoner.broadcaster.broadId})
                         </BroadIdText>
                       </BroadNameBox>
-                      <BroadSumCount>
-                        연결된 소환사 계정 :{" "}
-                        {summoner.tftSummoner.broadcaster.countSumPerBroad}
-                      </BroadSumCount>
                     </BroadInfoBottomDiv>
                   </BroadInfoBox>
                 </TopDiv>
                 <CenterAdDiv>
                   <AdBox
-                    adTitle={"TFT_728_90"}
-                    adWidth={728}
-                    adHeight={90}
-                    adSrc={`https://tab2.clickmon.co.kr/pop/wp_ad_728.php?PopAd=CM_M_1003067%7C%5E%7CCM_A_1065774%7C%5E%7CAdver_M_1046207&rt_ad_id_code=RTA_106389&mon_rf=REFERRER_URL`}
+                    adTitle={"TFT_320_50_M"}
+                    adWidth={320}
+                    adHeight={50}
+                    adSrc={
+                      "https://mtab.clickmon.co.kr/pop/wp_m_320.php?PopAd=CM_M_1003067%7C%5E%7CCM_A_1065774%7C%5E%7CAdver_M_1046207&rt_ad_id_code=RTA_106392&mon_rf=REFERRER_URL"
+                    }
+                    fontSize={12}
                   />
                 </CenterAdDiv>
                 <CenterDiv>
-                  <SumMainDiv>
-                    <SumMainLeftDiv>
-                      <SumInfoDiv>
-                        <SumInfoBox>
-                          <SumAvatar url={summoner.tftSummoner.avatar}>
-                            <SumLevel>{summoner.tftSummoner.level}</SumLevel>
-                          </SumAvatar>
-                          <SumNameBox>
-                            <SumName>{summoner.tftSummoner.name}</SumName>
-                            <SumUpdate>최종 업데이트 : {updatedTime}</SumUpdate>
-                          </SumNameBox>
-                        </SumInfoBox>
-                      </SumInfoDiv>
-                      <TierDiv>
-                        <TierBg
-                          url={() => {
-                            return SetEmblem(summoner.tierNum);
+                  <SumMainLeftDiv>
+                    <SumInfoDiv>
+                      <SumInfoBox>
+                        <SumAvatar url={summoner.tftSummoner.avatar}>
+                          <SumLevel>{summoner.tftSummoner.level}</SumLevel>
+                        </SumAvatar>
+                        <SumNameBox>
+                          <SumName>{summoner.tftSummoner.name}</SumName>
+                          <SumUpdate>최종 업데이트 : {updatedTime}</SumUpdate>
+                        </SumNameBox>
+                      </SumInfoBox>
+                    </SumInfoDiv>
+                    <TierDiv>
+                      <TierBg
+                        url={() => {
+                          return SetEmblem(summoner.tierNum);
+                        }}
+                      />
+                      <TierBox>
+                        <TierText>{summoner.tier}</TierText>
+                        {summoner.tier !== "UNRANKED" && (
+                          <RankText>{summoner.rank}</RankText>
+                        )}
+                        {summoner.tier !== "UNRANKED" && (
+                          <PointText>({summoner.points}LP)</PointText>
+                        )}
+                      </TierBox>
+                    </TierDiv>
+                  </SumMainLeftDiv>
+                  <SumMainRightDiv>
+                    <SumWinDiv>
+                      <WinTotalBox>
+                        <WinTotalText
+                          style={{ color: "yellow", marginBottom: 10 }}
+                        >
+                          TOP 1
+                        </WinTotalText>
+                        <WinTotalText>{summoner.wins + 0}승</WinTotalText>
+                      </WinTotalBox>
+                      <WinRateDiv>
+                        <PieChart
+                          animate={true}
+                          animationDuration={500}
+                          animationEasing="ease-out"
+                          center={[50, 50]}
+                          data={[
+                            {
+                              color: "crimson",
+                              title: "TOP 1",
+                              value: summoner.wins,
+                              key: 0,
+                            },
+                            {
+                              color: "#6A2135",
+                              title: "Others",
+                              value: summoner.losses,
+                              key: 1,
+                            },
+                          ]}
+                          label={({ dataEntry }) => {
+                            if (dataEntry.key === 0)
+                              return Math.round(dataEntry.percentage) + "%";
+                            else return null;
+                          }}
+                          labelStyle={{
+                            fontSize: 16,
+                            fontWeight: "bold",
+                            fill: "white",
+                          }}
+                          labelPosition={0}
+                          lengthAngle={360}
+                          lineWidth={30}
+                          onClick={undefined}
+                          onMouseOut={undefined}
+                          onMouseOver={undefined}
+                          paddingAngle={4}
+                          radius={50}
+                          rounded={false}
+                          startAngle={180}
+                          viewBoxSize={[100, 100]}
+                          style={{
+                            height: 80,
+                            width: 80,
+                            margin: "0px 4px",
                           }}
                         />
-                        <TierBox>
-                          <TierText>{summoner.tier}</TierText>
-                          {summoner.tier !== "UNRANKED" && (
-                            <RankText>{summoner.rank}</RankText>
-                          )}
-                          {summoner.tier !== "UNRANKED" && (
-                            <PointText>({summoner.points}LP)</PointText>
-                          )}
-                        </TierBox>
-                      </TierDiv>
-                      <RefreshBox>
-                        * 소환사 정보는 평균 2시간 이내로 자동 업데이트됩니다.
-                      </RefreshBox>
-                    </SumMainLeftDiv>
-                    <SumMainRightDiv>
-                      <SumWinDiv>
-                        <WinTotalBox>
-                          <WinTotalText
-                            style={{ color: "yellow", marginBottom: 10 }}
-                          >
-                            TOP 1
-                          </WinTotalText>
-                          <WinTotalText>{summoner.wins + 0}승</WinTotalText>
-                        </WinTotalBox>
-                        <WinRateDiv>
-                          <PieChart
-                            animate={true}
-                            animationDuration={500}
-                            animationEasing="ease-out"
-                            center={[50, 50]}
-                            data={[
-                              {
-                                color: "crimson",
-                                title: "TOP 1",
-                                value: summoner.wins,
-                                key: 0,
-                              },
-                              {
-                                color: "#6A2135",
-                                title: "Others",
-                                value: summoner.losses,
-                                key: 1,
-                              },
-                            ]}
-                            label={({ dataEntry }) => {
-                              if (dataEntry.key === 0)
-                                return Math.round(dataEntry.percentage) + "%";
-                              else return null;
-                            }}
-                            labelStyle={{
-                              fontSize: 16,
-                              fontWeight: "bold",
-                              fill: "white",
-                            }}
-                            labelPosition={0}
-                            lengthAngle={360}
-                            lineWidth={30}
-                            onClick={undefined}
-                            onMouseOut={undefined}
-                            onMouseOver={undefined}
-                            paddingAngle={4}
-                            radius={50}
-                            rounded={false}
-                            startAngle={180}
-                            viewBoxSize={[100, 100]}
-                            style={{
-                              height: 150,
-                              width: 150,
-                              margin: "0px 5px",
-                            }}
-                          />
-                        </WinRateDiv>
-                        <WinTotalBox>
-                          <WinTotalText
-                            style={{ color: "crimson", marginBottom: 10 }}
-                          >
-                            플레이 수
-                          </WinTotalText>
-                          <WinTotalText>
-                            {summoner.wins + summoner.losses}전
-                          </WinTotalText>
-                        </WinTotalBox>
-                      </SumWinDiv>
-                      <BottomAdDiv>
-                        <AdBox
-                          adTitle={"TFT_300x250"}
-                          adWidth={300}
-                          adHeight={250}
-                          adSrc={`https://tab2.clickmon.co.kr/pop/wp_ad_300.php?PopAd=CM_M_1003067%7C%5E%7CCM_A_1065774%7C%5E%7CAdver_M_1046207&rt_ad_id_code=RTA_106390&mon_rf=REFERRER_URL`}
-                        />
-                      </BottomAdDiv>
-                    </SumMainRightDiv>
-                  </SumMainDiv>
+                      </WinRateDiv>
+                      <WinTotalBox>
+                        <WinTotalText
+                          style={{ color: "crimson", marginBottom: 10 }}
+                        >
+                          플레이 수
+                        </WinTotalText>
+                        <WinTotalText>
+                          {summoner.wins + summoner.losses}전
+                        </WinTotalText>
+                      </WinTotalBox>
+                    </SumWinDiv>
+                    <RefreshBox>
+                      * 소환사 정보는 평균 2시간 이내로 자동 업데이트됩니다.
+                    </RefreshBox>
+                    <BottomAdDiv>
+                      <AdBox
+                        adTitle={"TFT_320x100_M"}
+                        adWidth={320}
+                        adHeight={100}
+                        adSrc={
+                          "https://mtab.clickmon.co.kr/pop/wp_m_320_100.php?PopAd=CM_M_1003067%7C%5E%7CCM_A_1065774%7C%5E%7CAdver_M_1046207&rt_ad_id_code=RTA_106393&mon_rf=REFERRER_URL"
+                        }
+                        fontSize={12}
+                      />
+                    </BottomAdDiv>
+                  </SumMainRightDiv>
                 </CenterDiv>
               </>
             )}

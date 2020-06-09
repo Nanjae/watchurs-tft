@@ -7,7 +7,7 @@ const Wrapper = styled.div`
   height: 56px;
   width: 100%;
   background-color: ${(props) => props.theme.bgMainColor};
-  box-shadow: 0px 1px 20px 1px rgba(255, 255, 255, 0.1);
+  box-shadow: 0px 1px 20px 1px rgba(255, 255, 255, 0.2);
 `;
 
 export default () => {

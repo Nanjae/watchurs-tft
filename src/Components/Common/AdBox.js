@@ -26,10 +26,12 @@ const AdBox = styled.div`
   align-items: center;
 `;
 
-export default ({ adTitle, adWidth, adHeight, adSrc }) => {
+export default ({ adTitle, adWidth, adHeight, adSrc, fontSize = 20 }) => {
   return (
     <>
-      <AdWrapper style={{ width: adWidth, height: adHeight }}>
+      <AdWrapper
+        style={{ width: adWidth, height: adHeight, fontSize: fontSize }}
+      >
         <AdBlockBox style={{ width: adWidth, height: adHeight }}>
           <AdBlockText style={{ marginBottom: 5 }}>
             AdBlock을 꺼주시면

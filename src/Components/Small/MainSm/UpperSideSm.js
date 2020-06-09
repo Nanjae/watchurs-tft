@@ -7,8 +7,8 @@ const BodyLeftDiv = styled.div`
   position: absolute;
   z-index: 100;
   top: 0px;
-  left: 10px;
-  width: 20px;
+  left: 0px;
+  width: 40px;
   height: 640px;
   display: flex;
   align-items: center;
@@ -30,8 +30,8 @@ const BodyRightDiv = styled.div`
   position: absolute;
   z-index: 100;
   top: 0px;
-  right: 10px;
-  width: 20px;
+  right: 0px;
+  width: 40px;
   height: 640px;
   display: flex;
   align-items: center;
@@ -60,14 +60,17 @@ export default ({
           <ArrowIcon url={icon_arrow_left} />
         </BodyLeftDiv>
       )}
-      <BodyRightDiv
-        style={dragNext === 0 ? { opacity: 0.8 } : { opacity: 0.3 }}
-        onClick={() => {
-          countMax !== 0 && setDragNext(dragNext < countMax ? dragNext + 1 : 0);
-        }}
-      >
-        <ArrowIcon url={icon_arrow_right} />
-      </BodyRightDiv>
+      {clickCard === 0 && (
+        <BodyRightDiv
+          style={dragNext === 0 ? { opacity: 0.8 } : { opacity: 0.3 }}
+          onClick={() => {
+            countMax !== 0 &&
+              setDragNext(dragNext < countMax ? dragNext + 1 : 0);
+          }}
+        >
+          <ArrowIcon url={icon_arrow_right} />
+        </BodyRightDiv>
+      )}
     </>
   );
 };

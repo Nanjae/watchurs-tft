@@ -49,6 +49,7 @@ export default ({
                 countMax={countMax}
                 clickCard={clickCard}
                 setClickCard={setClickCard}
+                windowWidth={windowWidth}
               />
             );
           })}
