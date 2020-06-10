@@ -49,6 +49,7 @@ export default ({ setDragNext, setMovePop, countMax, setClickCard }) => {
               setClickCard(0);
               setDragNext(0);
               setMovePop(false);
+              window.scrollTo({ top: 0, behavior: "smooth" });
             }}
           >
             HOME
@@ -62,6 +63,7 @@ export default ({ setDragNext, setMovePop, countMax, setClickCard }) => {
                     setClickCard(0);
                     setDragNext(pop);
                     setMovePop(false);
+                    window.scrollTo({ top: 0, behavior: "smooth" });
                   }}
                 >
                   RANK #{(pop - 1) * 10 + 1} ~
