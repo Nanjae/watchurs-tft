@@ -79,7 +79,7 @@ const SearchBox = styled.div`
     z-index: ${(props) => (props.clickCard === 0 ? 100 : 0)};
     height: 40px;
     margin-bottom: 0px;
-    margin-top: ${(props) => (props.dragNext > 0 ? 60 : 400)}px;
+    margin-top: ${(props) => (props.dragNext > 0 ? 70 : 400)}px;
     width: 90%;
     max-width: 400px;
   }

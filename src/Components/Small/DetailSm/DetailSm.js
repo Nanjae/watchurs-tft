@@ -38,7 +38,7 @@ const ContentInner = styled.div`
   height: 640px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-end;
   align-items: center;
   background-color: rgba(0, 0, 0, 1);
 `;
