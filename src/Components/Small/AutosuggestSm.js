@@ -8,12 +8,12 @@ const InputDiv = styled.div`
   width: 100%;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-end;
   border-bottom: 2px solid lightgoldenrodyellow;
 `;
 
 const InputText = styled.input`
-  width: 500px;
+  width: 80%;
   height: 30px;
   padding: 5px;
   border: 0px;
@@ -23,9 +23,9 @@ const InputText = styled.input`
 `;
 
 const SearchIcon = styled.div`
-  width: 30px;
-  height: 30px;
-  margin: 5px;
+  width: 20px;
+  height: 20px;
+  margin: 8px 4px;
   background-image: url(${(props) => props.url});
   background-size: contain;
   background-repeat: no-repeat;
