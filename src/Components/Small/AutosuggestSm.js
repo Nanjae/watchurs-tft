@@ -13,7 +13,7 @@ const InputDiv = styled.div`
 `;
 
 const InputText = styled.input`
-  width: 80%;
+  width: 90%;
   height: 30px;
   padding: 5px;
   border: 0px;
@@ -25,7 +25,7 @@ const InputText = styled.input`
 const SearchIcon = styled.div`
   width: 20px;
   height: 20px;
-  margin: 8px 4px;
+  margin: 4px 4px;
   background-image: url(${(props) => props.url});
   background-size: contain;
   background-repeat: no-repeat;
@@ -97,7 +97,15 @@ const renderSuggestion = (suggestion) => (
 const renderInputComponent = (inputProps) => (
   <InputDiv>
     <InputText
+      className={"autoInput"}
       {...inputProps}
+      type={"search"}
+      onKeyUp={(event) => {
+        if (event.key === "Enter") {
+          event.target.blur();
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        }
+      }}
       onKeyPress={(event) => {
         if (!inputProps.loading) {
           if (inputProps.countMax !== 0) {

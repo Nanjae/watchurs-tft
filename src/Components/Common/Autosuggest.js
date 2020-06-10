@@ -97,6 +97,13 @@ const renderInputComponent = (inputProps) => (
   <InputDiv>
     <InputText
       {...inputProps}
+      type={"search"}
+      onKeyUp={(event) => {
+        if (event.key === "Enter") {
+          event.target.blur();
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        }
+      }}
       onKeyPress={(event) => {
         if (!inputProps.loading) {
           if (inputProps.countMax !== 0) {
