@@ -4,20 +4,20 @@ import styled from "styled-components";
 const Wrapper = styled.div`
   position: absolute;
   z-index: 200;
-  top: 70px;
-  right: 20px;
-  background-color: rgba(0, 0, 0, 0.6);
+  top: 56px;
+  right: 0px;
+  background-color: ${(props) => props.theme.bgMainColor};
   width: fit-content;
   height: fit-content;
   display: flex;
-  border-top-left-radius: 12px;
-  border-bottom-right-radius: 12px;
+  /* border-top-left-radius: 12px;
+  border-bottom-right-radius: 12px; */
 `;
 
 const Inner = styled.div`
   display: flex;
   width: 100%;
-  margin: 10px 15px;
+  margin: 5px 10px;
   flex-direction: column;
   justify-content: space-between;
   align-items: flex-start;
@@ -25,7 +25,7 @@ const Inner = styled.div`
 `;
 
 const MenuBox = styled.div`
-  font-size: 18px;
+  font-size: 16px;
   padding: 3px;
   cursor: pointer;
   :not(:first-child) {

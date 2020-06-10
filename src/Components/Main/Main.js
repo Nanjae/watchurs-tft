@@ -131,6 +131,8 @@ export default ({
   );
   const [searchIndex, setSearchIndex] = useState(0);
 
+  const [movePop, setMovePop] = useState(false);
+
   const { data: broadData, loading: broadLoading } = useQuery(
     SEE_ALL_BROADCASTERS
   );
@@ -165,6 +167,8 @@ export default ({
             searchIndex={searchIndex}
             clickCard={clickCard}
             setClickCard={setClickCard}
+            movePop={movePop}
+            setMovePop={setMovePop}
           />
           <SearchBox dragNext={dragNext}>
             <CustomAutosuggest
@@ -179,7 +183,13 @@ export default ({
         </Wrapper>
       ) : (
         <Wrapper style={{ height: 640 }}>
-          <HeaderSm clickCard={clickCard} />
+          <HeaderSm
+            setDragNext={setDragNext}
+            countMax={countMax}
+            setClickCard={setClickCard}
+            movePop={movePop}
+            setMovePop={setMovePop}
+          />
           <MainUnder />
           <MainUpper
             countMax={countMax}

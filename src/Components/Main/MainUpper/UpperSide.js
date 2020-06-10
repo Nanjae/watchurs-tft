@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import styled, { keyframes, css } from "styled-components";
 import logo_watchurs_dark from "../../../Assets/Logos/logo_watchurs_dark.png";
 import logo_watchurs_light from "../../../Assets/Logos/logo_watchurs_light.png";
@@ -9,7 +9,7 @@ import MovePopMenu from "../../Common/MovePopMenu";
 
 const HeaderDiv = styled.div`
   position: relative;
-  z-index: 100;
+  z-index: 200;
   width: 100%;
   height: 80px;
   display: flex;
@@ -373,8 +373,9 @@ export default ({
   clickCard,
   setClickCard,
   countMax,
+  movePop,
+  setMovePop,
 }) => {
-  const [movePop, setMovePop] = useState(false);
   const logo_watchurs = siteTheme ? logo_watchurs_light : logo_watchurs_dark;
 
   return (
@@ -420,6 +421,7 @@ export default ({
               setDragNext={setDragNext}
               setMovePop={setMovePop}
               countMax={countMax}
+              setClickCard={setClickCard}
             />
           )}
         </HeaderRightDiv>

@@ -5,6 +5,7 @@ import { useDrag } from "react-use-gesture";
 import MainContent from "../MainContent/MainContent";
 import MainContentSm from "../../Small/MainSm/MainContentSm";
 import UpperSideSm from "../../Small/MainSm/UpperSideSm";
+import MovePopMenuSm from "../../Small/MovePopMenuSm";
 
 const Wrapper = styled.div`
   position: absolute;
@@ -51,6 +52,8 @@ export default ({
   searchIndex,
   clickCard,
   setClickCard,
+  movePop,
+  setMovePop,
 }) => {
   const bind = useDrag(({ down, movement: [mx] }) => {
     if (clickCard === 0) {
@@ -74,6 +77,8 @@ export default ({
               handleVisitFalse={handleVisitFalse}
               clickCard={clickCard}
               setClickCard={setClickCard}
+              movePop={movePop}
+              setMovePop={setMovePop}
             />
             <MainContent
               countMax={countMax}
@@ -90,6 +95,14 @@ export default ({
       ) : (
         <>
           <Inner>
+            {movePop && countMax !== 0 && (
+              <MovePopMenuSm
+                setDragNext={setDragNext}
+                setMovePop={setMovePop}
+                countMax={countMax}
+                setClickCard={setClickCard}
+              />
+            )}
             <UpperSideSm
               dragNext={dragNext}
               setDragNext={setDragNext}
