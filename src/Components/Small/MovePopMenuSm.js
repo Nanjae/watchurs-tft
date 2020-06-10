@@ -26,7 +26,7 @@ const Inner = styled.div`
 
 const MenuBox = styled.div`
   font-size: 16px;
-  padding: 3px;
+  padding: 4px;
   cursor: pointer;
   :not(:first-child) {
     margin-top: 5px;

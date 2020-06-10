@@ -109,6 +109,7 @@ const renderInputComponent = (inputProps) => (
               inputProps.setClickCard(0);
               inputProps.setDragNext(setDragNextNum(searchResult));
               inputProps.setSearchIndex(searchResult + 1);
+              window.scrollTo({ top: 0, behavior: "smooth" });
             }
           }
         }
@@ -126,6 +127,7 @@ const renderInputComponent = (inputProps) => (
             inputProps.setClickCard(0);
             inputProps.setDragNext(setDragNextNum(searchResult));
             inputProps.setSearchIndex(searchResult + 1);
+            window.scrollTo({ top: 0, behavior: "smooth" });
           }
         }
       }}
