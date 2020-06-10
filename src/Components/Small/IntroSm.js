@@ -50,7 +50,7 @@ const SubTitle = styled.div`
   font-family: "Londrina Solid", sans-serif;
   font-size: 75px;
   color: lightgoldenrodyellow;
-  margin-top: -40px;
+  margin-top: -30px;
   width: fit-content;
 `;
 

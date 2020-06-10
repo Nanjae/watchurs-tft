@@ -9,7 +9,7 @@ import AdBox from "../../Common/AdBox";
 
 const Wrapper = styled.div`
   position: absolute;
-  z-index: 300;
+  z-index: 200;
   width: 100%;
   height: 640px;
   min-height: 640px;
@@ -46,7 +46,7 @@ const ContentInner = styled.div`
 const TopDiv = styled.div`
   width: 100%;
   height: 90px;
-  padding-top: 20px;
+  padding-top: 70px;
   display: flex;
   justify-content: flex-start;
   align-items: flex-end;
@@ -347,7 +347,7 @@ const BottomAdDiv = styled.div`
 
 const CenterAdDiv = styled.div`
   width: 100%;
-  height: 50px;
+  height: 100px;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -422,11 +422,11 @@ export default ({ data, clickCard, setClickCard, windowWidth }) => {
                 </TopDiv>
                 <CenterAdDiv>
                   <AdBox
-                    adTitle={"TFT_320_50_M"}
+                    adTitle={"TFT_320x100_M"}
                     adWidth={320}
-                    adHeight={50}
+                    adHeight={100}
                     adSrc={
-                      "https://mtab.clickmon.co.kr/pop/wp_m_320.php?PopAd=CM_M_1003067%7C%5E%7CCM_A_1065774%7C%5E%7CAdver_M_1046207&rt_ad_id_code=RTA_106392&mon_rf=REFERRER_URL"
+                      "https://mtab.clickmon.co.kr/pop/wp_m_320_100.php?PopAd=CM_M_1003067%7C%5E%7CCM_A_1065774%7C%5E%7CAdver_M_1046207&rt_ad_id_code=RTA_106393&mon_rf=REFERRER_URL"
                     }
                     fontSize={12}
                   />
@@ -533,17 +533,6 @@ export default ({ data, clickCard, setClickCard, windowWidth }) => {
                     <RefreshBox>
                       * 소환사 정보는 평균 2시간 이내로 자동 업데이트됩니다.
                     </RefreshBox>
-                    <BottomAdDiv>
-                      <AdBox
-                        adTitle={"TFT_320x100_M"}
-                        adWidth={320}
-                        adHeight={100}
-                        adSrc={
-                          "https://mtab.clickmon.co.kr/pop/wp_m_320_100.php?PopAd=CM_M_1003067%7C%5E%7CCM_A_1065774%7C%5E%7CAdver_M_1046207&rt_ad_id_code=RTA_106393&mon_rf=REFERRER_URL"
-                        }
-                        fontSize={12}
-                      />
-                    </BottomAdDiv>
                   </SumMainRightDiv>
                 </CenterDiv>
               </>

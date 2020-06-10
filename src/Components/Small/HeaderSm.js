@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 const Wrapper = styled.div`
   position: fixed;
-  z-index: ${(props) => (props.clickCard === 0 ? 150 : 0)};
+  z-index: 300;
   height: 56px;
   width: 100%;
   background-color: ${(props) => props.theme.bgMainColor};

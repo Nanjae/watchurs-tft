@@ -56,7 +56,7 @@ const TopDiv = styled.div`
     justify-content: flex-start;
     align-items: flex-start;
     flex-direction: column;
-    height: 500px;
+    height: fit-content;
   }
   @media only screen and (min-width: 576px) {
     width: 100%;
@@ -83,7 +83,7 @@ const TopBox = styled.div`
   @media only screen and (max-width: 575.99px) {
     width: fit-content;
     align-items: flex-start;
-    height: 245px;
+    height: 200px;
     :not(:first-child) {
       margin-left: 0px;
     }
@@ -110,7 +110,7 @@ const TopBox = styled.div`
 `;
 
 const TopMainTextBox = styled.div`
-  height: 30%;
+  height: 25%;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -126,7 +126,7 @@ const TopMainText = styled.div`
 `;
 
 const TopSubTextBox = styled.div`
-  height: 60%;
+  height: 75%;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -274,8 +274,7 @@ export default () => {
           <TopDiv>
             <TopBox>
               <TopMainTextBox>
-                <TopMainText>Contact to</TopMainText>
-                <TopMainText>:: WATCHURS</TopMainText>
+                <TopMainText>Contact</TopMainText>
               </TopMainTextBox>
               <TopSubTextBox>
                 <TopSubText>개발 : 난재(Nanjae)</TopSubText>
@@ -338,8 +337,7 @@ export default () => {
             </TopBox>
             <TopBox>
               <TopMainTextBox>
-                <TopMainText>Services</TopMainText>
-                <TopMainText>:: Broadcaster</TopMainText>
+                <TopMainText>Projects</TopMainText>
               </TopMainTextBox>
               <TopSubTextBox>
                 <TopSubText
