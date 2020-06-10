@@ -28,6 +28,7 @@ const LogoBox = styled.div`
   align-items: flex-end;
   height: 100%;
   font-size: 16px;
+  cursor: pointer;
 `;
 
 const LogoIcon = styled.div`
@@ -48,6 +49,7 @@ const MovePopBox = styled.div`
   align-items: flex-end;
   height: 100%;
   font-size: 16px;
+  cursor: pointer;
 `;
 
 const MoveIcon = styled.div`
@@ -79,7 +81,11 @@ export default ({
         />
       )}
       <Inner>
-        <LogoBox>
+        <LogoBox
+          onClick={() => {
+            window.location.reload();
+          }}
+        >
           <LogoIcon url={logo_watchurs_dark} />
           <HeaderText>와쳐스 : TFT</HeaderText>
         </LogoBox>
