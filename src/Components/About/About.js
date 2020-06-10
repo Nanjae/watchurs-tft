@@ -7,7 +7,7 @@ const AboutWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  @media only screen and (max-width: 575.99px) {
+  @media only screen and (max-width: 575.98px) {
     color: white;
     background-color: ${(props) => props.theme.bgMainColor};
     height: fit-content;
@@ -34,7 +34,7 @@ const AboutInner = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  @media only screen and (max-width: 575.99px) {
+  @media only screen and (max-width: 575.98px) {
     width: 96%;
     height: fit-content;
   }
@@ -70,7 +70,7 @@ const AboutTitleBgText = styled.div`
   opacity: 0.1;
   display: flex;
   align-items: center;
-  @media only screen and (max-width: 575.99px) {
+  @media only screen and (max-width: 575.98px) {
     justify-content: center;
     letter-spacing: -5px;
     height: 220px;
@@ -108,7 +108,7 @@ const AboutTitleHeaderBox = styled.div`
   margin-top: 30px;
   margin-bottom: 20px;
   font-weight: 700;
-  @media only screen and (max-width: 575.99px) {
+  @media only screen and (max-width: 575.98px) {
     opacity: 0.3;
     display: flex;
     justify-content: center;
@@ -140,7 +140,7 @@ const AboutTitleText = styled.div`
   width: 100%;
   height: fit-content;
   font-weight: 900;
-  @media only screen and (max-width: 575.99px) {
+  @media only screen and (max-width: 575.98px) {
     text-align: center;
     margin-bottom: 10px;
     font-size: 22px;
@@ -164,7 +164,7 @@ const AboutTitleText = styled.div`
 
 const AboutContentDiv = styled.div`
   width: 100%;
-  @media only screen and (max-width: 575.99px) {
+  @media only screen and (max-width: 575.98px) {
     height: fit-content;
     display: flex;
     flex-direction: column;
@@ -200,7 +200,7 @@ const AboutContentDiv = styled.div`
 const AboutContentLeftDiv = styled.div`
   height: fit-content;
   display: flex;
-  @media only screen and (max-width: 575.99px) {
+  @media only screen and (max-width: 575.98px) {
     margin-top: 30px;
     width: 100%;
     flex-direction: column;
@@ -236,7 +236,7 @@ const AboutContentLeftFeatureTitle = styled.div`
   font-weight: 900;
   color: crimson;
   display: flex;
-  @media only screen and (max-width: 575.99px) {
+  @media only screen and (max-width: 575.98px) {
     margin-bottom: 30px;
     font-size: 22px;
     width: fit-content;
@@ -268,7 +268,7 @@ const AboutContentLeftFeatureTitle = styled.div`
 const AboutContentLeftFeatureText = styled.div`
   margin-bottom: 15px;
   font-weight: 500;
-  @media only screen and (max-width: 575.99px) {
+  @media only screen and (max-width: 575.98px) {
     font-size: 18px;
   }
   @media only screen and (min-width: 576px) {
@@ -287,7 +287,7 @@ const AboutContentLeftFeatureText = styled.div`
 
 const AbountContentRightDiv = styled.div`
   height: 100%;
-  @media only screen and (max-width: 575.99px) {
+  @media only screen and (max-width: 575.98px) {
     margin-top: 30px;
     margin-bottom: 60px;
     width: 100%;
@@ -316,7 +316,7 @@ const AbountContentRightText = styled.div`
   margin-left: 10px;
   margin-right: 10px;
   height: fit-content;
-  @media only screen and (max-width: 575.99px) {
+  @media only screen and (max-width: 575.98px) {
     opacity: 0.6;
     font-size: 18px;
     line-height: 32px;

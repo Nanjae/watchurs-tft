@@ -13,10 +13,26 @@ const Wrapper = styled.div`
 
 const TopDiv = styled.div`
   width: 98%;
-  padding-top: 180px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  @media only screen and (max-width: 575.98px) {
+    padding-top: 180px;
+  }
+  @media only screen and (min-width: 576px) {
+    padding-top: 180px;
+  }
+  @media only screen and (min-width: 768px) {
+    padding-top: 200px;
+  }
+  @media only screen and (min-width: 992px) {
+  }
+  @media only screen and (min-width: 1200px) {
+  }
+  @media only screen and (min-width: 1536px) {
+  }
+  @media only screen and (min-width: 1800px) {
+  }
 `;
 
 const TopBox = styled.div`
@@ -28,7 +44,23 @@ const TopBox = styled.div`
 
 const TopMainText = styled.div`
   color: white;
-  font-size: 18px;
+  @media only screen and (max-width: 575.98px) {
+    font-size: 18px;
+  }
+  @media only screen and (min-width: 576px) {
+    font-size: 18px;
+  }
+  @media only screen and (min-width: 768px) {
+    font-size: 24px;
+  }
+  @media only screen and (min-width: 992px) {
+  }
+  @media only screen and (min-width: 1200px) {
+  }
+  @media only screen and (min-width: 1536px) {
+  }
+  @media only screen and (min-width: 1800px) {
+  }
 `;
 
 const TitleBox = styled.div`
@@ -40,18 +72,50 @@ const TitleBox = styled.div`
 
 const MainTitle = styled.div`
   font-family: "Londrina Solid", sans-serif;
-  font-size: 75px;
   color: crimson;
   width: fit-content;
   margin-right: 40px;
+  @media only screen and (max-width: 575.98px) {
+    font-size: 75px;
+  }
+  @media only screen and (min-width: 576px) {
+    font-size: 75px;
+  }
+  @media only screen and (min-width: 768px) {
+    font-size: 110px;
+  }
+  @media only screen and (min-width: 992px) {
+  }
+  @media only screen and (min-width: 1200px) {
+  }
+  @media only screen and (min-width: 1536px) {
+  }
+  @media only screen and (min-width: 1800px) {
+  }
 `;
 
 const SubTitle = styled.div`
   font-family: "Londrina Solid", sans-serif;
-  font-size: 75px;
   color: lightgoldenrodyellow;
   margin-top: -30px;
   width: fit-content;
+  @media only screen and (max-width: 575.98px) {
+    font-size: 75px;
+  }
+  @media only screen and (min-width: 576px) {
+    font-size: 75px;
+  }
+  @media only screen and (min-width: 768px) {
+    font-size: 110px;
+  }
+  @media only screen and (min-width: 992px) {
+  }
+  @media only screen and (min-width: 1200px) {
+  }
+  @media only screen and (min-width: 1536px) {
+  }
+  @media only screen and (min-width: 1800px) {
+  }
 `;
 
 export default ({ windowWidth }) => {

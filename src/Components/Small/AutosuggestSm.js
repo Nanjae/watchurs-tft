@@ -14,23 +14,63 @@ const InputDiv = styled.div`
 
 const InputText = styled.input`
   width: 90%;
-  height: 30px;
-  padding: 5px;
   border: 0px;
   color: white;
   text-align: center;
-  font-size: 18px;
+  @media only screen and (max-width: 575.98px) {
+    height: 30px;
+    padding: 5px;
+    font-size: 18px;
+  }
+  @media only screen and (min-width: 576px) {
+    height: 30px;
+    padding: 5px;
+    font-size: 18px;
+  }
+  @media only screen and (min-width: 768px) {
+    height: 40px;
+    padding: 5px;
+    font-size: 20px;
+  }
+  @media only screen and (min-width: 992px) {
+  }
+  @media only screen and (min-width: 1200px) {
+  }
+  @media only screen and (min-width: 1536px) {
+  }
+  @media only screen and (min-width: 1800px) {
+  }
 `;
 
 const SearchIcon = styled.div`
-  width: 20px;
-  height: 20px;
-  margin: 4px 4px;
   background-image: url(${(props) => props.url});
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
   cursor: pointer;
+  @media only screen and (max-width: 575.98px) {
+    width: 20px;
+    height: 20px;
+    margin: 4px 4px;
+  }
+  @media only screen and (min-width: 576px) {
+    width: 20px;
+    height: 20px;
+    margin: 4px 4px;
+  }
+  @media only screen and (min-width: 768px) {
+    width: 24px;
+    height: 24px;
+    margin: 5px 5px;
+  }
+  @media only screen and (min-width: 992px) {
+  }
+  @media only screen and (min-width: 1200px) {
+  }
+  @media only screen and (min-width: 1536px) {
+  }
+  @media only screen and (min-width: 1800px) {
+  }
 `;
 
 const SuggestionDiv = styled.div`
@@ -41,25 +81,77 @@ const SuggestionDiv = styled.div`
   margin-top: 3px;
   border-radius: 6px;
   opacity: 0.8;
-  font-size: 14px;
+  @media only screen and (max-width: 575.98px) {
+    font-size: 14px;
+  }
+  @media only screen and (min-width: 576px) {
+    font-size: 14px;
+  }
+  @media only screen and (min-width: 768px) {
+    font-size: 16px;
+  }
+  @media only screen and (min-width: 992px) {
+  }
+  @media only screen and (min-width: 1200px) {
+  }
+  @media only screen and (min-width: 1536px) {
+  }
+  @media only screen and (min-width: 1800px) {
+  }
 `;
 
 const SuggestionBox = styled.div`
   width: 100%;
   display: flex;
   align-items: center;
-  padding: 4px 8px;
   color: black;
+  @media only screen and (max-width: 575.98px) {
+    padding: 4px 8px;
+  }
+  @media only screen and (min-width: 576px) {
+    padding: 4px 8px;
+  }
+  @media only screen and (min-width: 768px) {
+    padding: 5px 10px;
+  }
+  @media only screen and (min-width: 992px) {
+  }
+  @media only screen and (min-width: 1200px) {
+  }
+  @media only screen and (min-width: 1536px) {
+  }
+  @media only screen and (min-width: 1800px) {
+  }
 `;
 
 const SuggestionAvatar = styled.div`
   background-image: url(${(props) => props.url});
   background-size: cover;
   background-position: center;
-  width: 24px;
-  height: 24px;
-  margin-right: 5px;
   border-radius: 50%;
+  @media only screen and (max-width: 575.98px) {
+    width: 24px;
+    height: 24px;
+    margin-right: 5px;
+  }
+  @media only screen and (min-width: 576px) {
+    width: 24px;
+    height: 24px;
+    margin-right: 5px;
+  }
+  @media only screen and (min-width: 768px) {
+    width: 28px;
+    height: 28px;
+    margin-right: 6px;
+  }
+  @media only screen and (min-width: 992px) {
+  }
+  @media only screen and (min-width: 1200px) {
+  }
+  @media only screen and (min-width: 1536px) {
+  }
+  @media only screen and (min-width: 1800px) {
+  }
 `;
 
 const setDragNextNum = (index) => {

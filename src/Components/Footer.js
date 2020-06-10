@@ -22,7 +22,7 @@ const Inner = styled.div`
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  @media only screen and (max-width: 575.99px) {
+  @media only screen and (max-width: 575.98px) {
     height: fit-content;
   }
   @media only screen and (min-width: 576px) {
@@ -51,7 +51,7 @@ const CommonIcon = styled.div`
 
 const TopDiv = styled.div`
   display: flex;
-  @media only screen and (max-width: 575.99px) {
+  @media only screen and (max-width: 575.98px) {
     width: fit-content;
     justify-content: flex-start;
     align-items: flex-start;
@@ -80,7 +80,7 @@ const TopDiv = styled.div`
 const TopBox = styled.div`
   display: flex;
   flex-direction: column;
-  @media only screen and (max-width: 575.99px) {
+  @media only screen and (max-width: 575.98px) {
     width: fit-content;
     align-items: flex-start;
     height: 200px;
@@ -153,7 +153,7 @@ const BottomDiv = styled.div`
   width: 100%;
   height: 25%;
   display: flex;
-  @media only screen and (max-width: 575.99px) {
+  @media only screen and (max-width: 575.98px) {
     flex-direction: column;
     justify-content: center;
   }
@@ -179,7 +179,7 @@ const BottomDiv = styled.div`
 const BottomLeftBox = styled.div`
   height: 100%;
   display: flex;
-  @media only screen and (max-width: 575.99px) {
+  @media only screen and (max-width: 575.98px) {
     width: 100%;
     justify-content: center;
     align-items: flex-end;
@@ -207,7 +207,7 @@ const BottomLeftBox = styled.div`
 const BottomText = styled.div`
   color: ${(props) => props.theme.lineSubColor};
   text-align: center;
-  @media only screen and (max-width: 575.99px) {
+  @media only screen and (max-width: 575.98px) {
     font-size: 15px;
     line-height: 20px;
   }
@@ -230,7 +230,7 @@ const BottomText = styled.div`
 const BottomRightBox = styled.div`
   height: 100%;
   display: flex;
-  @media only screen and (max-width: 575.99px) {
+  @media only screen and (max-width: 575.98px) {
     margin-top: 15px;
     width: 100%;
     justify-content: center;

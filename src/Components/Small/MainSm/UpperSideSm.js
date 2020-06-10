@@ -8,22 +8,63 @@ const BodyLeftDiv = styled.div`
   z-index: 100;
   top: 0px;
   left: 0px;
-  width: 40px;
-  height: 640px;
   display: flex;
   align-items: center;
   justify-content: center;
   transition: opacity 0.3s;
+  cursor: pointer;
+  @media only screen and (max-width: 575.98px) {
+    width: 40px;
+    height: 640px;
+  }
+  @media only screen and (min-width: 576px) {
+    width: 40px;
+    height: 640px;
+  }
+  @media only screen and (min-width: 768px) {
+    width: 60px;
+    height: 800px;
+  }
+  @media only screen and (min-width: 992px) {
+  }
+  @media only screen and (min-width: 1200px) {
+  }
+  @media only screen and (min-width: 1536px) {
+  }
+  @media only screen and (min-width: 1800px) {
+  }
 `;
 
 const ArrowIcon = styled.div`
   background-image: url(${(props) => props.url});
   background-size: cover;
   background-position: center;
-  width: 20px;
-  height: 20px;
-  margin-top: 90px;
-  transform: scaleY(3);
+  @media only screen and (max-width: 575.98px) {
+    width: 20px;
+    height: 20px;
+    margin-top: 90px;
+    transform: scaleY(3);
+  }
+  @media only screen and (min-width: 576px) {
+    width: 20px;
+    height: 20px;
+    margin-top: 90px;
+    transform: scaleY(3);
+  }
+  @media only screen and (min-width: 768px) {
+    width: 30px;
+    height: 30px;
+    margin-top: 140px;
+    transform: scaleY(3);
+  }
+  @media only screen and (min-width: 992px) {
+  }
+  @media only screen and (min-width: 1200px) {
+  }
+  @media only screen and (min-width: 1536px) {
+  }
+  @media only screen and (min-width: 1800px) {
+  }
 `;
 
 const BodyRightDiv = styled.div`
@@ -31,12 +72,31 @@ const BodyRightDiv = styled.div`
   z-index: 100;
   top: 0px;
   right: 0px;
-  width: 40px;
-  height: 640px;
   display: flex;
   align-items: center;
   justify-content: center;
   transition: opacity 0.3s;
+  cursor: pointer;
+  @media only screen and (max-width: 575.98px) {
+    width: 40px;
+    height: 640px;
+  }
+  @media only screen and (min-width: 576px) {
+    width: 40px;
+    height: 640px;
+  }
+  @media only screen and (min-width: 768px) {
+    width: 60px;
+    height: 800px;
+  }
+  @media only screen and (min-width: 992px) {
+  }
+  @media only screen and (min-width: 1200px) {
+  }
+  @media only screen and (min-width: 1536px) {
+  }
+  @media only screen and (min-width: 1800px) {
+  }
 `;
 
 export default ({

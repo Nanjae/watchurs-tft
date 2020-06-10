@@ -5,8 +5,6 @@ import logo_twitch from "../../../Assets/Twitch/logo_twitch.png";
 
 const Wrapper = styled.div`
   width: 100%;
-  max-width: 400px;
-  height: 50px;
   display: flex;
   opacity: 0.9;
   background-color: ${(props) =>
@@ -25,17 +23,53 @@ const Wrapper = styled.div`
   }
   transition: background-color 0.5s, cursor 0.5s;
   cursor: ${(props) => (props.clickCard === 0 ? "pointer" : "unset")};
+  @media only screen and (max-width: 575.98px) {
+    max-width: 400px;
+    height: 50px;
+  }
+  @media only screen and (min-width: 576px) {
+    max-width: 400px;
+    height: 50px;
+  }
+  @media only screen and (min-width: 768px) {
+    max-width: 650px;
+    height: 64px;
+  }
+  @media only screen and (min-width: 992px) {
+  }
+  @media only screen and (min-width: 1200px) {
+  }
+  @media only screen and (min-width: 1536px) {
+  }
+  @media only screen and (min-width: 1800px) {
+  }
 `;
 
 const Inner = styled.div`
   width: 100%;
   display: flex;
-  font-size: 12px;
   font-weight: 400;
   color: ${(props) =>
     props.searchIndex === props.rankText ? "lightgoldenrodyellow" : "white"};
   opacity: 1;
   transition: color 0.5s;
+  @media only screen and (max-width: 575.98px) {
+    font-size: 12px;
+  }
+  @media only screen and (min-width: 576px) {
+    font-size: 12px;
+  }
+  @media only screen and (min-width: 768px) {
+    font-size: 16px;
+  }
+  @media only screen and (min-width: 992px) {
+  }
+  @media only screen and (min-width: 1200px) {
+  }
+  @media only screen and (min-width: 1536px) {
+  }
+  @media only screen and (min-width: 1800px) {
+  }
 `;
 
 const RankBox = styled.div`
@@ -47,8 +81,26 @@ const RankBox = styled.div`
 `;
 
 const RankText = styled.div`
-  font-size: 11px;
-  margin-left: 5px;
+  @media only screen and (max-width: 575.98px) {
+    font-size: 11px;
+    margin-left: 5px;
+  }
+  @media only screen and (min-width: 576px) {
+    font-size: 11px;
+    margin-left: 5px;
+  }
+  @media only screen and (min-width: 768px) {
+    font-size: 14px;
+    margin-left: 8px;
+  }
+  @media only screen and (min-width: 992px) {
+  }
+  @media only screen and (min-width: 1200px) {
+  }
+  @media only screen and (min-width: 1536px) {
+  }
+  @media only screen and (min-width: 1800px) {
+  }
 `;
 
 const BroadBox = styled.div`
@@ -62,20 +114,57 @@ const BroadPlatform = styled.div`
   background-image: url(${(props) => props.url});
   background-size: cover;
   background-position: center;
-  width: 14px;
-  height: 14px;
-  margin-left: 4px;
+  @media only screen and (max-width: 575.98px) {
+    width: 14px;
+    height: 14px;
+  }
+  @media only screen and (min-width: 576px) {
+    width: 14px;
+    height: 14px;
+  }
+  @media only screen and (min-width: 768px) {
+    width: 18px;
+    height: 18px;
+  }
+  @media only screen and (min-width: 992px) {
+  }
+  @media only screen and (min-width: 1200px) {
+  }
+  @media only screen and (min-width: 1536px) {
+  }
+  @media only screen and (min-width: 1800px) {
+  }
 `;
 
 const BroadIcon = styled.div`
   background-image: url(${(props) => props.url});
   background-size: cover;
   background-position: center;
-  width: 30px;
-  height: 30px;
   border: 1px solid white;
-  margin: 0px 4px;
   border-radius: 100%;
+  @media only screen and (max-width: 575.98px) {
+    width: 30px;
+    height: 30px;
+    margin: 0px 4px;
+  }
+  @media only screen and (min-width: 576px) {
+    width: 30px;
+    height: 30px;
+    margin: 0px 4px;
+  }
+  @media only screen and (min-width: 768px) {
+    width: 40px;
+    height: 40px;
+    margin: 0px 6px;
+  }
+  @media only screen and (min-width: 992px) {
+  }
+  @media only screen and (min-width: 1200px) {
+  }
+  @media only screen and (min-width: 1536px) {
+  }
+  @media only screen and (min-width: 1800px) {
+  }
 `;
 
 const BroadName = styled.div``;
@@ -91,19 +180,55 @@ const SumIcon = styled.div`
   background-image: url(${(props) => props.url});
   background-size: cover;
   background-position: center;
-  width: 30px;
-  height: 30px;
   border: 1px solid white;
-  margin-left: 4px;
+  @media only screen and (max-width: 575.98px) {
+    width: 30px;
+    height: 30px;
+    margin-left: 4px;
+  }
+  @media only screen and (min-width: 576px) {
+    width: 30px;
+    height: 30px;
+    margin-left: 4px;
+  }
+  @media only screen and (min-width: 768px) {
+    width: 40px;
+    height: 40px;
+    margin: 0px 6px;
+  }
+  @media only screen and (min-width: 992px) {
+  }
+  @media only screen and (min-width: 1200px) {
+  }
+  @media only screen and (min-width: 1536px) {
+  }
+  @media only screen and (min-width: 1800px) {
+  }
 `;
 
 const SumNameBox = styled.div`
-  margin: 0px 4px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
   /* color: yellow; */
+  @media only screen and (max-width: 575.98px) {
+    margin: 0px 4px;
+  }
+  @media only screen and (min-width: 576px) {
+    margin: 0px 4px;
+  }
+  @media only screen and (min-width: 768px) {
+    margin: 0px 6px;
+  }
+  @media only screen and (min-width: 992px) {
+  }
+  @media only screen and (min-width: 1200px) {
+  }
+  @media only screen and (min-width: 1536px) {
+  }
+  @media only screen and (min-width: 1800px) {
+  }
 `;
 
 const SumNameText = styled.div`
@@ -114,15 +239,63 @@ const TierBox = styled.div`
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  margin-top: 4px;
+  @media only screen and (max-width: 575.98px) {
+    margin-top: 4px;
+  }
+  @media only screen and (min-width: 576px) {
+    margin-top: 4px;
+  }
+  @media only screen and (min-width: 768px) {
+    margin-top: 6px;
+  }
+  @media only screen and (min-width: 992px) {
+  }
+  @media only screen and (min-width: 1200px) {
+  }
+  @media only screen and (min-width: 1536px) {
+  }
+  @media only screen and (min-width: 1800px) {
+  }
 `;
 
 const TierText = styled.div`
-  margin-right: 4px;
+  @media only screen and (max-width: 575.98px) {
+    margin-right: 4px;
+  }
+  @media only screen and (min-width: 576px) {
+    margin-right: 4px;
+  }
+  @media only screen and (min-width: 768px) {
+    margin-right: 6px;
+  }
+  @media only screen and (min-width: 992px) {
+  }
+  @media only screen and (min-width: 1200px) {
+  }
+  @media only screen and (min-width: 1536px) {
+  }
+  @media only screen and (min-width: 1800px) {
+  }
 `;
 
 const TierPoint = styled.div`
-  font-size: 11px;
+  @media only screen and (max-width: 575.98px) {
+    font-size: 11px;
+  }
+  @media only screen and (min-width: 576px) {
+    font-size: 11px;
+  }
+  @media only screen and (min-width: 768px) {
+    font-size: 14px;
+  }
+  @media only screen and (min-width: 992px) {
+  }
+  @media only screen and (min-width: 1200px) {
+  }
+  @media only screen and (min-width: 1536px) {
+  }
+  @media only screen and (min-width: 1800px) {
+  }
 `;
 
 export default ({

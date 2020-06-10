@@ -6,10 +6,28 @@ import ContentRankSm from "./ContentRankSm";
 
 const Wrapper = styled.div`
   position: absolute;
-  height: 640px;
   width: 100%;
-  min-height: 640px;
   overflow-x: hidden;
+  @media only screen and (max-width: 575.98px) {
+    height: 640px;
+    min-height: 640px;
+  }
+  @media only screen and (min-width: 576px) {
+    height: 640px;
+    min-height: 640px;
+  }
+  @media only screen and (min-width: 768px) {
+    height: 800px;
+    min-height: 800px;
+  }
+  @media only screen and (min-width: 992px) {
+  }
+  @media only screen and (min-width: 1200px) {
+  }
+  @media only screen and (min-width: 1536px) {
+  }
+  @media only screen and (min-width: 1800px) {
+  }
 `;
 
 const Inner = styled.div`

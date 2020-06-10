@@ -475,7 +475,7 @@ export default ({ data, clickCard, setClickCard }) => {
                         </TierBox>
                       </TierDiv>
                       <RefreshBox>
-                        * 소환사 정보는 평균 2시간 이내로 자동 업데이트됩니다.
+                        * 소환사 정보는 주기적으로 자동 업데이트됩니다.
                       </RefreshBox>
                     </SumMainLeftDiv>
                     <SumMainRightDiv>

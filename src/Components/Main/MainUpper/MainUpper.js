@@ -12,19 +12,23 @@ const Wrapper = styled.div`
   z-index: 100;
   width: 100%;
   display: flex;
-  @media only screen and (max-width: 575.99px) {
+  @media only screen and (max-width: 575.98px) {
     height: 640px;
     min-height: 640px;
   }
   @media only screen and (min-width: 576px) {
-    height: 100%;
-    min-height: 800px;
+    height: 640px;
+    min-height: 640px;
   }
   @media only screen and (min-width: 768px) {
+    height: 800px;
+    min-height: 800px;
   }
   @media only screen and (min-width: 992px) {
   }
   @media only screen and (min-width: 1200px) {
+    height: 100%;
+    min-height: 800px;
   }
   @media only screen and (min-width: 1536px) {
   }
@@ -121,7 +125,7 @@ export default ({
               searchIndex={searchIndex}
               clickCard={clickCard}
               setClickCard={setClickCard}
-            ></MainContentSm>
+            />
           </Inner>
         </>
       )}

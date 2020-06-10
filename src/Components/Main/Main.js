@@ -53,17 +53,22 @@ const Wrapper = styled.div`
   width: 100%;
   display: flex;
   justify-content: center;
-  @media only screen and (max-width: 575.99px) {
-    min-height: 600px;
+  @media only screen and (max-width: 575.98px) {
+    height: 640px;
+    min-height: 640px;
   }
   @media only screen and (min-width: 576px) {
-    min-height: 800px;
+    height: 640px;
+    min-height: 640px;
   }
   @media only screen and (min-width: 768px) {
+    height: 800px;
+    min-height: 800px;
   }
   @media only screen and (min-width: 992px) {
   }
   @media only screen and (min-width: 1200px) {
+    min-height: 800px;
   }
   @media only screen and (min-width: 1536px) {
   }
@@ -75,7 +80,7 @@ const SearchBox = styled.div`
   position: absolute;
   width: 600px;
   transition: margin-top 0.3s;
-  @media only screen and (max-width: 575.99px) {
+  @media only screen and (max-width: 575.98px) {
     z-index: ${(props) => (props.clickCard === 0 ? 100 : 0)};
     height: 40px;
     margin-bottom: 0px;
@@ -84,17 +89,30 @@ const SearchBox = styled.div`
     max-width: 400px;
   }
   @media only screen and (min-width: 576px) {
+    z-index: ${(props) => (props.clickCard === 0 ? 100 : 0)};
+    height: 40px;
+    margin-bottom: 0px;
+    margin-top: ${(props) => (props.dragNext > 0 ? 70 : 400)}px;
+    width: 90%;
+    max-width: 400px;
+  }
+  @media only screen and (min-width: 768px) {
+    z-index: ${(props) => (props.clickCard === 0 ? 100 : 0)};
+    height: 50px;
+    margin-bottom: 0px;
+    margin-top: ${(props) => (props.dragNext > 0 ? 85 : 500)}px;
+    width: 90%;
+    max-width: 600px;
+  }
+  @media only screen and (min-width: 992px) {
+  }
+  @media only screen and (min-width: 1200px) {
     z-index: 200;
     height: 50px;
     margin-bottom: 30px;
     margin-top: ${(props) => (props.dragNext > 0 ? 20 : 600)}px;
     width: 600px;
-  }
-  @media only screen and (min-width: 768px) {
-  }
-  @media only screen and (min-width: 992px) {
-  }
-  @media only screen and (min-width: 1200px) {
+    max-width: 900px;
   }
   @media only screen and (min-width: 1536px) {
   }
@@ -181,8 +199,42 @@ export default ({
             />
           </SearchBox>
         </Wrapper>
+      ) : windowWidth >= 768 ? (
+        <Wrapper>
+          <HeaderSm
+            setDragNext={setDragNext}
+            countMax={countMax}
+            setClickCard={setClickCard}
+            movePop={movePop}
+            setMovePop={setMovePop}
+          />
+          <MainUnder />
+          <MainUpper
+            countMax={countMax}
+            dragNext={dragNext}
+            setDragNext={setDragNext}
+            siteTheme={siteTheme}
+            handleVisitFalse={handleVisitFalse}
+            windowWidth={windowWidth}
+            data={sumData}
+            loading={sumLoading}
+            searchIndex={searchIndex}
+            clickCard={clickCard}
+            setClickCard={setClickCard}
+          />
+          <SearchBox clickCard={clickCard} dragNext={dragNext}>
+            <CustomAutosuggestSm
+              countMax={countMax}
+              data={sumData}
+              loading={sumLoading ? 1 : 0}
+              setDragNext={setDragNext}
+              setSearchIndex={setSearchIndex}
+              setClickCard={setClickCard}
+            />
+          </SearchBox>
+        </Wrapper>
       ) : (
-        <Wrapper style={{ height: 640 }}>
+        <Wrapper>
           <HeaderSm
             setDragNext={setDragNext}
             countMax={countMax}

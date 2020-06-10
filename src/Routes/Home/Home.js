@@ -18,7 +18,7 @@ const Inner = styled.div`
   height: fit-content;
   display: flex;
   flex-direction: column;
-  @media only screen and (max-width: 575.99px) {
+  @media only screen and (max-width: 575.98px) {
   }
   @media only screen and (min-width: 576px) {
   }

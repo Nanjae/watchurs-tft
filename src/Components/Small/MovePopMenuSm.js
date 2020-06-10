@@ -4,12 +4,30 @@ import styled from "styled-components";
 const Wrapper = styled.div`
   position: absolute;
   z-index: 200;
-  top: 56px;
-  right: 0px;
   background-color: ${(props) => props.theme.bgMainColor};
   width: fit-content;
   height: fit-content;
   display: flex;
+  @media only screen and (max-width: 575.98px) {
+    top: 56px;
+    right: 0px;
+  }
+  @media only screen and (min-width: 576px) {
+    top: 56px;
+    right: 0px;
+  }
+  @media only screen and (min-width: 768px) {
+    top: 70px;
+    right: 0px;
+  }
+  @media only screen and (min-width: 992px) {
+  }
+  @media only screen and (min-width: 1200px) {
+  }
+  @media only screen and (min-width: 1536px) {
+  }
+  @media only screen and (min-width: 1800px) {
+  }
   /* border-top-left-radius: 12px;
   border-bottom-right-radius: 12px; */
 `;
@@ -17,19 +35,53 @@ const Wrapper = styled.div`
 const Inner = styled.div`
   display: flex;
   width: 100%;
-  margin: 5px 10px;
   flex-direction: column;
   justify-content: space-between;
   align-items: flex-start;
   color: white;
+  @media only screen and (max-width: 575.98px) {
+    margin: 5px 10px;
+  }
+  @media only screen and (min-width: 576px) {
+    margin: 5px 10px;
+  }
+  @media only screen and (min-width: 768px) {
+    margin: 8px 16px;
+  }
+  @media only screen and (min-width: 992px) {
+  }
+  @media only screen and (min-width: 1200px) {
+  }
+  @media only screen and (min-width: 1536px) {
+  }
+  @media only screen and (min-width: 1800px) {
+  }
 `;
 
 const MenuBox = styled.div`
-  font-size: 16px;
-  padding: 4px;
   cursor: pointer;
   :not(:first-child) {
     margin-top: 5px;
+  }
+  @media only screen and (max-width: 575.98px) {
+    font-size: 16px;
+    padding: 4px;
+  }
+  @media only screen and (min-width: 576px) {
+    font-size: 16px;
+    padding: 4px;
+  }
+  @media only screen and (min-width: 768px) {
+    font-size: 18px;
+    padding: 5px;
+  }
+  @media only screen and (min-width: 992px) {
+  }
+  @media only screen and (min-width: 1200px) {
+  }
+  @media only screen and (min-width: 1536px) {
+  }
+  @media only screen and (min-width: 1800px) {
   }
 `;
 
