@@ -337,13 +337,13 @@ const WinTotalText = styled.div`
   text-align: center;
 `;
 
-const BottomAdDiv = styled.div`
-  width: 100%;
-  height: 100px;
-  display: flex;
-  justify-content: center;
-  padding: 15px 0px;
-`;
+// const BottomAdDiv = styled.div`
+//   width: 100%;
+//   height: 100px;
+//   display: flex;
+//   justify-content: center;
+//   padding: 15px 0px;
+// `;
 
 const CenterAdDiv = styled.div`
   width: 100%;
