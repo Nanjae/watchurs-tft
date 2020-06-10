@@ -163,6 +163,7 @@ export default ({
         onClick={() => {
           if (clickCard === 0 && page === dragNext) {
             setClickCard(rankText);
+            window.scrollTo({ top: 0, behavior: "smooth" });
           }
         }}
         clickCard={clickCard}
